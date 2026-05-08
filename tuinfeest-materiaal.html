@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Partytenten, stoelen, tafels, terrasverwarmer, koelkast en meer huren in De Pinte en regio Gent. Bekijk al het tuinfeest materiaal van EventRentals." />
+  <link rel="canonical" href="https://www.eventrentals.be/tuinfeest-materiaal.html" />
+  <title>Tuinfeest Materiaal huren | EventRentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #ffffff; --accent-dark: #eeeeee; --accent-light: #e8f5f3;
+      --dark: #2B7A6E; --darker: #1E5950; --white: #ffffff;
+      --text: #1a1a1a; --text-muted: #6b7280; --border: #e5e7eb;
+      --bg: #f4fbfa; --radius: 10px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.10); --shadow-hover: 0 6px 24px rgba(0,0,0,0.16);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    h1, h2, h3, .logo { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.02em; }
+
+    #navbar { z-index: 1000; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);  }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .logo { color: var(--white); font-size: 1.9rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; list-style: none; gap: 4px; }
+    .nav-links a { color: var(--darker); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 14px; border-radius: var(--radius); transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--darker); background: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-phone { color: var(--dark); font-weight: 700; font-size: 0.95rem; text-decoration: none; white-space: nowrap; }
+    .nav-phone:hover { color: var(--darker); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .mobile-menu { display: none; background: var(--darker); border-top: 1px solid rgba(255,255,255,0.1); padding: 12px 24px 16px; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu a:hover { color: var(--dark); }
+    @media (max-width: 720px) { .nav-links { display: none; } .nav-right .nav-phone { display: none; } .hamburger { display: flex; } .nav-inner { justify-content: flex-start; } .nav-right { margin-left: auto; } }
+
+    .page-header { background: var(--dark); color: var(--white); padding: 48px 24px 40px; }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: var(--accent); margin-bottom: 8px; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 1.05rem; }
+
+    .products-section { padding: 60px 24px; }
+    .products-inner { max-width: 1200px; margin: 0 auto; }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 900px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .products-grid { grid-template-columns: 1fr; } }
+
+    .product-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: box-shadow 0.25s, transform 0.2s; display: flex; flex-direction: column; }
+    .product-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+    .product-img { height: 200px; background: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; padding: 12px; }
+    .product-img img { width: 100%; height: 100%; object-fit: contain; }
+    .product-body { padding: 18px 18px 20px; flex: 1; display: flex; flex-direction: column; }
+    .product-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .product-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px; flex: 1; }
+    .price-tag { background: var(--accent-light); color: var(--darker); font-weight: 700; font-size: 0.88rem; padding: 5px 11px; border-radius: 5px; display: inline-block; margin-bottom: 12px; }
+    .price-tag strong { font-size: 1.05rem; }
+    .btn-card { display: block; text-align: center; background: var(--dark); color: var(--white); text-decoration: none; font-weight: 700; font-size: 0.9rem; padding: 10px 16px; border-radius: var(--radius); transition: background 0.2s; margin-top: auto; }
+    .btn-card:hover { background: var(--darker); }
+    .card-order-row { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 12px; }
+    .qty-control { display: flex; align-items: center; border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .qty-btn { background: none; border: none; width: 32px; height: 36px; font-size: 1.1rem; font-weight: 700; cursor: pointer; color: var(--dark); transition: background 0.15s; line-height: 1; }
+    .qty-btn:hover { background: var(--accent-light); }
+    .qty-num { width: 36px; text-align: center; font-weight: 700; font-size: 0.95rem; border: none; outline: none; font-family: 'Nunito', sans-serif; color: var(--text); background: transparent; -moz-appearance: textfield; }
+    .qty-num::-webkit-inner-spin-button, .qty-num::-webkit-outer-spin-button { -webkit-appearance: none; }
+    .btn-bestel { flex: 1; text-align: center; background: var(--dark); color: #fff; text-decoration: none; font-weight: 700; font-size: 0.88rem; padding: 9px 12px; border-radius: var(--radius); transition: background 0.2s; cursor: pointer; border: none; font-family: 'Nunito', sans-serif; }
+    .btn-bestel:hover { background: var(--darker); }
+
+    /* MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: #fff; border-radius: 20px; padding: 40px 36px; max-width: 520px; width: 100%; box-shadow: 0 12px 48px rgba(0,0,0,0.2); }
+    .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; line-height: 1.2; }
+    .modal-product { font-size: 1.05rem; color: var(--text); margin-bottom: 32px; }
+    .modal-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .modal-btn-secondary { flex: 1; min-width: 140px; padding: 16px 20px; border: 2px solid var(--dark); border-radius: 12px; background: #fff; color: var(--dark); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: center; transition: background 0.2s; }
+    .modal-btn-secondary:hover { background: var(--accent-light); }
+    .modal-btn-primary { flex: 1; min-width: 140px; padding: 16px 20px; border: none; border-radius: 12px; background: var(--dark); color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .modal-btn-primary:hover { background: var(--darker); }
+
+    .site-footer { background: var(--darker); color: #9ca3af; padding: 32px 24px 0; margin-top: 32px; font-size: 0.88rem; }
+    .site-footer a { color: #c8ccd4; text-decoration: none; transition: color 0.18s; }
+    .site-footer a:hover { color: var(--accent); }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; padding-bottom: 24px; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 10px; }
+    .footer-logo-text { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 12px; display: block; }
+    .footer-logo-text span { color: var(--accent); }
+    .footer-contact-row { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; color: #e5e7eb; }
+    .footer-contact-row a { color: #e5e7eb; }
+    .footer-contact-row a:hover { color: var(--accent); }
+    .footer-hours { margin-top: 8px; color: #6b7280; font-size: 0.82rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 6px; }
+    .footer-links li a { font-size: 0.87rem; }
+    .footer-cta-btn { display: inline-block; margin-top: 14px; background: var(--accent); color: var(--dark) !important; padding: 8px 18px; border-radius: 6px; font-weight: 700; font-size: 0.87rem; }
+    .footer-cta-btn:hover { background: var(--accent-dark) !important; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.07); padding: 12px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.78rem; color: #4b5563; }
+    .footer-bottom a { color: #4b5563; }
+    .footer-bottom a:hover { color: var(--accent); }
+    .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 20px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 420px) { .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div style="position:sticky;top:0;z-index:1100;">
+<div style="background:#2B7A6E;color:#FFD600;padding:9px 0;font-size:0.88rem;font-weight:600;font-family:'Nunito',sans-serif;overflow:hidden;white-space:nowrap;">
+  <span style="display:inline-block;animation:bannerScroll 32s linear infinite;">
+    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+<style>@keyframes bannerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-link" style="display:flex;align-items:center;"><img src="Eventrentals Logo.png" alt="EventRentals" style="height:44px;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#catalogus">Ons verhuurassortiment</a></li>
+      <li><a href="index.html#transport">Transport</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:0477396350" class="nav-phone">0477 39 63 50</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#catalogus">Ons verhuurassortiment</a>
+    <a href="index.html#transport">Transport</a>
+    <a href="#contact">Contact</a>
+    <a href="bestelling.html">Bestelling plaatsen</a>
+  </div>
+</nav>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span> Tuinfeest Materiaal
+    </div>
+    <h1>Tuinfeest Materiaal</h1>
+    <p>18 producten voor het perfecte tuinfeest &mdash; levering in heel Oost-Vlaanderen</p>
+  </div>
+</div>
+
+<section class="products-section">
+  <div class="products-inner">
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-img" style="padding:0;"><img src="Pagodetent.png" alt="Partytent 3×6m" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="product-body">
+          <div class="product-name">Partytent 3×6m</div>
+          <div class="product-desc">Stevige aluminium partytent voor tot 30 personen. Inclusief zijwanden.</div>
+          <div class="price-tag"><strong>€110</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img" style="padding:0;"><img src="Pagodetent.png" alt="Partytent 4×8m" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="product-body">
+          <div class="product-name">Partytent 4×8m</div>
+          <div class="product-desc">Grote aluminium partytent voor tot 60 personen. Inclusief zijwanden en grondzeil.</div>
+          <div class="price-tag"><strong>€175</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img" style="padding:0;"><img src="Canopytent.png" alt="Easy-Up Vouwtent" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="product-body">
+          <div class="product-name">Easy-Up Vouwtent</div>
+          <div class="product-desc">Snelspan easy-up tent van 3×3m. Eenvoudig op te zetten in enkele minuten.</div>
+          <div class="price-tag"><strong>€50</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Vouwstoel.jpg" alt="Klapstoel Wit"></div>
+        <div class="product-body">
+          <div class="product-name">Klapstoel Wit</div>
+          <div class="product-desc">Elegante witte klapstoel, ideaal voor tuinfeesten en evenementen.</div>
+          <div class="price-tag"><strong>€1,75</strong> / stuk / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Bankettafel.webp" alt="Klaptafel 180cm"></div>
+        <div class="product-body">
+          <div class="product-name">Klaptafel 180cm</div>
+          <div class="product-desc">Robuuste klapptafel van 180×75cm. Geschikt voor 6-8 personen.</div>
+          <div class="price-tag"><strong>€10</strong> / stuk / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Statafel.webp" alt="Statafel"></div>
+        <div class="product-body">
+          <div class="product-name">Statafel</div>
+          <div class="product-desc">Stijlvolle statafel voor cocktailrecepties en staande diners. Hoogte 110cm.</div>
+          <div class="price-tag"><strong>€8</strong> / stuk / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Statafelhoes.webp" alt="Statafelhoes"></div>
+        <div class="product-body">
+          <div class="product-name">Statafelhoes</div>
+          <div class="product-desc">Witte stretch statafelhoes voor een nette afwerking van de statafel.</div>
+          <div class="price-tag"><strong>€2,50</strong> / stuk / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="verwarming op gas.webp" alt="Terrasverwarmer"></div>
+        <div class="product-body">
+          <div class="product-name">Terrasverwarmer</div>
+          <div class="product-desc">Gasgedreven terrasverwarmer met paddenstoelkap. Werkt op propaan of butaan.</div>
+          <div class="price-tag"><strong>€35</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127867;</div>
+        <div class="product-body">
+          <div class="product-name">Biertafelset</div>
+          <div class="product-desc">Klassieke biertafelset met tafel en 2 banken. Ideaal voor casual feesten.</div>
+          <div class="price-tag"><strong>€25</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Frigo.webp" alt="Koelkast"></div>
+        <div class="product-body">
+          <div class="product-name">Koelkast</div>
+          <div class="product-desc">Elektrische koelkast van 150L voor dranken op het perfecte koude. Inclusief stroomkabel.</div>
+          <div class="price-tag"><strong>€40</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img" style="padding:0;"><img src="Plankenvloer.png" alt="Houten Tentvloer" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="product-body">
+          <div class="product-name">Houten Tentvloer</div>
+          <div class="product-desc">Houten vloerplaten van 1×2m voor onder de tent. Beschermt gras en ziet er netjes uit.</div>
+          <div class="price-tag"><strong>€6</strong> / plaat / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#9749;</div>
+        <div class="product-body">
+          <div class="product-name">Percolator</div>
+          <div class="product-desc">Grote koffieketel voor 60-80 kopjes koffie. Ideaal voor recepties en feesten.</div>
+          <div class="price-tag"><strong>€20</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Ronde bankettafel.webp" alt="Picknicktafel"></div>
+        <div class="product-body">
+          <div class="product-name">Picknicktafel</div>
+          <div class="product-desc">Stevige houten picknicktafel met geïntegreerde banken. Voor 6-8 personen.</div>
+          <div class="price-tag"><strong>€18</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="feestverlichting.webp" alt="LED Sfeerverlichting"></div>
+        <div class="product-body">
+          <div class="product-name">LED Sfeerverlichting</div>
+          <div class="product-desc">Set sfeervolle LED-lichtslinger van 10m met warm wit licht. Weatherproof.</div>
+          <div class="price-tag"><strong>€15</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127925;</div>
+        <div class="product-body">
+          <div class="product-name">Muziekbox</div>
+          <div class="product-desc">Draagbare Bluetooth-luidspreker met krachtig geluid. Waterbestendig voor buiten.</div>
+          <div class="price-tag"><strong>€30</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <div class="product-img"><img src="Barkruk lounge zwart.webp" alt="Barkruk Lounge Zwart"></div>
+        <div class="product-body">
+          <div class="product-name">Barkruk Lounge Zwart</div>
+          <div class="product-desc">Stijlvolle zwarte barkruk voor cocktailbars en lounge-setups. Zithoogte 73cm.</div>
+          <div class="price-tag"><strong>&euro;3,50</strong> / stuk / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Tapinstallatie.webp" alt="Tapinstallatie"></div>
+        <div class="product-body">
+          <div class="product-name">Tapinstallatie</div>
+          <div class="product-desc">Complete tapinstallatie inclusief taptoren, bierkoel, slangen en CO&#8322;. Geschikt voor elk standaard fust.</div>
+          <div class="price-tag"><strong>&euro;95</strong> / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"><img src="Buitenstoel.jpg" alt="Buitenstoel"></div>
+        <div class="product-body">
+          <div class="product-name">Buitenstoel</div>
+          <div class="product-desc">Stevige comfortabele buitenstoel voor terrassen en tuinfeesten. Licht en stapelbaar.</div>
+          <div class="price-tag"><strong>&euro;2</strong> / stuk / dag incl. BTW</div>
+          <div class="card-order-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="var i=this.nextElementSibling;i.value=Math.max(1,+i.value-1)">&#8722;</button>
+              <input class="qty-num" type="number" value="1" min="1" max="99">
+              <button class="qty-btn" onclick="var i=this.previousElementSibling;i.value=Math.min(99,+i.value+1)">&#43;</button>
+            </div>
+            <button class="btn-bestel">Bestel nu</button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="bestelModal">
+  <div class="modal-box">
+    <div class="modal-title">Product is toegevoegd aan jouw bestelling</div>
+    <div class="modal-product" id="modalProduct"></div>
+    <div class="modal-actions">
+      <button class="modal-btn-secondary" onclick="document.getElementById('bestelModal').classList.remove('open')">Nog producten toevoegen &rsaquo;</button>
+      <a href="bestelling.html" class="modal-btn-primary">Naar mijn bestelling &rsaquo;</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <span class="footer-logo-text">Event<span>Rentals</span></span>
+      <div class="footer-contact-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        <a href="tel:0477396350">0477 39 63 50</a>
+      </div>
+      <div class="footer-contact-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@eventrentals.be">info@eventrentals.be</a>
+      </div>
+      <p class="footer-hours">Begoniapark 14, 9810 Nazareth-De Pinte &middot; Op afspraak</p>
+      <a href="bestelling.html" class="footer-cta-btn">Vraag offerte aan</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Speelgelegenheden</p>
+      <ul class="footer-links">
+        <li><a href="springkasteel-standaard.html">Standaard Springkasteel</a></li>
+        <li><a href="springkasteel-piraat.html">Voetbal Darts</a></li>
+        <li><a href="springkasteel-medium-glijbaan.html">Springkasteel met Glijbaan</a></li>
+        <li><a href="springkasteel-groot-jungle.html">Dino Springkasteel</a></li>
+        <li><a href="hindernisbaan.html">Hindernisbaan</a></li>
+        <li><a href="rodeostier.html">Rodeostier</a></li>
+        <li><a href="bungee-run.html">Bungee Run</a></li>
+        <li><a href="speelgelegenheden.html" style="color:#ffffff;font-weight:700;">→ Volledig aanbod</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Tuinfeest Materiaal</p>
+      <ul class="footer-links">
+        <li><a href="partytent-3x6m.html">Partytent 3×6m</a></li>
+        <li><a href="partytent-4x8m.html">Partytent 4×8m</a></li>
+        <li><a href="klapstoel-wit.html">Klapstoel Wit</a></li>
+        <li><a href="klaptafel-180cm.html">Klaptafel 180cm</a></li>
+        <li><a href="terrasverwarmer.html">Terrasverwarmer</a></li>
+        <li><a href="led-sfeerverlichting.html">LED Sfeerverlichting</a></li>
+        <li><a href="tuinfeest-materiaal.html" style="color:#ffffff;font-weight:700;">→ Volledig aanbod</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 EventRentals &mdash; Alle rechten voorbehouden</span>
+    <nav class="footer-bottom-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#catalogus">Ons verhuurassortiment</a>
+      <a href="bestelling.html">Bestellen</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburgerBtn').addEventListener('click', function() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+  link.addEventListener('click', function() { document.getElementById('mobileMenu').classList.remove('open'); });
+});
+
+document.querySelectorAll('.btn-bestel').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = btn.closest('.product-card');
+    var name = card.querySelector('.product-name').textContent;
+    var qty = parseInt(card.querySelector('.qty-num').value) || 1;
+    var imgEl = card.querySelector('.product-img img');
+    var img = imgEl ? imgEl.src : '';
+    var priceEl = card.querySelector('.price-tag strong');
+    var price = priceEl ? parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) : 0;
+    var cart = JSON.parse(localStorage.getItem('er_cart') || '[]');
+    var existing = cart.find(function(i) { return i.name === name; });
+    if (existing) { existing.qty += qty; } else { cart.push({ name: name, qty: qty, img: img, price: price }); }
+    localStorage.setItem('er_cart', JSON.stringify(cart));
+    document.getElementById('modalProduct').textContent = qty + ' \u00d7 ' + name;
+    document.getElementById('bestelModal').classList.add('open');
+  });
+});
+
+document.getElementById('bestelModal').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('open');
+});
+</script>
+</body>
+</html>

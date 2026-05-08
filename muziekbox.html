@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Muziekbox huren bij EventRentals. Draagbare Bluetooth-luidspreker met krachtig geluid voor buitenfeesten." />
+  <link rel="canonical" href="https://www.eventrentals.be/muziekbox.html" />
+  <title>Muziekbox huren | EventRentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #ffffff; --accent-dark: #eeeeee; --accent-light: #e8f5f3;
+      --dark: #2B7A6E; --darker: #1E5950; --white: #ffffff;
+      --text: #1a1a1a; --text-muted: #6b7280; --border: #e5e7eb;
+      --bg: #f4fbfa; --radius: 10px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    h1, h2, h3, .logo { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.02em; }
+    #navbar { z-index: 1000; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);  }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .logo { color: var(--white); font-size: 1.9rem; font-weight: 800; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; list-style: none; gap: 4px; }
+    .nav-links a { color: var(--darker); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 14px; border-radius: var(--radius); transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--darker); background: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-phone { color: var(--dark); font-weight: 700; font-size: 0.95rem; text-decoration: none; white-space: nowrap; }
+    .nav-phone:hover { color: var(--darker); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .mobile-menu { display: none; background: var(--darker); border-top: 1px solid rgba(255,255,255,0.1); padding: 12px 24px 16px; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu a:hover { color: var(--dark); }
+    @media (max-width: 720px) { .nav-links { display: none; } .nav-right .nav-phone { display: none; } .hamburger { display: flex; } .nav-inner { justify-content: flex-start; } .nav-right { margin-left: auto; } }
+    .product-page { padding: 48px 24px 72px; }
+    .product-inner { max-width: 1100px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; color: var(--text-muted); }
+    .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 768px) { .product-layout { grid-template-columns: 1fr; gap: 32px; } }
+    .product-visual { background: var(--accent-light); border-radius: 16px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 8rem; border: 2px solid var(--accent); }
+    .product-info h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+    .product-price-box { background: var(--accent); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; display: inline-block; }
+    .product-price-box .price-label { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--darker); margin-bottom: 2px; }
+    .product-price-box .price-value { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--dark); }
+    .product-desc-text { color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 28px; }
+    .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; font-size: 0.92rem; }
+    .specs-table caption { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--dark); text-align: left; padding-bottom: 10px; display: table-caption; }
+    .specs-table tr { border-bottom: 1px solid var(--border); }
+    .specs-table tr:last-child { border-bottom: none; }
+    .specs-table td { padding: 9px 0; }
+    .specs-table td:first-child { color: var(--text-muted); font-weight: 600; width: 50%; }
+    .specs-table td:last-child { font-weight: 700; color: var(--text); }
+    .btn-order { display: inline-block; background: var(--accent); color: var(--dark); text-decoration: none; font-weight: 800; font-size: 1.05rem; padding: 15px 32px; border-radius: var(--radius); transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 14px rgba(43,122,110,0.25); }
+    .btn-order:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .site-footer { background: var(--darker); color: #9ca3af; padding: 32px 24px 0; margin-top: 32px; font-size: 0.88rem; }
+    .site-footer a { color: #c8ccd4; text-decoration: none; transition: color 0.18s; }
+    .site-footer a:hover { color: var(--accent); }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; padding-bottom: 24px; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 10px; }
+    .footer-logo-text { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 12px; display: block; }
+    .footer-logo-text span { color: var(--accent); }
+    .footer-contact-row { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; color: #e5e7eb; }
+    .footer-contact-row a { color: #e5e7eb; }
+    .footer-contact-row a:hover { color: var(--accent); }
+    .footer-hours { margin-top: 8px; color: #6b7280; font-size: 0.82rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 6px; }
+    .footer-links li a { font-size: 0.87rem; }
+    .footer-cta-btn { display: inline-block; margin-top: 14px; background: var(--accent); color: var(--dark) !important; padding: 8px 18px; border-radius: 6px; font-weight: 700; font-size: 0.87rem; }
+    .footer-cta-btn:hover { background: var(--accent-dark) !important; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.07); padding: 12px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.78rem; color: #4b5563; }
+    .footer-bottom a { color: #4b5563; }
+    .footer-bottom a:hover { color: var(--accent); }
+    .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 20px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 420px) { .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:1100;">
+<div style="background:#2B7A6E;color:#FFD600;padding:9px 0;font-size:0.88rem;font-weight:600;font-family:'Nunito',sans-serif;overflow:hidden;white-space:nowrap;"><span style="display:inline-block;animation:bannerScroll 32s linear infinite;">Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><style>@keyframes bannerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
+<nav id="navbar"><div class="nav-inner"><a href="index.html" class="logo-link" style="display:flex;align-items:center;"><img src="Eventrentals Logo.png" alt="EventRentals" style="height:44px;"></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="index.html#catalogus">Ons verhuurassortiment</a></li><li><a href="index.html#transport">Transport</a></li><li><a href="#contact">Contact</a></li></ul><div class="nav-right"><a href="tel:0477396350" class="nav-phone">0477 39 63 50</a></div><button class="hamburger" id="hamburgerBtn" aria-label="Menu openen"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="index.html#catalogus">Ons verhuurassortiment</a><a href="index.html#transport">Transport</a><a href="#contact">Contact</a><a href="bestelling.html">Bestelling plaatsen</a></div></nav>
+</div>
+
+<section class="product-page">
+  <div class="product-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>&rsaquo;</span>
+      <a href="tuinfeest-materiaal.html">Tuinfeest Materiaal</a><span>&rsaquo;</span>
+      Muziekbox
+    </div>
+    <div class="product-layout">
+      <div class="product-visual">&#127925;</div>
+      <div class="product-info">
+        <h1>Muziekbox</h1>
+        <div class="product-price-box">
+          <div class="price-label">Huurprijzen (incl. BTW)</div>
+          <div class="price-value">&euro;30 / dag</div>
+        </div>
+        <p class="product-desc-text">Zorg voor de perfecte muzikale begeleiding van jouw feest met onze krachtige draagbare Bluetooth-luidspreker. Met een vermogen van 60W vult hij gemakkelijk een tuinfeest met helder geluid. De ingebouwde accu gaat tot 12 uur mee. Waterbestendig voor gebruik buiten.</p>
+        <table class="specs-table">
+          <caption>Specificaties</caption>
+          <tr><td>Vermogen</td><td>60 W</td></tr>
+          <tr><td>Accuduur</td><td>12 uur</td></tr>
+          <tr><td>Verbinding</td><td>Bluetooth 5.0 / AUX</td></tr>
+          <tr><td>Waterbestendig</td><td>IPX5</td></tr>
+          <tr><td>Gewicht</td><td>2,4 kg</td></tr>
+          <tr><td>Inclusief</td><td>Laadkabel, AUX-kabel</td></tr>
+        </table>
+        <a href="bestelling.html" class="btn-order">&#127881; Huur nu aan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <span class="footer-logo-text">Event<span>Rentals</span></span>
+      <div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg><a href="tel:0477396350">0477 39 63 50</a></div>
+      <div class="footer-contact-row"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@eventrentals.be">info@eventrentals.be</a></div>
+      <p class="footer-hours">Begoniapark 14, 9810 Nazareth-De Pinte &middot; Op afspraak</p>
+      <a href="bestelling.html" class="footer-cta-btn">Vraag offerte aan</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Speelgelegenheden</p>
+      <ul class="footer-links">
+        <li><a href="springkasteel-standaard.html">Standaard Springkasteel</a></li>
+        <li><a href="springkasteel-piraat.html">Voetbal Darts</a></li>
+        <li><a href="springkasteel-medium-glijbaan.html">Springkasteel met Glijbaan</a></li>
+        <li><a href="springkasteel-groot-jungle.html">Dino Springkasteel</a></li>
+        <li><a href="hindernisbaan.html">Hindernisbaan</a></li>
+        <li><a href="rodeostier.html">Rodeostier</a></li>
+        <li><a href="bungee-run.html">Bungee Run</a></li>
+        <li><a href="speelgelegenheden.html" style="color:#ffffff;font-weight:700;">&rarr; Volledig aanbod</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Tuinfeest Materiaal</p>
+      <ul class="footer-links">
+        <li><a href="partytent-3x6m.html">Partytent 3&times;6m</a></li>
+        <li><a href="partytent-4x8m.html">Partytent 4&times;8m</a></li>
+        <li><a href="klapstoel-wit.html">Klapstoel Wit</a></li>
+        <li><a href="klaptafel-180cm.html">Klaptafel 180cm</a></li>
+        <li><a href="terrasverwarmer.html">Terrasverwarmer</a></li>
+        <li><a href="led-sfeerverlichting.html">LED Sfeerverlichting</a></li>
+        <li><a href="barkruk.html">Barkruk Lounge Zwart</a></li>
+        <li><a href="tapinstallatie.html">Tapinstallatie</a></li>
+        <li><a href="tuinfeest-materiaal.html" style="color:#ffffff;font-weight:700;">&rarr; Volledig aanbod</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 EventRentals &mdash; Alle rechten voorbehouden</span>
+    <nav class="footer-bottom-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#catalogus">Ons verhuurassortiment</a>
+      <a href="bestelling.html">Bestellen</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburgerBtn').addEventListener('click', function() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+  link.addEventListener('click', function() { document.getElementById('mobileMenu').classList.remove('open'); });
+});
+</script>
+</body>
+</html>

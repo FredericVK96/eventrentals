@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vraag een offerte aan bij EventRentals. Springkastelen en feestmateriaal huren in De Pinte en regio Gent." />
+  <link rel="canonical" href="https://www.eventrentals.be/bestelling.html" />
+  <title>Offerte aanvragen | EventRentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #ffffff;
+      --accent-dark: #eeeeee;
+      --accent-light: #e8f5f3;
+      --dark: #2B7A6E;
+      --darker: #1E5950;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f4fbfa;
+      --radius: 10px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    h1, h2, h3, .logo { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.02em; }
+
+    /* NAV */
+    #navbar { z-index: 1000; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);  }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .logo { color: var(--white); font-size: 1.9rem; font-weight: 800; text-decoration: none; letter-spacing: 0.03em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; list-style: none; gap: 4px; }
+    .nav-links a { color: var(--darker); text-decoration: none; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.95rem; padding: 8px 14px; border-radius: var(--radius); transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--darker); background: var(--accent-light); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-phone { color: var(--dark); font-weight: 700; font-size: 0.95rem; text-decoration: none; white-space: nowrap; }
+    .nav-phone:hover { color: var(--darker); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .mobile-menu { display: none; background: var(--darker); border-top: 1px solid rgba(255,255,255,0.1); padding: 12px 24px 16px; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu a:hover { color: var(--dark); }
+    @media (max-width: 720px) { .nav-links { display: none; } .nav-right .nav-phone { display: none; } .hamburger { display: flex; } .nav-inner { justify-content: flex-start; } .nav-right { margin-left: auto; } }
+
+    /* BANNER */
+    .sticky-wrap { position: sticky; top: 0; z-index: 1100; }
+
+    /* FORM STYLES */
+    .page-header { background: var(--dark); color: var(--white); padding: 48px 24px 40px; text-align: center; }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 1.05rem; }
+
+    .form-section { padding: 60px 24px; }
+    .form-inner { max-width: 720px; margin: 0 auto; }
+
+    .form-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 40px; box-shadow: var(--shadow); }
+
+    .form-group { margin-bottom: 22px; }
+    .form-group label { display: block; font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 7px; }
+    .form-group label span { color: #dc2626; }
+    .form-control {
+      width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: var(--radius);
+      font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--text);
+      transition: border-color 0.2s; background: var(--white);
+    }
+    .form-control:focus { outline: none; border-color: var(--dark); }
+    .form-control.error { border-color: #dc2626; }
+    textarea.form-control { resize: vertical; min-height: 100px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-card { padding: 24px 20px; } }
+
+    .field-error { color: #dc2626; font-size: 0.82rem; margin-top: 4px; display: none; }
+
+    .btn-submit {
+      width: 100%; background: var(--accent); color: var(--dark); border: none;
+      padding: 16px; font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 800;
+      border-radius: var(--radius); cursor: pointer; transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(43,122,110,0.25); margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .form-note { font-size: 0.85rem; color: var(--text-muted); margin-top: 14px; text-align: center; }
+
+    .success-msg { display: none; background: #dcfce7; border: 1px solid #bbf7d0; border-radius: var(--radius); padding: 20px 24px; text-align: center; margin-top: 20px; }
+    .success-msg h3 { color: #15803d; font-size: 1.3rem; margin-bottom: 6px; }
+    .success-msg p { color: #166534; font-size: 0.95rem; }
+
+    .error-msg { display: none; background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius); padding: 16px 20px; color: #dc2626; font-size: 0.9rem; margin-top: 16px; }
+
+    /* CART OVERVIEW */
+    .cart-step { display: none; }
+    .cart-step.active { display: block; }
+    .cart-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--dark); margin-bottom: 20px; }
+    .cart-empty { text-align: center; color: var(--text-muted); padding: 32px 0; font-size: 1rem; }
+    .cart-items { list-style: none; margin-bottom: 24px; }
+    .cart-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); gap: 14px; }
+    .cart-item:last-child { border-bottom: none; }
+    .cart-item-img { width: 64px; height: 64px; border-radius: 8px; object-fit: contain; background: #f9f9f9; border: 1px solid var(--border); flex-shrink: 0; }
+    .cart-item-img-placeholder { width: 64px; height: 64px; border-radius: 8px; background: var(--accent-light); flex-shrink: 0; }
+    .cart-item-name { font-weight: 600; flex: 1; }
+    .cart-item-qty { display: flex; align-items: center; border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .cart-qty-btn { background: none; border: none; width: 30px; height: 32px; font-size: 1rem; font-weight: 700; cursor: pointer; color: var(--dark); }
+    .cart-qty-btn:hover { background: var(--accent-light); }
+    .cart-qty-val { width: 34px; text-align: center; font-weight: 700; font-size: 0.9rem; }
+    .cart-item-remove { background: none; border: none; color: #dc2626; cursor: pointer; font-size: 1.1rem; padding: 4px 8px; border-radius: 6px; }
+    .cart-item-remove:hover { background: #fef2f2; }
+
+    .btn-proceed { width: 100%; background: var(--dark); color: #fff; border: none; padding: 16px; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
+    .btn-proceed:hover { background: var(--darker); }
+    .btn-back { background: none; border: none; color: var(--dark); font-weight: 700; font-size: 0.9rem; cursor: pointer; padding: 8px 0; font-family: 'Nunito', sans-serif; margin-bottom: 16px; }
+    .btn-back:hover { text-decoration: underline; }
+    .akkoord-wrap { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+    .akkoord-wrap input[type="checkbox"] { accent-color: var(--dark); width: 17px; height: 17px; flex-shrink: 0; cursor: pointer; margin-top: 3px; }
+    .akkoord-wrap label { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; cursor: pointer; }
+
+    /* FOOTER */
+    .site-footer { background: var(--darker); color: #9ca3af; padding: 32px 24px 0; margin-top: 32px; font-size: 0.88rem; }
+    .site-footer a { color: #c8ccd4; text-decoration: none; transition: color 0.18s; }
+    .site-footer a:hover { color: var(--accent); }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; padding-bottom: 24px; }
+    .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 10px; }
+    .footer-logo-text { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 12px; display: block; }
+    .footer-logo-text span { color: var(--accent); }
+    .footer-contact-row { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; color: #e5e7eb; }
+    .footer-contact-row a { color: #e5e7eb; }
+    .footer-contact-row a:hover { color: var(--accent); }
+    .footer-hours { margin-top: 8px; color: #6b7280; font-size: 0.82rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 6px; }
+    .footer-links li a { font-size: 0.87rem; }
+    .footer-cta-btn { display: inline-block; margin-top: 14px; background: var(--accent); color: var(--dark) !important; padding: 8px 18px; border-radius: 6px; font-weight: 700; font-size: 0.87rem; }
+    .footer-cta-btn:hover { background: var(--accent-dark) !important; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.07); padding: 12px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.78rem; color: #4b5563; }
+    .footer-bottom a { color: #4b5563; }
+    .footer-bottom a:hover { color: var(--accent); }
+    .footer-bottom-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 20px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 420px) { .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="sticky-wrap">
+<div style="background:var(--dark,#2B7A6E);color:var(--accent,#ffffff);padding:9px 0;font-size:0.88rem;font-weight:600;font-family:'Nunito',sans-serif;letter-spacing:0.01em;overflow:hidden;white-space:nowrap;">
+  <span style="display:inline-block;animation:bannerScroll 32s linear infinite;">
+    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport" style="color:#ffffff;text-decoration:underline;">bekijk de transporttarieven</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+<style>@keyframes bannerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-link" style="display:flex;align-items:center;"><img src="Eventrentals Logo.png" alt="EventRentals" style="height:44px;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#catalogus">Ons verhuurassortiment</a></li>
+      <li><a href="index.html#transport">Transport</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:0477396350" class="nav-phone">0477 39 63 50</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#catalogus">Ons verhuurassortiment</a>
+    <a href="index.html#transport">Transport</a>
+    <a href="#contact">Contact</a>
+    <a href="bestelling.html">Bestelling plaatsen</a>
+  </div>
+</nav>
+</div>
+
+<div class="page-header">
+  <h1 id="pageTitle">Jouw bestelling</h1>
+  <p id="pageSubtitle">Controleer jouw producten en vul daarna jouw gegevens in.</p>
+</div>
+
+<section class="form-section">
+  <div class="form-inner">
+
+    <!-- STAP 1: WINKELWAGEN -->
+    <div class="form-card cart-step active" id="stepCart">
+      <div class="cart-title">Geselecteerde producten</div>
+      <ul class="cart-items" id="cartItems"></ul>
+      <div class="cart-empty" id="cartEmpty" style="display:none;">Geen producten geselecteerd. <a href="tuinfeest-materiaal.html" style="color:var(--dark);font-weight:700;">Ga terug naar het aanbod</a>.</div>
+      <button class="btn-proceed" id="btnProceed">Verder naar mijn gegevens &rsaquo;</button>
+    </div>
+
+    <!-- STAP 2: FORMULIER -->
+    <div class="cart-step" id="stepForm">
+    <div class="form-card">
+      <button class="btn-back" id="btnBack">&larr; Terug naar bestelling</button>
+      <form id="bestellingForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="voornaam">Voornaam <span>*</span></label>
+            <input type="text" id="voornaam" name="voornaam" class="form-control" placeholder="Voornaam" autocomplete="given-name" required />
+            <div class="field-error" id="err-voornaam">Vul jouw voornaam in.</div>
+          </div>
+          <div class="form-group">
+            <label for="familienaam">Familienaam <span>*</span></label>
+            <input type="text" id="familienaam" name="familienaam" class="form-control" placeholder="Familienaam" autocomplete="family-name" required />
+            <div class="field-error" id="err-familienaam">Vul jouw familienaam in.</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="datum">Datum feest <span>*</span></label>
+            <input type="date" id="datum" name="datum" class="form-control" required />
+            <div class="field-error" id="err-datum">Kies een datum.</div>
+          </div>
+          <div class="form-group">
+            <label for="gsm">Gsm Nr. <span>*</span></label>
+            <input type="tel" id="gsm" name="gsm" class="form-control" placeholder="E.g 0491/01.23.45" autocomplete="tel" required />
+            <div class="field-error" id="err-gsm">Vul een gsm-nummer in.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mailadres <span>*</span></label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="jouw@email.be" autocomplete="email" required />
+          <div class="field-error" id="err-email">Vul een geldig e-mailadres in.</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="straat">Straat <span>*</span></label>
+            <input type="text" id="straat" name="straat" class="form-control" placeholder="Straat" autocomplete="street-address" required />
+            <div class="field-error" id="err-straat">Vul de straat in.</div>
+          </div>
+          <div class="form-group">
+            <label for="huisnr">Nr.</label>
+            <input type="text" id="huisnr" name="huisnr" class="form-control" placeholder="Nr." />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="postcode">Postcode <span>*</span></label>
+            <input type="text" id="postcode" name="postcode" class="form-control" placeholder="Postcode" autocomplete="postal-code" required />
+            <div class="field-error" id="err-postcode">Vul de postcode in.</div>
+          </div>
+          <div class="form-group">
+            <label for="gemeente">Gemeente <span>*</span></label>
+            <input type="text" id="gemeente" name="gemeente" class="form-control" placeholder="Gemeente" autocomplete="address-level2" required />
+            <div class="field-error" id="err-gemeente">Vul de gemeente in.</div>
+          </div>
+        </div>
+
+        <input type="hidden" id="producten" name="producten" />
+
+        <div class="form-group">
+          <label for="opmerkingen">Opmerkingen</label>
+          <textarea id="opmerkingen" name="opmerkingen" class="form-control" rows="3" placeholder="Eventuele bijzonderheden, vragen of wensen..."></textarea>
+        </div>
+
+        <div class="akkoord-wrap">
+          <input type="checkbox" id="akkoord">
+          <label for="akkoord">Je gaat hiermee akkoord met ons privacybeleid en onze verhuurvoorwaarden.</label>
+        </div>
+        <div class="field-error" id="err-akkoord" style="margin-top:-14px;margin-bottom:14px;">Gelieve akkoord te gaan met onze voorwaarden.</div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">&#127881; Verstuur aanvraag</button>
+        <p class="form-note">&#128274; Jouw gegevens worden vertrouwelijk behandeld en enkel gebruikt voor de verwerking van jouw aanvraag.</p>
+
+        <div class="success-msg" id="successMsg">
+          <h3>&#127881; Aanvraag ontvangen!</h3>
+          <p>Bedankt voor jouw aanvraag. We sturen je een bevestiging per e-mail en nemen binnenkort contact op.</p>
+        </div>
+        <div class="error-msg" id="errorMsg">
+          Er is een fout opgetreden. Probeer opnieuw of neem contact op via <a href="tel:0477396350" style="color:#dc2626;">0477 39 63 50</a>.
+        </div>
+      </form>
+    </div>
+    </div><!-- /stepForm -->
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <span class="footer-logo-text">Event<span>Rentals</span></span>
+      <div class="footer-contact-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        <a href="tel:0477396350">0477 39 63 50</a>
+      </div>
+      <div class="footer-contact-row">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@eventrentals.be">info@eventrentals.be</a>
+      </div>
+      <p class="footer-hours">Begoniapark 14, 9810 Nazareth-De Pinte &middot; Op afspraak</p>
+      <a href="bestelling.html" class="footer-cta-btn">Vraag offerte aan</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Speelgelegenheden</p>
+      <ul class="footer-links">
+        <li><a href="springkasteel-standaard.html">Standaard Springkasteel</a></li>
+        <li><a href="springkasteel-piraat.html">Voetbal Darts</a></li>
+        <li><a href="springkasteel-medium-glijbaan.html">Springkasteel met Glijbaan</a></li>
+        <li><a href="springkasteel-groot-jungle.html">Dino Springkasteel</a></li>
+        <li><a href="hindernisbaan.html">Hindernisbaan</a></li>
+        <li><a href="rodeostier.html">Rodeostier</a></li>
+        <li><a href="bungee-run.html">Bungee Run</a></li>
+        <li><a href="speelgelegenheden.html" style="color:var(--accent,#ffffff);font-weight:700;">→ Volledig aanbod</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Tuinfeest Materiaal</p>
+      <ul class="footer-links">
+        <li><a href="partytent-3x6m.html">Partytent 3×6m</a></li>
+        <li><a href="partytent-4x8m.html">Partytent 4×8m</a></li>
+        <li><a href="klapstoel-wit.html">Klapstoel Wit</a></li>
+        <li><a href="klaptafel-180cm.html">Klaptafel 180cm</a></li>
+        <li><a href="terrasverwarmer.html">Terrasverwarmer</a></li>
+        <li><a href="led-sfeerverlichting.html">LED Sfeerverlichting</a></li>
+        <li><a href="tuinfeest-materiaal.html" style="color:var(--accent,#ffffff);font-weight:700;">→ Volledig aanbod</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 EventRentals &mdash; Alle rechten voorbehouden</span>
+    <nav class="footer-bottom-links" aria-label="Footer navigatie">
+      <a href="index.html">Home</a>
+      <a href="index.html#catalogus">Ons verhuurassortiment</a>
+      <a href="bestelling.html">Bestellen</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburgerBtn').addEventListener('click', function() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+  link.addEventListener('click', function() { document.getElementById('mobileMenu').classList.remove('open'); });
+});
+
+// ── CART ──
+var cart = JSON.parse(localStorage.getItem('er_cart') || '[]');
+
+function saveCart() { localStorage.setItem('er_cart', JSON.stringify(cart)); }
+
+function renderCart() {
+  var ul = document.getElementById('cartItems');
+  ul.innerHTML = '';
+  if (cart.length === 0) {
+    document.getElementById('cartEmpty').style.display = 'block';
+    document.getElementById('btnProceed').style.display = 'none';
+    return;
+  }
+  document.getElementById('cartEmpty').style.display = 'none';
+  document.getElementById('btnProceed').style.display = 'block';
+  cart.forEach(function(item, idx) {
+    var li = document.createElement('li');
+    li.className = 'cart-item';
+    var imgHtml = item.img
+      ? '<img class="cart-item-img" src="' + item.img + '" alt="' + item.name + '">'
+      : '<div class="cart-item-img-placeholder"></div>';
+    li.innerHTML =
+      imgHtml +
+      '<span class="cart-item-name">' + item.name + '</span>' +
+      '<div class="cart-item-qty">' +
+        '<button class="cart-qty-btn" data-idx="' + idx + '" data-dir="-1">\u2212</button>' +
+        '<span class="cart-qty-val">' + item.qty + '</span>' +
+        '<button class="cart-qty-btn" data-idx="' + idx + '" data-dir="1">+</button>' +
+      '</div>' +
+      '<button class="cart-item-remove" data-idx="' + idx + '" title="Verwijderen">\u00d7</button>';
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.cart-qty-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var i = parseInt(btn.dataset.idx), d = parseInt(btn.dataset.dir);
+      cart[i].qty = Math.max(1, cart[i].qty + d);
+      saveCart(); renderCart();
+    });
+  });
+  ul.querySelectorAll('.cart-item-remove').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      cart.splice(parseInt(btn.dataset.idx), 1);
+      saveCart(); renderCart();
+    });
+  });
+}
+renderCart();
+
+document.getElementById('btnProceed').addEventListener('click', function() {
+  // Pre-fill products field
+  var lines = cart.map(function(i) { return i.qty + '\u00d7 ' + i.name; }).join(', ');
+  document.getElementById('producten').value = lines;
+  document.getElementById('stepCart').classList.remove('active');
+  document.getElementById('stepForm').classList.add('active');
+  document.getElementById('pageTitle').textContent = 'Jouw gegevens';
+  document.getElementById('pageSubtitle').textContent = 'Vul het formulier in en wij nemen zo snel mogelijk contact op.';
+  window.scrollTo(0, 0);
+});
+
+document.getElementById('btnBack').addEventListener('click', function() {
+  document.getElementById('stepForm').classList.remove('active');
+  document.getElementById('stepCart').classList.add('active');
+  document.getElementById('pageTitle').textContent = 'Jouw bestelling';
+  document.getElementById('pageSubtitle').textContent = 'Controleer jouw producten en vul daarna jouw gegevens in.';
+  window.scrollTo(0, 0);
+});
+
+document.getElementById('bestellingForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var valid = true;
+
+  function validate(id, errId, check) {
+    var el = document.getElementById(id);
+    var err = document.getElementById(errId);
+    if (!check(el.value)) { el.classList.add('error'); err.style.display = 'block'; valid = false; }
+    else { el.classList.remove('error'); err.style.display = 'none'; }
+  }
+
+  validate('voornaam',   'err-voornaam',   function(v){ return v.trim().length >= 2; });
+  validate('familienaam','err-familienaam',function(v){ return v.trim().length >= 2; });
+  validate('datum',      'err-datum',      function(v){ return v.trim().length > 0; });
+  validate('gsm',        'err-gsm',        function(v){ return v.trim().length >= 6; });
+  validate('email',      'err-email',      function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); });
+  validate('straat',     'err-straat',     function(v){ return v.trim().length >= 2; });
+  validate('postcode',   'err-postcode',   function(v){ return v.trim().length >= 4; });
+  validate('gemeente',   'err-gemeente',   function(v){ return v.trim().length >= 2; });
+  var akkoordEl = document.getElementById('akkoord');
+  var errAkkoord = document.getElementById('err-akkoord');
+  if (!akkoordEl.checked) { errAkkoord.style.display = 'block'; valid = false; }
+  else { errAkkoord.style.display = 'none'; }
+
+  if (!valid) return;
+
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Bezig...';
+  document.getElementById('successMsg').style.display = 'none';
+  document.getElementById('errorMsg').style.display = 'none';
+
+  var payload = {
+    voornaam:    document.getElementById('voornaam').value.trim(),
+    familienaam: document.getElementById('familienaam').value.trim(),
+    datum:       document.getElementById('datum').value,
+    gsm:         document.getElementById('gsm').value.trim(),
+    email:       document.getElementById('email').value.trim(),
+    straat:      document.getElementById('straat').value.trim(),
+    huisnr:      document.getElementById('huisnr').value.trim(),
+    postcode:    document.getElementById('postcode').value.trim(),
+    gemeente:    document.getElementById('gemeente').value.trim(),
+    producten:   document.getElementById('producten').value.trim(),
+    opmerkingen: document.getElementById('opmerkingen').value.trim(),
+  };
+
+  try {
+    var res = await fetch('/api/bestelling', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    var data = await res.json();
+    if (res.ok && data.ok) {
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('bestellingForm').reset();
+      localStorage.removeItem('er_cart'); cart = [];
+    } else {
+      document.getElementById('errorMsg').style.display = 'block';
+    }
+  } catch(err) {
+    document.getElementById('errorMsg').style.display = 'block';
+  }
+
+  btn.disabled = false; btn.textContent = '🎉 Verstuur aanvraag';
+});
+</script>
+</body>
+</html>
