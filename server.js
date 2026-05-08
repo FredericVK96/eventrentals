@@ -3,10 +3,8 @@ const path      = require('path');
 const express   = require('express');
 const cors      = require('cors');
 const rateLimit = require('express-rate-limit');
-const { Resend } = require('resend');
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-const MAIL_FROM = 'EventRentals <info@eventrentals.be>';
+const MAIL_FROM_NAME  = 'EventRentals';
+const MAIL_FROM_EMAIL = 'info@eventrentals.be';
 
 const app = express();
 
@@ -186,11 +184,14 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
 
     // Bevestigingsmail
     email && email.includes('@')
-      ? resend.emails.send({
-          from: MAIL_FROM,
-          to:   email,
-          subject: `Bevestiging jouw aanvraag — EventRentals`,
-          html: `
+      ? fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: { 'api-key': process.env.BREVO_API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sender: { name: MAIL_FROM_NAME, email: MAIL_FROM_EMAIL },
+            to: [{ email }],
+            subject: 'Bevestiging jouw aanvraag — EventRentals',
+            htmlContent: `
 <div style="font-family:sans-serif;font-size:14px;color:#1a1a1a;max-width:600px;margin:0 auto;line-height:1.6;">
 
   <div style="background:#5B2D8E;padding:24px 28px;border-radius:8px 8px 0 0;">
@@ -230,7 +231,8 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
 
 </div>
           `,
-        }).then(() => console.log('[bestelling] Mail OK →', email))
+          }),
+        }).then(r => r.json()).then(d => { if (d.messageId) console.log('[bestelling] Mail OK →', email); else throw new Error(JSON.stringify(d)); })
           .catch(err => { console.error('Klant mail fout:', err.message); throw err; })
       : Promise.resolve(),
   ]);
