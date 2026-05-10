@@ -33,7 +33,7 @@ const bestellingLimiter = rateLimit({
   skipSuccessfulRequests: false,
 });
 
-/* ── GOOGLE AUTH via WebCrypto (bypasses OpenSSL 3.x issue) */
+/* ── GOOGLE AUTH via Node crypto ────────────────────────── */
 async function getGoogleAccessToken() {
   let clientEmail  = process.env.GOOGLE_CLIENT_EMAIL;
   let privateKey   = process.env.GOOGLE_PRIVATE_KEY || '';
@@ -50,22 +50,6 @@ async function getGoogleAccessToken() {
   // Normalize escaped newlines from Vercel env vars
   privateKey = privateKey.replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').replace(/\r\n/g, '\n');
 
-  // Strip PEM headers and decode base64 to get raw DER bytes
-  const pemBody = privateKey
-    .replace(/-----BEGIN PRIVATE KEY-----/g, '')
-    .replace(/-----END PRIVATE KEY-----/g, '')
-    .replace(/\s+/g, '');
-  const keyData = Buffer.from(pemBody, 'base64');
-
-  // Import key using WebCrypto (no OpenSSL legacy path)
-  const cryptoKey = await globalThis.crypto.subtle.importKey(
-    'pkcs8',
-    keyData,
-    { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
-    false,
-    ['sign']
-  );
-
   const now = Math.floor(Date.now() / 1000);
   const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT', kid: privateKeyId })).toString('base64url');
   const claim  = Buffer.from(JSON.stringify({
@@ -76,13 +60,10 @@ async function getGoogleAccessToken() {
     iat:   now,
   })).toString('base64url');
 
-  const toSign  = `${header}.${claim}`;
-  const sigBuf  = await globalThis.crypto.subtle.sign(
-    'RSASSA-PKCS1-v1_5',
-    cryptoKey,
-    Buffer.from(toSign)
-  );
-  const jwt = `${toSign}.${Buffer.from(sigBuf).toString('base64url')}`;
+  const toSign = `${header}.${claim}`;
+  const nodeCrypto = require('crypto');
+  const signature = nodeCrypto.createSign('RSA-SHA256').update(toSign).sign(privateKey, 'base64url');
+  const jwt = `${toSign}.${signature}`;
 
   const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
