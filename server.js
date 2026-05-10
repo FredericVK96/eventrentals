@@ -117,6 +117,21 @@ async function appendToSheet(row, tab = 'Bestellingen', startRow = 1) {
   }
 }
 
+/* ── DEBUG ENV (tijdelijk) ───────────────────────────────── */
+app.get('/api/debug-env', (req, res) => {
+  const key = process.env.GOOGLE_PRIVATE_KEY || '';
+  res.json({
+    clientEmail: process.env.GOOGLE_CLIENT_EMAIL || 'NIET INGESTELD',
+    sheetId: process.env.GOOGLE_SHEET_ID || 'NIET INGESTELD',
+    brevo: process.env.BREVO_API_KEY ? 'ingesteld' : 'NIET INGESTELD',
+    keyLength: key.length,
+    keyStart: key.substring(0, 40),
+    keyEnd: key.slice(-40),
+    hasLiteralN: key.includes('\\n'),
+    hasRealNewline: key.includes('\n'),
+  });
+});
+
 /* ── GEOCODE PROXY (Nominatim) ───────────────────────────── */
 const geocodeLimiter = rateLimit({ windowMs: 60 * 1000, max: 30, standardHeaders: true, legacyHeaders: false });
 
