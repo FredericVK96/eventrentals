@@ -8,6 +8,7 @@ const MAIL_FROM_EMAIL = 'info@eventrentals.be';
 
 const app = express();
 
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
@@ -139,6 +140,7 @@ app.get('/api/geocode', geocodeLimiter, async (req, res) => {
 
 /* ── BESTELLING ENDPOINT ────────────────────────────────── */
 app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
+  try {
   console.log('[bestelling]', new Date().toISOString(), req.body?.voornaam, req.body?.familienaam, req.body?.email);
   const {
     voornaam, familienaam, datumVan, datumTot, gsm, email,
@@ -246,6 +248,10 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
       mail:   mailResult.status   === 'fulfilled' ? 'ok' : mailResult.reason?.message,
     }
   });
+  } catch (err) {
+    console.error('[bestelling] onverwachte fout:', err.message, err.stack);
+    res.status(500).json({ ok: false, error: err.message });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
