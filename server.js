@@ -141,7 +141,7 @@ app.get('/api/geocode', geocodeLimiter, async (req, res) => {
 app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
   console.log('[bestelling]', new Date().toISOString(), req.body?.voornaam, req.body?.familienaam, req.body?.email);
   const {
-    voornaam, familienaam, datum, gsm, email,
+    voornaam, familienaam, datumVan, datumTot, gsm, email,
     straat, huisnr, postcode, gemeente,
     producten, opmerkingen
   } = req.body;
@@ -152,15 +152,16 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
     timestamp,                     // A
     voornaam    || '',             // B
     familienaam || '',             // C
-    datum       || '',             // D
-    straat      || '',             // E
-    huisnr      || '',             // F
-    postcode    || '',             // G
-    gemeente    || '',             // H
-    gsm         || '',             // I
-    email       || '',             // J
-    opmerkingen || '',             // K
-    Array.isArray(producten) ? producten.join(', ') : (producten || ''), // L
+    datumVan    || '',             // D
+    datumTot    || '',             // E
+    straat      || '',             // F
+    huisnr      || '',             // G
+    postcode    || '',             // H
+    gemeente    || '',             // I
+    gsm         || '',             // J
+    email       || '',             // K
+    opmerkingen || '',             // L
+    Array.isArray(producten) ? producten.join(', ') : (producten || ''), // M
   ];
 
   const klantNaam = voornaam || 'Klant';
@@ -209,7 +210,8 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
     <table style="font-size:14px;border-collapse:collapse;margin-bottom:16px;width:100%;">
       <tr><td style="padding:4px 16px 4px 0;color:#6b7280;white-space:nowrap;">Voornaam:</td><td>${voornaam || '—'}</td></tr>
       <tr><td style="padding:4px 16px 4px 0;color:#6b7280;">Familienaam:</td><td>${familienaam || '—'}</td></tr>
-      <tr><td style="padding:4px 16px 4px 0;color:#6b7280;">Datum feest:</td><td>${datum || '—'}</td></tr>
+      <tr><td style="padding:4px 16px 4px 0;color:#6b7280;">Startdatum verhuur:</td><td>${datumVan || '—'}</td></tr>
+      <tr><td style="padding:4px 16px 4px 0;color:#6b7280;">Einddatum verhuur:</td><td>${datumTot || '—'}</td></tr>
       <tr><td style="padding:4px 16px 4px 0;color:#6b7280;">Gsm Nr.:</td><td>${gsm || '—'}</td></tr>
       <tr><td style="padding:4px 16px 4px 0;color:#6b7280;">E-mail:</td><td>${email || '—'}</td></tr>
       <tr><td style="padding:4px 16px 4px 0;color:#6b7280;">Adres:</td><td>${[straat, huisnr, postcode, gemeente].filter(Boolean).join(', ') || '—'}</td></tr>
