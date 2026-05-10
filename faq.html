@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="Eventrentals Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Springkastelen, hindernisbaan, rodeostier, bungee run en meer huren in De Pinte en regio Gent. Bekijk alle speelgelegenheden van EventRentals." />
-  <link rel="canonical" href="https://www.eventrentals.be/speelgelegenheden.html" />
-  <title>Speelgelegenheden huren | EventRentals</title>
+  <meta name="description" content="Veelgestelde vragen over het huren van springkastelen en feestmateriaal bij EventRentals. Alles over levering, betaling, annulering en veiligheid." />
+  <link rel="canonical" href="https://www.eventrentals.be/faq.html" />
+  <title>Veelgestelde vragen (FAQ) | EventRentals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -17,14 +17,14 @@
       --dark: #2B7A6E; --darker: #1E5950; --white: #ffffff;
       --text: #1a1a1a; --text-muted: #6b7280; --border: #e5e7eb;
       --bg: #f4fbfa; --radius: 10px;
-      --shadow: 0 2px 12px rgba(0,0,0,0.10); --shadow-hover: 0 6px 24px rgba(0,0,0,0.16);
+      --shadow: 0 2px 12px rgba(0,0,0,0.10);
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Nunito', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
     h1, h2, h3, .logo { font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.02em; }
 
     /* NAV */
-    #navbar { z-index: 1000; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08);  }
+    #navbar { z-index: 1000; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
     .logo { color: var(--white); font-size: 1.9rem; font-weight: 800; text-decoration: none; }
     .logo span { color: var(--accent); }
@@ -55,23 +55,27 @@
     .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: var(--accent); margin-bottom: 8px; }
     .page-header p { color: rgba(255,255,255,0.8); font-size: 1.05rem; }
 
-    /* PRODUCTS */
-    .products-section { padding: 60px 24px; }
-    .products-inner { max-width: 1200px; margin: 0 auto; }
-    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 900px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 540px) { .products-grid { grid-template-columns: 1fr; } }
+    /* CONTENT */
+    .content-section { padding: 60px 24px; }
+    .content-inner { max-width: 800px; margin: 0 auto; }
 
-    .product-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: box-shadow 0.25s, transform 0.2s; display: flex; flex-direction: column; }
-    .product-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
-    .product-img { height: 200px; background: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; padding: 12px; }
-    .product-body { padding: 18px 18px 20px; flex: 1; display: flex; flex-direction: column; }
-    .product-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-    .product-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px; flex: 1; }
-    .price-tag { background: var(--accent-light); color: var(--darker); font-weight: 700; font-size: 0.88rem; padding: 5px 11px; border-radius: 5px; display: inline-block; margin-bottom: 12px; }
-    .price-tag strong { font-size: 1.05rem; }
-    .btn-card { display: block; text-align: center; background: var(--dark); color: var(--white); text-decoration: none; font-weight: 700; font-size: 0.9rem; padding: 10px 16px; border-radius: var(--radius); transition: background 0.2s; margin-top: auto; }
-    .btn-card:hover { background: var(--darker); }
+    /* FAQ */
+    .faq-category { margin-bottom: 40px; }
+    .faq-category h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--accent-light); }
+    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; box-shadow: var(--shadow); }
+    .faq-question { width: 100%; background: none; border: none; padding: 18px 20px; text-align: left; font-family: 'Nunito', sans-serif; font-size: 0.97rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .faq-question:hover { background: var(--accent-light); }
+    .faq-question .arrow { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--accent-light); color: var(--dark); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; transition: transform 0.2s; }
+    .faq-question[aria-expanded="true"] .arrow { transform: rotate(180deg); background: var(--dark); color: #fff; }
+    .faq-answer { display: none; padding: 0 20px 18px; font-size: 0.93rem; color: var(--text-muted); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+    .faq-answer a { color: var(--dark); font-weight: 600; }
+
+    .cta-box { background: var(--dark); border-radius: 12px; padding: 36px 28px; text-align: center; margin-top: 48px; }
+    .cta-box h2 { color: var(--white); margin-bottom: 12px; font-size: 1.8rem; }
+    .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: var(--white); color: var(--dark); font-weight: 700; font-size: 1rem; padding: 12px 28px; border-radius: var(--radius); text-decoration: none; }
+    .cta-btn:hover { background: var(--accent-dark); }
 
     /* FOOTER */
     .site-footer { background: var(--darker); color: #9ca3af; padding: 32px 24px 0; margin-top: 32px; font-size: 0.88rem; }
@@ -145,111 +149,212 @@
 <div class="page-header">
   <div class="page-header-inner">
     <div class="breadcrumb">
-      <a href="index.html">Home</a><span>›</span> Speelgelegenheden
+      <a href="index.html">Home</a><span>›</span> Veelgestelde vragen
     </div>
-    <h1>Speelgelegenheden</h1>
-    <p>9 producten voor onvergetelijk feestplezier &mdash; levering in heel Oost-Vlaanderen</p>
+    <h1>Veelgestelde vragen</h1>
+    <p>Alles wat je wil weten over huren bij EventRentals</p>
   </div>
 </div>
 
-<section class="products-section">
-  <div class="products-inner">
-    <div class="products-grid">
+<section class="content-section">
+  <div class="content-inner">
 
+    <div class="faq-category">
+      <h2>Bestellen & reserveren</h2>
 
-
-      <div class="product-card">
-        <div class="product-img"><img src="Standaard springkasteel.webp" alt="Standaard Springkasteel" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Standaard Springkasteel</div>
-          <div class="product-desc">Klassiek springkasteel voor de kleinste feestgangers. Compact en veilig, ideaal voor elk tuinfeestje. Afmeting 4&times;4m.</div>
-          <div class="price-tag"><strong>&euro;95</strong> / dag incl. BTW</div>
-          <a href="springkasteel-standaard.html" class="btn-card">Meer info</a>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Hoe kan ik een product huren?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Bladeren door ons aanbod, voeg gewenste producten toe aan jouw winkelmandje en vul het <a href="bestelling.html">bestelformulier</a> in. Wij nemen dan zo snel mogelijk contact met je op om de reservatie te bevestigen en eventuele vragen te bespreken.
         </div>
       </div>
 
-            <div class="product-card">
-        <div class="product-img"><img src="springkasteel met glijbaan.png" alt="Springkasteel met Glijbaan" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Springkasteel met Glijbaan</div>
-          <div class="product-desc">Springkasteel medium met geïntegreerde glijbaan voor extra avontuur. Afmeting 5×5m.</div>
-          <div class="price-tag"><strong>€150</strong> / dag incl. BTW</div>
-          <a href="springkasteel-medium-glijbaan.html" class="btn-card">Meer info</a>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Kan ik meerdere producten tegelijk huren?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Ja, absoluut! Voeg zo veel producten toe als gewenst via het winkelmandje en dien één aanvraag in. Wij helpen je graag een compleet pakket samen te stellen.
         </div>
       </div>
 
-      <div class="product-card">
-        <div class="product-img"><img src="Springkasteel dino.png" alt="Dino Springkasteel" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Dino Springkasteel</div>
-          <div class="product-desc">Groot dino-springkasteel met glijbaan en klimwand. Roarrr! Afmeting 6×5m.</div>
-          <div class="price-tag"><strong>€195</strong> / dag incl. BTW</div>
-          <a href="springkasteel-groot-jungle.html" class="btn-card">Meer info</a>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Hoe ver op voorhand moet ik reserveren?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Wij raden aan zo vroeg mogelijk te reserveren, zeker voor populaire weekenddatums in het zomerseizoen. Stuur ons gerust al een aanvraag 2 à 3 maanden op voorhand — wij bevestigen zodra de datum beschikbaar is.
         </div>
       </div>
 
-      <div class="product-card">
-        <div class="product-img"><img src="springkasteel princes.webp" alt="Springkasteel Princess" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Springkasteel Princess</div>
-          <div class="product-desc">Roze sprookjeskasteeltje met prinsessenthema. Droom van elk meisje! Afmeting 5×5m.</div>
-          <div class="price-tag"><strong>€175</strong> / dag incl. BTW</div>
-          <a href="springkasteel-princess.html" class="btn-card">Meer info</a>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is een reservatie definitief na het invullen van het formulier?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Nee. Jouw aanvraag is pas definitief bevestigd nadat wij de beschikbaarheid hebben gecheckt en je een bevestiging hebben gestuurd. Je ontvangt na het insturen van het formulier wel onmiddellijk een automatische bevestigingsmail.
         </div>
       </div>
-
-      <div class="product-card">
-        <div class="product-img"><img src="Springkasteel darts.png" alt="Voetbal Darts" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Voetbal Darts</div>
-          <div class="product-desc">Schiet jouw voetbal in de roos! Opblaasbaar voetbal-dartsbord voor jong en oud. Afmeting 5×4m.</div>
-          <div class="price-tag"><strong>€175</strong> / dag incl. BTW</div>
-          <a href="springkasteel-piraat.html" class="btn-card">Meer info</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img"><img src="Hindernissen.png" alt="Hindernisbaan" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Hindernisbaan</div>
-          <div class="product-desc">Uitdagende opblaasbare hindernisbaan met kruiptunnels en klimbulten. Lengte 10×3m.</div>
-          <div class="price-tag"><strong>€225</strong> / dag incl. BTW</div>
-          <a href="hindernisbaan.html" class="btn-card">Meer info</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img"><img src="Rodeostier.png" alt="Rodeostier" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Rodeostier</div>
-          <div class="product-desc">Elektrische rodeostier met zachte valmat. Wie blijft het langst op de stier? 5×5m opblaasbare mat.</div>
-          <div class="price-tag"><strong>€395</strong> / dag incl. BTW</div>
-          <a href="rodeostier.html" class="btn-card">Meer info</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img"><img src="Bungeerun.png" alt="Bungee Run" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div class="product-body">
-          <div class="product-name">Bungee Run</div>
-          <div class="product-desc">Twee deelnemers racen tegelijk terwijl bungee-koorden hen terugrekken. Lengte 8×3m.</div>
-          <div class="price-tag"><strong>€195</strong> / dag incl. BTW</div>
-          <a href="bungee-run.html" class="btn-card">Meer info</a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img" style="padding:0;"><img src="Oplaasbare botsballen.jpg" alt="Botsballen" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="product-body">
-          <div class="product-name">Botsballen</div>
-          <div class="product-desc">Opblaasbare botsballen (sumo suits) voor lachgegarandeerd botsplezier. Set van 2 stuks.</div>
-          <div class="price-tag"><strong>€150</strong> / dag incl. BTW</div>
-          <a href="botsballen.html" class="btn-card">Meer info</a>
-        </div>
-      </div>
-
-
     </div>
+
+    <div class="faq-category">
+      <h2>Levering & ophaling</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Leveren jullie ook op en bouwen jullie het op?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Ja! Wij leveren, plaatsen en halen alles zelf op. Jij hoeft enkel te zorgen voor een vlakke, toegankelijke locatie en een stopcontact in de buurt van de attractie.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Hoe ver leveren jullie?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Wij leveren in heel Oost-Vlaanderen en omstreken. Binnen 15 km van De Pinte is levering gratis bij een huurwaarde van minimum €150. Buiten die straal rekenen wij een transportkost aan. Bekijk alle details op onze <a href="verhuurgebied.html">pagina Verhuurgebied</a>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Op welk tijdstip leveren jullie?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Wij spreken een leveringstijdstip met je af dat voor beide partijen past. In de meeste gevallen leveren wij de ochtend van het feest en halen wij de materialen de volgende ochtend (of een afgesproken dag later) opnieuw op.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wat als mijn oprit of tuin moeilijk bereikbaar is?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Vermeld bij je aanvraag eventuele bijzonderheden over de bereikbaarheid (smalle oprit, trap, helling, beperkte doorgang…). Wij bekijken samen of de levering zonder problemen kan verlopen.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h2>Betaling & prijzen</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Zijn de prijzen inclusief BTW?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Ja, alle vermelde prijzen op onze website zijn inclusief BTW. Geen verrassingen achteraf.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wanneer en hoe betaal ik?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Wij communiceren de betalingsmodaliteiten bij de bevestiging van uw reservatie. Betaling gebeurt doorgaans via overschrijving voor de datum van levering.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is er een waarborg?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Voor bepaalde producten (zoals de rodeostier of grote partytenten) kan een waarborg gevraagd worden. Dit wordt op voorhand gecommuniceerd. De waarborg wordt teruggestort bij onbeschadigd terugbrengen van het materiaal.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h2>Annulering & onvoorziene omstandigheden</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wat als ik mijn bestelling wil annuleren?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Annulaties zijn mogelijk. Raadpleeg onze <a href="verhuurvoorwaarden.html">verhuurvoorwaarden</a> voor de specifieke annuleringsregels en eventuele annuleringskosten.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wat bij slecht weer?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Springkastelen en opblaasbare attracties mogen niet gebruikt worden bij windstoten boven 40 km/h of bij onweer. Bij aanhoudend slecht weer overleggen wij samen over een oplossing. Partytenten bieden wel bescherming bij regen.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wat als een attractie stuk gaat tijdens het feest?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Neem direct contact op via <a href="tel:0477396350">0477 39 63 50</a>. Wij doen ons best om zo snel mogelijk te reageren. Schade door normaal gebruik valt onder onze verantwoordelijkheid; schade door onoordeelkundig gebruik is voor rekening van de huurder.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h2>Veiligheid</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is het materiaal veilig en gecertificeerd?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Ja. Al onze opblaasbare attracties zijn CE-gecertificeerd en worden regelmatig geïnspecteerd en onderhouden. Na elke verhuur wordt het materiaal gereinigd en gecontroleerd op beschadigingen.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Zijn er leeftijds- of gewichtslimieten?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Ja. Per product geven wij de aanbevolen leeftijdsgroep en het maximumgewicht aan. Volwassenen en kinderen mogen in principe niet tegelijk gebruik maken van de springkastelen. Toezicht door een volwassene is te allen tijde vereist.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Hebben we een stroomaansluiting nodig?
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          Ja. Springkastelen en opblaasbare attracties worden opgeblazen via een blower die op 230V werkt. Zorg voor een toegankelijk stopcontact binnen 20 meter van de attractie. Gebruik enkel goedgekeurde verlengkabels van voldoende dikte.
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Staat jouw vraag er niet bij?</h2>
+      <p>Neem gerust contact met ons op — wij helpen je graag verder.</p>
+      <a href="bestelling.html" class="cta-btn">Aanvraag of vraag stellen</a>
+    </div>
+
   </div>
 </section>
 
@@ -296,7 +401,6 @@
         <li><a href="tuinfeest-materiaal.html" style="color:#ffffff;font-weight:700;">→ Volledig aanbod</a></li>
       </ul>
     </div>
-  
     <div class="footer-col">
       <p class="footer-col-title">Informatie</p>
       <ul class="footer-links">
@@ -326,6 +430,15 @@ document.querySelectorAll('#mobileMenu a').forEach(function(link) {
   link.addEventListener('click', function() { document.getElementById('mobileMenu').classList.remove('open'); });
 });
 
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    var answer = this.nextElementSibling;
+    answer.classList.toggle('open', !expanded);
+  });
+});
 
 /* ── CART BADGE ── */
 (function() {
