@@ -493,7 +493,6 @@ document.getElementById('bestellingForm').addEventListener('submit', async funct
       body: JSON.stringify(payload),
     });
     var data = await res.json();
-    console.log('[bestelling debug]', JSON.stringify(data));
     if (res.ok && data.ok) {
       document.getElementById('successMsg').style.display = 'block';
       document.getElementById('bestellingForm').reset();

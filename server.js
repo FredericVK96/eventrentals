@@ -100,21 +100,6 @@ async function appendToSheet(row, tab = 'Bestellingen', startRow = 1) {
   }
 }
 
-/* ── DEBUG ENV (tijdelijk) ───────────────────────────────── */
-app.get('/api/debug-env', (req, res) => {
-  const key = process.env.GOOGLE_PRIVATE_KEY || '';
-  res.json({
-    clientEmail: process.env.GOOGLE_CLIENT_EMAIL || 'NIET INGESTELD',
-    sheetId: process.env.GOOGLE_SHEET_ID || 'NIET INGESTELD',
-    brevo: process.env.BREVO_API_KEY ? 'ingesteld' : 'NIET INGESTELD',
-    keyLength: key.length,
-    keyStart: key.substring(0, 40),
-    keyEnd: key.slice(-40),
-    hasLiteralN: key.includes('\\n'),
-    hasRealNewline: key.includes('\n'),
-  });
-});
-
 /* ── GEOCODE PROXY (Nominatim) ───────────────────────────── */
 const geocodeLimiter = rateLimit({ windowMs: 60 * 1000, max: 30, standardHeaders: true, legacyHeaders: false });
 
@@ -225,7 +210,7 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
     <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;">
 
     <p>Vragen of aanpassingen?<br>
-    Neem contact op via <a href="tel:0477396350" style="color:#5B2D8E;">0477 39 63 50</a> of <a href="mailto:info@eventrentals.be" style="color:#5B2D8E;">info@eventrentals.be</a>.</p>
+    Neem contact op via <a href="tel:0477396350" style="color:#2B7A6E;">0477 39 63 50</a> of <a href="mailto:info@eventrentals.be" style="color:#2B7A6E;">info@eventrentals.be</a>.</p>
 
     <p>Met vriendelijke groeten,<br><strong>Het EventRentals team</strong><br>
     <span style="color:#6b7280;font-size:13px;">Begoniapark 14, 9810 Nazareth-De Pinte</span></p>
