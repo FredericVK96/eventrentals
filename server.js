@@ -36,19 +36,22 @@ const bestellingLimiter = rateLimit({
 /* ── GOOGLE AUTH via Node crypto ────────────────────────── */
 async function getGoogleAccessToken() {
   let clientEmail  = process.env.GOOGLE_CLIENT_EMAIL;
-  let privateKey   = process.env.GOOGLE_PRIVATE_KEY || '';
   let privateKeyId = process.env.GOOGLE_PRIVATE_KEY_ID || '';
+  let privateKey   = '';
 
-  // Fallback: load from service-account.json for local development
-  if (!clientEmail || !privateKey) {
+  if (process.env.GOOGLE_PRIVATE_KEY_B64) {
+    // Base64-encoded key — no newline issues
+    privateKey = Buffer.from(process.env.GOOGLE_PRIVATE_KEY_B64, 'base64').toString('utf8');
+  } else if (process.env.GOOGLE_PRIVATE_KEY) {
+    privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').replace(/\r\n/g, '\n');
+  } else {
+    // Fallback: local development
     const fs = require('fs');
     const sa = JSON.parse(fs.readFileSync(path.join(__dirname, 'service-account.json'), 'utf8'));
     clientEmail  = sa.client_email;
     privateKey   = sa.private_key;
     privateKeyId = sa.private_key_id;
   }
-  // Normalize escaped newlines from Vercel env vars
-  privateKey = privateKey.replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n').replace(/\r\n/g, '\n');
 
   const now = Math.floor(Date.now() / 1000);
   const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT', kid: privateKeyId })).toString('base64url');
