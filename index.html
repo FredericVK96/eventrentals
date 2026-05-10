@@ -442,13 +442,14 @@ document.querySelectorAll('#mobileMenu a').forEach(function (link) {
 /* ── CART BADGE ── */
 (function() {
   function updateCartBadge() {
-    var cart = JSON.parse(localStorage.getItem('eventrentals_cart') || '[]');
+    var cart = JSON.parse(localStorage.getItem('er_cart') || '[]');
     var total = cart.reduce(function(s,i){ return s+(i.qty||0); }, 0);
     var badge = document.getElementById('cartBadge');
     if (badge) { badge.textContent = total; badge.style.display = total > 0 ? 'flex' : 'none'; }
   }
   updateCartBadge();
   window.updateCartBadge = updateCartBadge;
+  window.addEventListener('storage', updateCartBadge);
 })();
 
 /* ── TRANSPORT CALCULATOR ── */
