@@ -254,6 +254,8 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
   }
 });
 
+module.exports = app;
+
 const PORT = process.env.PORT || 3000;
 if (require.main === module) {
   app.listen(PORT, () => {
