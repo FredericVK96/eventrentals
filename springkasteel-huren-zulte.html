@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="Eventrentals Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Springkasteel en feestmateriaal huren in Zulte? EventRentals levert en plaatst in Zulte en omgeving. Bekijk ons aanbod en vraag vrijblijvend een offerte aan." />
+  <meta name="description" content="Springkasteel en feestmateriaal huren in Zulte? EventRentals levert en plaatst in Zulte en omgeving. Volledig aanbod, eerlijke prijzen. Vraag vrijblijvend een offerte aan." />
   <link rel="canonical" href="https://www.eventrentals.be/springkasteel-huren-zulte.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="EventRentals" />
   <meta property="og:locale" content="nl_BE" />
   <meta property="og:title" content="Springkasteel huren Zulte | EventRentals" />
-  <meta property="og:description" content="Springkasteel en feestmateriaal huren in Zulte? EventRentals levert en plaatst in Zulte en omgeving. Bekijk ons aanbod en vraag vrijblijvend een offerte aan." />
+  <meta property="og:description" content="Springkasteel en feestmateriaal huren in Zulte? EventRentals levert en plaatst in Zulte en omgeving. Volledig aanbod, eerlijke prijzen. Vraag vrijblijvend een offerte aan." />
   <meta property="og:url" content="https://www.eventrentals.be/springkasteel-huren-zulte.html" />
   <meta property="og:image" content="https://www.eventrentals.be/Eventrentals%20Logo.png" />
   <script type="application/ld+json">
@@ -64,21 +64,29 @@
     .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: var(--accent); margin-bottom: 8px; }
     .page-header p { color: rgba(255,255,255,0.8); font-size: 1.05rem; }
     .content-section { padding: 60px 24px; }
-    .content-inner { max-width: 900px; margin: 0 auto; }
-    .content-inner h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); margin: 36px 0 14px; }
+    .content-inner { max-width: 960px; margin: 0 auto; }
+    .content-inner h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark); margin: 40px 0 14px; }
     .content-inner h2:first-child { margin-top: 0; }
-    .content-inner p { color: var(--text); margin-bottom: 16px; font-size: 1rem; }
+    .content-inner p { color: var(--text); margin-bottom: 14px; font-size: 1rem; }
+    .content-inner ol { padding-left: 20px; margin-bottom: 16px; }
+    .content-inner ol li { margin-bottom: 8px; }
     .delivery-box { background: var(--accent-light); border-left: 4px solid var(--dark); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 20px; margin: 24px 0; }
-    .delivery-box p { margin: 0; color: var(--darker); font-weight: 600; }
-    .product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin: 24px 0 32px; }
-    @media (max-width: 800px) { .product-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 480px) { .product-grid { grid-template-columns: 1fr 1fr; } }
-    .prod-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 12px; text-align: center; text-decoration: none; color: var(--text); box-shadow: var(--shadow); transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; gap: 6px; }
-    .prod-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
-    .prod-card--more { border-style: dashed; background: var(--accent-light); }
-    .prod-icon { font-size: 2rem; }
-    .prod-name { font-weight: 700; font-size: 0.88rem; color: var(--dark); line-height: 1.3; }
-    .prod-price { font-size: 0.82rem; color: var(--text-muted); }
+    .delivery-box p { margin: 0; color: var(--darker); font-weight: 600; font-size: 0.97rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 16px 0 32px; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; gap: 16px; } }
+    .prod-list { list-style: none; padding: 0; margin: 0; }
+    .prod-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; border-radius: 7px; text-decoration: none; color: var(--text); transition: background 0.15s; }
+    .prod-row:hover { background: var(--accent-light); }
+    .prod-row-name { font-size: 0.92rem; font-weight: 600; color: var(--dark); }
+    .prod-row-price { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; margin-left: 8px; }
+    .faq-list { margin: 16px 0 32px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .faq-q { width: 100%; background: none; border: none; padding: 16px 18px; text-align: left; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .faq-q:hover { background: var(--accent-light); }
+    .faq-arrow { flex-shrink: 0; font-size: 0.75rem; color: var(--dark); transition: transform 0.2s; }
+    .faq-q[aria-expanded="true"] .faq-arrow { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 18px 16px; font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+    .faq-a.open { display: block; }
     .cta-box { background: var(--dark); border-radius: 12px; padding: 36px 28px; text-align: center; margin-top: 48px; }
     .cta-box h2 { color: var(--white); margin-bottom: 12px; margin-top: 0; }
     .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 24px; }
@@ -169,74 +177,163 @@
   <div class="content-inner">
 
     <h2>EventRentals in Zulte</h2>
-    <p>EventRentals levert springkastelen en feestmateriaal in Zulte. Vanuit De Pinte rijden wij in ca. 10 minuten naar Zulte, Machelen en Olsene. Gratis levering bij een huurwaarde vanaf €150.</p>
-    <p>Of het nu gaat om een springkasteel voor de kinderen, een bungee run voor een buurtfeest of een volledige tentopstelling voor een receptie in Zulte — EventRentals regelt de levering, plaatsing en ophaling van A tot Z.</p>
+    <p>EventRentals levert springkastelen en feestmateriaal in Zulte, Machelen en Olsene. Vanuit De Pinte rijden wij in ca. 10 minuten naar Zulte — gratis levering bij een huurwaarde vanaf &euro;150.</p>
+    <p>Of het nu gaat om een springkasteel voor de kinderen, een bungee run voor een buurtfeest of een volledige tentopstelling voor een receptie in Zulte — EventRentals regelt alles van A tot Z.</p>
+    <p><strong>Leveringszone Zulte:</strong> Zulte, Machelen, Olsene.</p>
 
     <div class="delivery-box">
-      <p>✅ Levering in Zulte: gratis (ca. 10 km van onze locatie) — levering, plaatsing & ophaling inbegrepen.</p>
+      <p>✅ Levering in Zulte: Gratis levering bij huurwaarde &ge;&euro;150 (ca. 10 km) — levering, plaatsing &amp; ophaling altijd inbegrepen.</p>
     </div>
 
-    <h2>Ons aanbod voor Zulte</h2>
-    <p>Van springkastelen en opblaasbare attracties tot partytenten, tafels, stoelen en drankapparatuur — EventRentals heeft alles voor een geslaagd feest in Zulte.</p>
-
-    <div class="product-grid">
-      <a href="springkasteel-standaard.html" class="prod-card">
-        <div class="prod-icon">🏰</div>
-        <div class="prod-name">Standaard Springkasteel</div>
-        <div class="prod-price">€95 / dag</div>
+    <h2>Springkastelen en speelgelegenheden huren in Zulte</h2>
+    <p>Van een klassiek standaard springkasteel tot een rodeostier of hindernisbaan — wij leveren en plaatsen alles in Zulte.</p>
+    <div class="prod-list">
+      <a href="springkasteel-standaard.html" class="prod-row">
+        <span class="prod-row-name">Standaard Springkasteel</span>
+        <span class="prod-row-price">&euro;95 / dag</span>
       </a>
-      <a href="springkasteel-medium-glijbaan.html" class="prod-card">
-        <div class="prod-icon">🎪</div>
-        <div class="prod-name">Springkasteel met Glijbaan</div>
-        <div class="prod-price">€150 / dag</div>
+      <a href="springkasteel-medium-glijbaan.html" class="prod-row">
+        <span class="prod-row-name">Springkasteel met Glijbaan</span>
+        <span class="prod-row-price">&euro;150 / dag</span>
       </a>
-      <a href="springkasteel-groot-jungle.html" class="prod-card">
-        <div class="prod-icon">🦕</div>
-        <div class="prod-name">Dino Springkasteel</div>
-        <div class="prod-price">€195 / dag</div>
+      <a href="springkasteel-groot-jungle.html" class="prod-row">
+        <span class="prod-row-name">Dino Springkasteel</span>
+        <span class="prod-row-price">&euro;195 / dag</span>
       </a>
-      <a href="hindernisbaan.html" class="prod-card">
-        <div class="prod-icon">🏃</div>
-        <div class="prod-name">Hindernisbaan</div>
-        <div class="prod-price">€225 / dag</div>
+      <a href="springkasteel-princess.html" class="prod-row">
+        <span class="prod-row-name">Springkasteel Princess</span>
+        <span class="prod-row-price">&euro;175 / dag</span>
       </a>
-      <a href="rodeostier.html" class="prod-card">
-        <div class="prod-icon">🐂</div>
-        <div class="prod-name">Rodeostier</div>
-        <div class="prod-price">€395 / dag</div>
+      <a href="springkasteel-piraat.html" class="prod-row">
+        <span class="prod-row-name">Voetbal Darts</span>
+        <span class="prod-row-price">&euro;175 / dag</span>
       </a>
-      <a href="partytent-3x6m.html" class="prod-card">
-        <div class="prod-icon">⛺</div>
-        <div class="prod-name">Partytent 3×6m</div>
-        <div class="prod-price">€110 / dag</div>
+      <a href="hindernisbaan.html" class="prod-row">
+        <span class="prod-row-name">Hindernisbaan</span>
+        <span class="prod-row-price">&euro;225 / dag</span>
       </a>
-      <a href="partytent-4x8m.html" class="prod-card">
-        <div class="prod-icon">🎠</div>
-        <div class="prod-name">Partytent 4×8m</div>
-        <div class="prod-price">€175 / dag</div>
+      <a href="rodeostier.html" class="prod-row">
+        <span class="prod-row-name">Rodeostier</span>
+        <span class="prod-row-price">&euro;395 / dag</span>
       </a>
-      <a href="speelgelegenheden.html" class="prod-card prod-card--more">
-        <div class="prod-icon">➕</div>
-        <div class="prod-name">Volledig aanbod bekijken</div>
-        <div class="prod-price">20+ producten</div>
+      <a href="bungee-run.html" class="prod-row">
+        <span class="prod-row-name">Bungee Run</span>
+        <span class="prod-row-price">&euro;195 / dag</span>
+      </a>
+      <a href="botsballen.html" class="prod-row">
+        <span class="prod-row-name">Botsballen</span>
+        <span class="prod-row-price">&euro;150 / dag</span>
+      </a>
+      <a href="reuzespelen.html" class="prod-row">
+        <span class="prod-row-name">Reuzespelen</span>
+        <span class="prod-row-price">&euro;75 / dag</span>
       </a>
     </div>
 
-    <h2>Hoe werkt het?</h2>
-    <p>Een feest plannen met EventRentals in Zulte is eenvoudig:</p>
-    <ol style="padding-left:20px;margin-bottom:16px;">
-      <li style="margin-bottom:8px;">Blader door ons aanbod en kies de producten die u wilt huren.</li>
-      <li style="margin-bottom:8px;">Vul het bestelformulier in met uw verhuurperiode en adres in Zulte.</li>
-      <li style="margin-bottom:8px;">Wij nemen contact op ter bevestiging en bespreken het leveringstijdstip.</li>
-      <li style="margin-bottom:8px;">Op de afgesproken dag leveren en plaatsen wij alles — na het feest halen wij het materiaal terug op.</li>
+    <h2>Feestmateriaal en tuinfeest huren in Zulte</h2>
+    <p>Partytenten, tafels, stoelen, sfeerverlichting, tapinstallatie en meer — alles voor een geslaagd tuinfeest of receptie in Zulte.</p>
+    <div class="prod-list">
+      <a href="partytent-3x6m.html" class="prod-row">
+        <span class="prod-row-name">Partytent 3&times;6m</span>
+        <span class="prod-row-price">&euro;110 / dag</span>
+      </a>
+      <a href="partytent-4x8m.html" class="prod-row">
+        <span class="prod-row-name">Partytent 4&times;8m</span>
+        <span class="prod-row-price">&euro;175 / dag</span>
+      </a>
+      <a href="easy-up-vouwtent.html" class="prod-row">
+        <span class="prod-row-name">Easy-up Vouwtent 3&times;3m</span>
+        <span class="prod-row-price">&euro;65 / dag</span>
+      </a>
+      <a href="houten-tentvloer.html" class="prod-row">
+        <span class="prod-row-name">Houten Tentvloer</span>
+        <span class="prod-row-price">&euro;45 / dag</span>
+      </a>
+      <a href="klapstoel-wit.html" class="prod-row">
+        <span class="prod-row-name">Klapstoel Wit</span>
+        <span class="prod-row-price">&euro;2 / stuk</span>
+      </a>
+      <a href="klaptafel-180cm.html" class="prod-row">
+        <span class="prod-row-name">Klaptafel 180cm</span>
+        <span class="prod-row-price">&euro;8 / stuk</span>
+      </a>
+      <a href="barkruk.html" class="prod-row">
+        <span class="prod-row-name">Barkruk Lounge Zwart</span>
+        <span class="prod-row-price">&euro;8 / stuk</span>
+      </a>
+      <a href="biertafelset.html" class="prod-row">
+        <span class="prod-row-name">Biertafelset</span>
+        <span class="prod-row-price">&euro;30 / set</span>
+      </a>
+      <a href="statafel.html" class="prod-row">
+        <span class="prod-row-name">Statafel</span>
+        <span class="prod-row-price">&euro;15 / stuk</span>
+      </a>
+      <a href="statafelhoes.html" class="prod-row">
+        <span class="prod-row-name">Statafelhoes</span>
+        <span class="prod-row-price">&euro;5 / stuk</span>
+      </a>
+      <a href="buitenstoel.html" class="prod-row">
+        <span class="prod-row-name">Buitenstoel</span>
+        <span class="prod-row-price">&euro;3 / stuk</span>
+      </a>
+      <a href="picknicktafel.html" class="prod-row">
+        <span class="prod-row-name">Picknicktafel</span>
+        <span class="prod-row-price">&euro;25 / dag</span>
+      </a>
+      <a href="terrasverwarmer.html" class="prod-row">
+        <span class="prod-row-name">Terrasverwarmer</span>
+        <span class="prod-row-price">&euro;40 / dag</span>
+      </a>
+      <a href="led-sfeerverlichting.html" class="prod-row">
+        <span class="prod-row-name">LED Sfeerverlichting</span>
+        <span class="prod-row-price">&euro;25 / set</span>
+      </a>
+      <a href="muziekbox.html" class="prod-row">
+        <span class="prod-row-name">Muziekbox Bluetooth</span>
+        <span class="prod-row-price">&euro;65 / dag</span>
+      </a>
+      <a href="koelkast.html" class="prod-row">
+        <span class="prod-row-name">Koelkast 150L</span>
+        <span class="prod-row-price">&euro;45 / dag</span>
+      </a>
+      <a href="tapinstallatie.html" class="prod-row">
+        <span class="prod-row-name">Tapinstallatie</span>
+        <span class="prod-row-price">&euro;75 / dag</span>
+      </a>
+      <a href="percolator.html" class="prod-row">
+        <span class="prod-row-name">Percolator</span>
+        <span class="prod-row-price">&euro;35 / dag</span>
+      </a>
+    </div>
+
+    <h2>Hoe werkt huren in Zulte?</h2>
+    <ol>
+      <li>Blader door ons aanbod en voeg producten toe aan uw winkelmandje.</li>
+      <li>Vul het bestelformulier in met uw verhuurperiode en adres in Zulte.</li>
+      <li>Wij nemen contact op ter bevestiging en bespreken het leveringstijdstip.</li>
+      <li>Op de afgesproken dag leveren en plaatsen wij alles — na het feest halen wij op.</li>
     </ol>
 
-    <h2>Vragen over levering in Zulte?</h2>
-    <p>Bel ons op <a href="tel:0477396350" style="color:var(--dark);font-weight:700;">0477 39 63 50</a> of stuur een mail naar <a href="mailto:info@eventrentals.be" style="color:var(--dark);font-weight:700;">info@eventrentals.be</a>. Wij beantwoorden uw vragen graag en stellen een offerte op maat samen.</p>
+    <h2>Veelgestelde vragen — Zulte</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Wat kost springkasteel huren in Zulte?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">Een standaard springkasteel huren in Zulte kost &euro;95 per dag. Grotere springkastelen met glijbaan zijn beschikbaar vanaf &euro;150. Levering is gratis in Zulte bij een bestelling vanaf &euro;150.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Levert EventRentals ook in Machelen en Olsene?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">Ja! Wij leveren in alle deelgemeenten van Zulte: Zulte centrum, Machelen en Olsene. Gratis bij huurwaarde vanaf &euro;150.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Kan ik een hindernisbaan huren in Zulte?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">Absoluut! Onze opblaasbare hindernisbaan (10&times;3m) kost &euro;225 per dag en wordt geleverd en geplaatst in Zulte. U hebt een vlakke ruimte van ca. 12&times;5m nodig.</div>
+      </div>
+    </div>
 
     <div class="cta-box">
-      <h2>Klaar om te reserveren?</h2>
-      <p>Stel vrijblijvend een aanvraag samen voor uw feest in Zulte.</p>
+      <h2>Klaar om te reserveren in Zulte?</h2>
+      <p>Stel vrijblijvend een aanvraag samen. Wij bevestigen zo snel mogelijk.</p>
       <a href="bestelling.html" class="cta-btn">Aanvraag indienen</a>
     </div>
 
@@ -326,6 +423,13 @@ document.getElementById('hamburgerBtn').addEventListener('click', function() {
 });
 document.querySelectorAll('#mobileMenu a').forEach(function(link) {
   link.addEventListener('click', function() { document.getElementById('mobileMenu').classList.remove('open'); });
+});
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var open = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', open ? 'false' : 'true');
+    this.nextElementSibling.classList.toggle('open', !open);
+  });
 });
 (function() {
   function updateCartBadge() {
