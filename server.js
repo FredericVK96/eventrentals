@@ -103,6 +103,17 @@ async function appendToSheet(row, tab = 'Bestellingen', startRow = 1) {
   }
 }
 
+/* ── SITEMAP + ROBOTS ───────────────────────────────────── */
+app.get('/sitemap.xml', (req, res) => {
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+  res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
+app.get('/robots.txt', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  res.send('User-agent: *\nAllow: /\nSitemap: https://www.eventrentals.be/sitemap.xml\n');
+});
+
 /* ── GEOCODE PROXY (Nominatim) ───────────────────────────── */
 const geocodeLimiter = rateLimit({ windowMs: 60 * 1000, max: 30, standardHeaders: true, legacyHeaders: false });
 
