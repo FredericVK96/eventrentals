@@ -8,7 +8,9 @@
     { "src": "*.jpeg", "use": "@vercel/static" },
     { "src": "*.webp", "use": "@vercel/static" },
     { "src": "*.jfif", "use": "@vercel/static" },
-    { "src": "*.avif", "use": "@vercel/static" }
+    { "src": "*.avif", "use": "@vercel/static" },
+    { "src": "*.xml", "use": "@vercel/static" },
+    { "src": "*.txt", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/server.js" },
