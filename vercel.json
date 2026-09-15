@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "cleanUrls": true,
+  "alias": ["eventrentals.be", "www.eventrentals.be"],
   "builds": [
     { "src": "server.js", "use": "@vercel/node" },
     { "src": "*.html", "use": "@vercel/static" },
@@ -11,6 +13,23 @@
     { "src": "*.avif", "use": "@vercel/static" },
     { "src": "*.xml", "use": "@vercel/static" },
     { "src": "*.txt", "use": "@vercel/static" }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "eventrentals.be" }],
+      "destination": "https://www.eventrentals.be/$1",
+      "permanent": true
+    },
+    { "source": "/springkasteel-huren-gent", "destination": "/feestmateriaal-huren-gent", "permanent": true },
+    { "source": "/springkasteel-huren-de-pinte", "destination": "/feestmateriaal-huren-de-pinte", "permanent": true },
+    { "source": "/springkasteel-huren-nazareth", "destination": "/feestmateriaal-huren-nazareth", "permanent": true },
+    { "source": "/springkasteel-huren-merelbeke", "destination": "/feestmateriaal-huren-merelbeke", "permanent": true },
+    { "source": "/springkasteel-huren-sint-martens-latem", "destination": "/feestmateriaal-huren-sint-martens-latem", "permanent": true },
+    { "source": "/springkasteel-huren-gavere", "destination": "/feestmateriaal-huren-gavere", "permanent": true },
+    { "source": "/springkasteel-huren-deinze", "destination": "/feestmateriaal-huren-deinze", "permanent": true },
+    { "source": "/springkasteel-huren-oudenaarde", "destination": "/feestmateriaal-huren-oudenaarde", "permanent": true },
+    { "source": "/springkasteel-huren-zulte", "destination": "/feestmateriaal-huren-zulte", "permanent": true }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/server.js" },

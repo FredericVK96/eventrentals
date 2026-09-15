@@ -1,0 +1,41 @@
+<div class="utility-bar">Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="index.html#transport">bekijk de transporttarieven</a></div>
+
+<div class="search-row">
+  <div class="search-row-inner">
+    <a href="index.html" class="logo"><img src="Eventrentals Logo.png" alt="EventRentals" class="logo-full"></a>
+    <div class="nav-search-wrap">
+      <form class="boels-search-form" onsubmit="navSearchSubmit(event)" id="navSearchForm">
+        <input id="navSearchInput" type="text" autocomplete="off" placeholder="Zoek in ons volledige assortiment…" oninput="navAutocomplete(this.value)">
+        <button type="submit" aria-label="Zoeken">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Zoeken
+        </button>
+      </form>
+      <div class="nav-search-dropdown" id="navSearchDropdown"></div>
+    </div>
+    <div class="right-group">
+      <a href="tel:0477396350" class="nav-phone">0477 39 63 50</a>
+      <a href="bestelling.html" class="cart-icon-link" id="cartIconLink" title="Jouw bestelling">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#catalogus">Ons verhuurassortiment</a>
+    <a href="index.html#transport">Transport</a>
+    <a href="#contact">Contact</a>
+    <a href="bestelling.html">Bestelling plaatsen</a>
+  </div>
+</div>
+
+<div class="menu-row">
+  <nav class="menu-row-inner" aria-label="Hoofdmenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#catalogus">Ons verhuurassortiment</a>
+    <a href="index.html#transport">Transport</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>

@@ -1,0 +1,44 @@
+
+<script>
+function navAutocomplete(val) {
+  var dd = document.getElementById('navSearchDropdown');
+  var q = val.trim().toLowerCase();
+  if (q.length < 1) { dd.style.display = 'none'; return; }
+  var matches = [];
+  NAV_SEARCH_PRODUCTS.forEach(function(p) {
+    var score = 0;
+    if (p.name.toLowerCase().indexOf(q) !== -1) score = 10;
+    p.keys.forEach(function(k) { if (k.indexOf(q) !== -1) score = Math.max(score, k.indexOf(q) === 0 ? 8 : 5); });
+    if (score > 0) matches.push({ p: p, score: score });
+  });
+  matches.sort(function(a, b) { return b.score - a.score; });
+  matches = matches.slice(0, 6);
+  if (matches.length === 0) { dd.style.display = 'none'; return; }
+  dd.innerHTML = matches.map(function(m) {
+    var thumb = m.p.img ? '<img src="' + m.p.img + '" alt="' + m.p.name + '">' : '<div style="width:36px;height:36px;background:var(--bg);border-radius:6px;flex-shrink:0;"></div>';
+    return '<a href="' + m.p.link + '" class="nav-dd-item" onclick="if(window.gtag)gtag(\'event\',\'search_suggestion_click\',{product_name:\'' + m.p.name.replace(/'/g, "\\'") + '\'})">' +
+      thumb + '<div><strong>' + m.p.name + '</strong><span>' + m.p.desc + '</span></div></a>';
+  }).join('');
+  dd.style.display = 'block';
+}
+
+function navSearchSubmit(e) {
+  e.preventDefault();
+  var q = document.getElementById('navSearchInput').value.trim().toLowerCase();
+  if (!q) return;
+  if (window.gtag) gtag('event', 'search', { search_term: q });
+  var best = null, bestScore = 0;
+  NAV_SEARCH_PRODUCTS.forEach(function(p) {
+    var score = 0;
+    if (p.name.toLowerCase().indexOf(q) !== -1) score = 10;
+    p.keys.forEach(function(k) { if (k.indexOf(q) !== -1) score = Math.max(score, k.indexOf(q) === 0 ? 8 : 5); });
+    if (score > bestScore) { bestScore = score; best = p; }
+  });
+  if (best) { window.location = best.link; } else { window.location = 'index.html#catalogus'; }
+}
+
+document.addEventListener('click', function(e) {
+  var wrap = document.querySelector('.nav-search-wrap');
+  if (wrap && !wrap.contains(e.target)) { var dd = document.getElementById('navSearchDropdown'); if (dd) dd.style.display = 'none'; }
+});
+</script>
