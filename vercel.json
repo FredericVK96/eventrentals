@@ -12,7 +12,8 @@
     { "src": "*.jfif", "use": "@vercel/static" },
     { "src": "*.avif", "use": "@vercel/static" },
     { "src": "*.xml", "use": "@vercel/static" },
-    { "src": "*.txt", "use": "@vercel/static" }
+    { "src": "*.txt", "use": "@vercel/static" },
+    { "src": "search-data.js", "use": "@vercel/static" }
   ],
   "redirects": [
     {
