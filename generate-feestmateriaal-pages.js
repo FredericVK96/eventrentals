@@ -40,7 +40,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Gent?', a: 'Ja, EventRentals levert springkastelen, partytenten, tafels en stoelen in heel Gent — van Gentbrugge en Ledeberg tot Wondelgem, Drongen en Zwijnaarde. Wij leveren op uw gewenste datum en tijdstip.' },
-      { q: 'Wat kost levering van feestmateriaal in Gent?', a: 'Gent valt doorgaans in zone 2: €70 vaste transportkost + €0,65/km per rit. Deelgemeenten zoals Zwijnaarde of Gentbrugge kunnen in zone 1 vallen (€40 + €0,65/km). Gebruik de calculator boven voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Gent?', a: 'Gent valt doorgaans in zone 2: €25 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Deelgemeenten zoals Zwijnaarde of Gentbrugge kunnen in zone 1 vallen (€15 + €0,55/km). Gebruik de calculator boven voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Gent?', a: 'Bij tijdige boeking leveren wij op uw gewenste datum. Voor spoedboeking in Gent belt u best op 0477 39 63 50 — wij kijken samen naar de mogelijkheden.' },
       { q: 'Leveren jullie ook in alle deelgemeenten van Gent?', a: 'Ja, wij leveren in alle Gentse deelgemeenten: Gentbrugge, Ledeberg, Sint-Amandsberg, Mariakerke, Wondelgem, Drongen, Zwijnaarde, Afsnee, Sint-Denijs-Westrem en meer.' },
       { q: 'Kunnen jullie leveren in het centrum van Gent?', a: 'Ja, ook in het Gentse stadscentrum leveren wij. Vermeldt u bij uw boeking of er smalle straten, parkeerverboden of andere toegangsbeperkingen zijn — dan plannen wij de route op voorhand.' },
@@ -60,7 +60,7 @@ const LOCATIONS = [
     heroLocations: 'Ons depot staat in Begoniapark 14, De Pinte — materiaal ook beschikbaar voor zelf ophalen op afspraak',
     metaDesc: 'Feestmateriaal huren in De Pinte? EventRentals is gevestigd in De Pinte — laagste transportkost, snelste levering. Springkastelen, partytenten en meer.',
     areaServed: ['De Pinte','Nazareth','Zevergem','Sint-Martens-Latem','Gavere'],
-    zoneIntro: 'De Pinte is onze thuisgemeente &mdash; u valt altijd in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €150.',
+    zoneIntro: 'De Pinte is onze thuisgemeente &mdash; u valt altijd in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €100.',
     faq10Naam: 'tuinfeest in De Pinte',
     faqTips: [
       'Ons depot staat in Begoniapark 14 — u kunt materiaal op afspraak komen ophalen en besparen op transportkost.',
@@ -88,7 +88,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in De Pinte?', a: 'Ja, EventRentals levert springkastelen, partytenten en evenementmateriaal in De Pinte en omliggende gemeenten zoals Nazareth, Sint-Martens-Latem en Gavere.' },
-      { q: 'Wat kost levering van feestmateriaal in De Pinte?', a: 'De Pinte valt in zone 1: €40 vaste transportkost + €0,65/km per rit. Gratis levering bij huurwaarde ≥ €150. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in De Pinte?', a: 'De Pinte valt in zone 1: €15 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in De Pinte?', a: 'Zeer snel — wij zijn een lokale verhuurder en kunnen bij beschikbaarheid ook dezelfde dag leveren. Bel 0477 39 63 50 voor spoedbestellingen.' },
       { q: 'Kan ik feestmateriaal zelf ophalen in De Pinte?', a: 'Ja, op afspraak kunt u materiaal ophalen in Begoniapark 14, De Pinte. Bel ons op 0477 39 63 50 om een tijdstip af te spreken. Voor grote stukken zoals partytenten raden wij levering aan.' },
       { q: 'Leveren jullie ook in Zevergem en omliggende gemeenten vanuit De Pinte?', a: 'Ja, wij leveren vanuit De Pinte ook in Nazareth, Gavere, Sint-Martens-Latem, Zevergem en andere omliggende gemeenten — allemaal in zone 1.' },
@@ -108,7 +108,7 @@ const LOCATIONS = [
     heroLocations: 'Wij leveren in Nazareth, De Pinte, Eke, Zevergem, Gavere en alle omliggende gemeenten',
     metaDesc: 'Feestmateriaal huren in Nazareth? EventRentals vertrekt vanuit Nazareth-De Pinte — snelste levering, eerlijke prijs. Springkastelen, tenten en tuinfeestmateriaal.',
     areaServed: ['Nazareth','De Pinte','Eke','Zevergem','Gavere'],
-    zoneIntro: 'Nazareth ligt pal naast ons depot &mdash; u valt altijd in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €150.',
+    zoneIntro: 'Nazareth ligt pal naast ons depot &mdash; u valt altijd in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €100.',
     faq10Naam: 'tuinfeest in Nazareth',
     faqTips: [
       'Ons depot staat in Begoniapark 14, Nazareth — dichtste verhuurder voor uw feest, laagste transportkost.',
@@ -116,7 +116,7 @@ const LOCATIONS = [
       'Plan de levering minstens 1 uur voor aanvang van het feest zodat er voldoende opbouwtijd is.',
       'Combineer een hindernisbaan met een springkasteel voor grotere kindergroepen — meer afwisseling, meer plezier.',
       'Gebruik een partytent als schaduwplek — zelfs op zonnige Oost-Vlaamse zomerdagen is schaduw welkom.',
-      'Kies voor zone 1 gratis levering door uw bestelling boven €150 uit te bouwen: extra stoel- of tafelverhuur telt mee.',
+      'Kies voor gratis levering (zone 1 & 2) door uw bestelling boven €100 uit te bouwen: extra stoel- of tafelverhuur telt mee.',
       'Reserveer op vrijdag voor het weekend: wij leveren op zaterdagochtend en halen op zondagavond op.',
       'Huur een terrasverwarmer voor feesten in het voor- of najaar &mdash; Nazareth-avonden worden snel fris.',
       'Markeer de hoekpunten van het springkasteel voor de opbouw, zodat het op de juiste plek staat in uw tuin.',
@@ -136,7 +136,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Nazareth?', a: 'Ja, EventRentals levert springkastelen huren, feesttenten en tafels en stoelen huren in Nazareth, Eke, Zevergem en omliggende gemeenten.' },
-      { q: 'Wat kost levering van feestmateriaal in Nazareth?', a: 'Nazareth valt in zone 1: €40 vaste transportkost + €0,65/km per rit. Gratis levering bij huurwaarde ≥ €150. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Nazareth?', a: 'Nazareth valt in zone 1: €15 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Nazareth?', a: 'Nazareth ligt vlakbij ons depot — wij zijn er snel. Bij beschikbaarheid is spoedboeking dezelfde dag mogelijk. Bel 0477 39 63 50 voor de actuele planning.' },
       { q: 'Leveren jullie ook in Eke en Zevergem?', a: 'Ja, wij leveren in heel de gemeente Nazareth: Nazareth-centrum, Eke en Zevergem. Alle deelgemeenten vallen in zone 1.' },
       { q: 'Zijn leveringen op zaterdag en zondag mogelijk in Nazareth?', a: 'Zeker, wij leveren zeven dagen op zeven — ook in het weekend. Uw tijdslot wordt bij boeking bevestigd.' },
@@ -156,7 +156,7 @@ const LOCATIONS = [
     heroLocations: 'Wij leveren in Merelbeke, Lemberge, Munte, Bottelare, Gontrode en omgeving',
     metaDesc: 'Feestmateriaal huren in Merelbeke? EventRentals levert snel vanuit De Pinte. Springkastelen, partytenten, tuinfeestmateriaal — plaatsing altijd inbegrepen.',
     areaServed: ['Merelbeke','Lemberge','Munte','Bottelare','Gontrode'],
-    zoneIntro: 'Merelbeke valt in <strong>zone 1</strong> (0–15 km van ons depot). Gratis levering bij huurwaarde ≥ €150.',
+    zoneIntro: 'Merelbeke valt in <strong>zone 1</strong> (0–15 km van ons depot). Gratis levering bij huurwaarde ≥ €100.',
     faq10Naam: 'tuinfeest in Merelbeke',
     faqTips: [
       'Merelbeke heeft ruime rijwoningen en halfopen bebouwing — perfect voor een springkasteel op het achterterras.',
@@ -184,7 +184,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Merelbeke?', a: 'Ja, EventRentals levert springkastelen, partytenten en evenementmateriaal huren in heel Merelbeke — van het centrum tot Lemberge, Munte, Bottelare en Gontrode.' },
-      { q: 'Wat kost levering van feestmateriaal in Merelbeke?', a: 'Merelbeke valt in zone 1: €40 vaste transportkost + €0,65/km per rit. Gratis levering bij huurwaarde ≥ €150. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Merelbeke?', a: 'Merelbeke valt in zone 1: €15 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Merelbeke?', a: 'Merelbeke valt in zone 1, vlakbij ons depot. Wij leveren op uw gewenste datum en tijdstip. Voor dringende bestellingen belt u 0477 39 63 50.' },
       { q: 'Leveren jullie ook in Lemberge, Munte, Bottelare en Gontrode?', a: 'Ja, wij leveren in alle deelgemeenten van Merelbeke: Merelbeke-centrum, Lemberge, Munte, Bottelare en Gontrode — allemaal in zone 1.' },
       { q: 'Kunnen jullie leveren aan de rand van Gent in Merelbeke?', a: 'Ja, Merelbeke grenst aan Gent en wij zijn vertrouwd met deze overgangszone. Uw adres valt in zone 1, wat de transportkost laag houdt.' },
@@ -204,7 +204,7 @@ const LOCATIONS = [
     heroLocations: 'Wij leveren in Sint-Martens-Latem, Deurle en alle omliggende gemeenten langs de Leie',
     metaDesc: 'Feestmateriaal huren in Sint-Martens-Latem of Deurle? EventRentals levert snel vanuit De Pinte. Springkastelen, partytenten en meer — plaatsing inbegrepen.',
     areaServed: ['Sint-Martens-Latem','Deurle','De Pinte','Gavere','Nazareth'],
-    zoneIntro: 'Sint-Martens-Latem en Deurle vallen in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €150.',
+    zoneIntro: 'Sint-Martens-Latem en Deurle vallen in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €100.',
     faq10Naam: 'tuinfeest in Sint-Martens-Latem',
     faqTips: [
       'De ruime tuinen langs de Leie zijn ideaal voor grote partytenten en springkastelen naast elkaar.',
@@ -232,7 +232,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Sint-Martens-Latem?', a: 'Ja, EventRentals levert springkastelen huren, feesttenten en tafels en stoelen huren in Sint-Martens-Latem en Deurle. Wij leveren op uw gewenste datum langs de Leie en in de ruime villatuinen.' },
-      { q: 'Wat kost levering van feestmateriaal in Sint-Martens-Latem?', a: 'Sint-Martens-Latem valt in zone 1: €40 vaste transportkost + €0,65/km per rit. Gratis levering bij huurwaarde ≥ €150. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Sint-Martens-Latem?', a: 'Sint-Martens-Latem valt in zone 1: €15 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Sint-Martens-Latem?', a: 'Sint-Martens-Latem valt in zone 1, vlakbij ons depot. Wij leveren op uw gewenste tijdstip. Bel 0477 39 63 50 voor beschikbaarheid.' },
       { q: 'Leveren jullie ook in Deurle?', a: 'Ja, wij leveren in de volledige gemeente Sint-Martens-Latem, inclusief Deurle. Beide deelgemeenten vallen in zone 1.' },
       { q: 'Zijn leveringen mogelijk langs de Leie in Sint-Martens-Latem?', a: 'Ja, wij leveren langs de Leie in Sint-Martens-Latem en Deurle. Vermeld bij uw aanvraag of de toegangsweg via een Leiepad of smalle oprit verloopt — dan plannen wij de route op voorhand.' },
@@ -252,7 +252,7 @@ const LOCATIONS = [
     heroLocations: 'Wij leveren in Gavere, Asper, Baaigem, Vurste, Semmerzake en Dikkelvenne',
     metaDesc: 'Feestmateriaal huren in Gavere? EventRentals levert springkastelen, partytenten en tuinfeestmateriaal in Gavere en deelgemeenten. Snel, eerlijk geprijsd.',
     areaServed: ['Gavere','Asper','Baaigem','Vurste','Semmerzake','Dikkelvenne'],
-    zoneIntro: 'Gavere valt in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €150.',
+    zoneIntro: 'Gavere valt in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €100.',
     faq10Naam: 'tuinfeest in Gavere',
     faqTips: [
       'Gavere heeft veel ruime tuinen op het platteland &mdash; ideaal voor een groot springkasteel of hindernisbaan.',
@@ -280,7 +280,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Gavere?', a: 'Ja, EventRentals levert springkastelen, feesttenten huren en tafels en stoelen huren in heel Gavere — van het centrum tot Asper, Baaigem, Vurste, Semmerzake en Dikkelvenne.' },
-      { q: 'Wat kost levering van feestmateriaal in Gavere?', a: 'Gavere valt in zone 1: €40 vaste transportkost + €0,65/km per rit. Gratis levering bij huurwaarde ≥ €150. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Gavere?', a: 'Gavere valt in zone 1: €15 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Gavere?', a: 'Gavere valt in zone 1, vlakbij ons depot. Bij tijdige boeking leveren wij op uw gewenste tijdstip. Spoedboeking dezelfde dag is soms mogelijk — bel 0477 39 63 50.' },
       { q: 'Leveren jullie ook in Asper, Baaigem, Vurste en de andere deelgemeenten van Gavere?', a: 'Ja, wij leveren in alle deelgemeenten van Gavere: Gavere-centrum, Asper, Baaigem, Vurste, Semmerzake en Dikkelvenne.' },
       { q: 'Zijn leveringen mogelijk op het platteland rond Gavere?', a: 'Ja, wij leveren op het platteland in de Gavere-regio. Sommige landelijke wegen zijn smal — vermeld dit bij uw aanvraag zodat wij de route op voorhand kunnen plannen.' },
@@ -328,7 +328,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Deinze?', a: 'Ja, EventRentals levert springkastelen huren, partytenten en evenementmateriaal huren in heel groot-Deinze — van het stadscentrum tot Zulte, Petegem-aan-de-Leie, Astene en Nevele.' },
-      { q: 'Wat kost levering van feestmateriaal in Deinze?', a: 'Deinze valt doorgaans in zone 2: €70 vaste transportkost + €0,65/km per rit. Sommige deelgemeenten zoals Zulte kunnen in zone 1 vallen. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Deinze?', a: 'Deinze valt doorgaans in zone 2: €25 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Sommige deelgemeenten zoals Zulte kunnen in zone 1 vallen. Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Deinze?', a: 'Wij leveren op uw gewenste datum en tijdstip in groot-Deinze. Voor spoedbestellingen belt u 0477 39 63 50 — wij bekijken samen de mogelijkheden.' },
       { q: 'Leveren jullie ook in Zulte, Petegem-aan-de-Leie, Astene en Nevele?', a: 'Ja, wij leveren in alle deelgemeenten van groot-Deinze: Deinze-centrum, Zulte, Petegem-aan-de-Leie, Astene, Nevele en omliggende gehuchten.' },
       { q: 'Kunnen jullie leveren in het centrum van Deinze?', a: 'Ja, ook in het centrum van Deinze leveren wij feestmateriaal. Vermeld bij uw aanvraag eventuele parkeer- of toegangsbeperkingen zodat wij de levering vlot kunnen plannen.' },
@@ -376,7 +376,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Oudenaarde?', a: 'Ja, EventRentals levert springkastelen, feesttenten huren en evenementmateriaal in heel Oudenaarde — van het historische centrum tot Ename, Eine, Bevere, Leupegem, Melden en Welden.' },
-      { q: 'Wat kost levering van feestmateriaal in Oudenaarde?', a: 'Oudenaarde valt in zone 2: €70 vaste transportkost + €0,65/km per rit. Gebruik de calculator voor uw exacte adres in de Vlaamse Ardennen.' },
+      { q: 'Wat kost levering van feestmateriaal in Oudenaarde?', a: 'Oudenaarde valt in zone 2: €25 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres in de Vlaamse Ardennen.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Oudenaarde?', a: 'Wij leveren op uw gewenste datum in Oudenaarde en de Vlaamse Ardennen. Reserveer bij voorkeur 2–3 weken op voorhand. Bel 0477 39 63 50 voor beschikbaarheid.' },
       { q: 'Leveren jullie ook in Ename, Eine, Bevere en de andere deelgemeenten van Oudenaarde?', a: 'Ja, wij leveren in alle deelgemeenten van Oudenaarde: Ename, Eine, Bevere, Leupegem, Melden, Welden en alle andere gehuchten in de Vlaamse Ardennen.' },
       { q: 'Zijn leveringen mogelijk op heuvelachtig terrein in de Vlaamse Ardennen?', a: 'Wij leveren in het heuvelachtige landschap van de Vlaamse Ardennen. Let op: opblaasmaterialen zoals springkastelen vereisen een vlakke ondergrond. Vermeld het terrein bij uw aanvraag zodat wij mee kunnen denken.' },
@@ -396,7 +396,7 @@ const LOCATIONS = [
     heroLocations: 'Wij leveren in Zulte, Olsene, Machelen en omliggende gemeenten',
     metaDesc: 'Feestmateriaal huren in Zulte of Olsene? EventRentals levert snel vanuit De Pinte. Springkastelen, partytenten en tuinfeestmateriaal — plaatsing altijd inbegrepen.',
     areaServed: ['Zulte','Olsene','Machelen','Nazareth','Sint-Martens-Latem'],
-    zoneIntro: 'Zulte grenst aan ons depot &mdash; u valt in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €150.',
+    zoneIntro: 'Zulte grenst aan ons depot &mdash; u valt in <strong>zone 1</strong> (0–15 km). Gratis levering bij huurwaarde ≥ €100.',
     faq10Naam: 'tuinfeest in Zulte',
     faqTips: [
       'Zulte grenst aan Nazareth-De Pinte: kortste levertijd, laagste transportkost in de regio.',
@@ -424,7 +424,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Zulte?', a: 'Ja, EventRentals levert springkastelen huren, partytenten en tafels en stoelen huren in Zulte, Olsene en Machelen. Wij leveren op uw gewenste datum en tijdstip.' },
-      { q: 'Wat kost levering van feestmateriaal in Zulte?', a: 'Zulte valt in zone 1: €40 vaste transportkost + €0,65/km per rit. Gratis levering bij huurwaarde ≥ €150. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Zulte?', a: 'Zulte valt in zone 1: €15 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Zulte?', a: 'Zulte grenst aan ons depot — wij zijn er snel. Bij beschikbaarheid is spoedboeking dezelfde dag mogelijk. Bel 0477 39 63 50 voor de actuele planning.' },
       { q: 'Leveren jullie ook in Olsene en Machelen?', a: 'Ja, wij leveren in de drie deelgemeenten van Zulte: Zulte-centrum, Olsene en Machelen. Allemaal in zone 1.' },
       { q: 'Zijn leveringen mogelijk op het platteland rond Zulte?', a: 'Ja, wij leveren op het platteland in de Zulte-regio. Vermeld bij uw aanvraag eventuele smalle toegangswegen zodat wij de route op voorhand kunnen plannen.' },
@@ -437,15 +437,15 @@ const LOCATIONS = [
 
 function zoneCard(zone) {
   const data = {
-    1: { label:'Zone 1', kleur:'color:#3B6D11;background:#EAF3DE', km:'0–15 km', prijs:'€40', gratis:true },
-    2: { label:'Zone 2', kleur:'color:#854F0B;background:#FAEEDA', km:'15–30 km', prijs:'€70', gratis:false },
-    3: { label:'Zone 3', kleur:'color:#993C1D;background:#FAECE7', km:'30–50 km', prijs:'€100', gratis:false },
+    1: { label:'Zone 1', kleur:'color:#3B6D11;background:#EAF3DE', km:'0–15 km', prijs:'€15', gratis:true },
+    2: { label:'Zone 2', kleur:'color:#854F0B;background:#FAEEDA', km:'15–30 km', prijs:'€25', gratis:true },
+    3: { label:'Zone 3', kleur:'color:#993C1D;background:#FAECE7', km:'30–50 km', prijs:'€35', gratis:false },
   }[zone];
   return `<div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
       <div style="font-size:12px;font-weight:700;text-transform:uppercase;${data.kleur};padding:4px 12px;border-radius:4px;flex-shrink:0;">${data.label} · ${data.km}</div>
       <div style="flex:1;min-width:160px;">
-        <div style="font-size:15px;font-weight:700;color:#1a1a1a;">${data.prijs} vaste transportkost + €0,65/km</div>
-        ${data.gratis ? `<div style="font-size:12px;color:#2B7A6E;font-weight:600;margin-top:2px;">Gratis bij huurwaarde ≥ €150</div>` : ''}
+        <div style="font-size:15px;font-weight:700;color:#1a1a1a;">${data.prijs} vaste transportkost + €0,55/km</div>
+        ${data.gratis ? `<div style="font-size:12px;color:#2B7A6E;font-weight:600;margin-top:2px;">Gratis bij huurwaarde ≥ €100</div>` : ''}
       </div>
       <div style="font-size:13px;color:#6b7280;">Gebruik de calculator voor uw exacte adres.</div>
     </div>`;
@@ -475,11 +475,11 @@ function popularSection(loc) {
 }
 
 function transportEstimate(loc) {
-  const base = { 1: 40, 2: 70, 3: 100 }[loc.zone];
-  const kmCost = Math.round(loc.distKm * 0.65);
+  const base = { 1: 15, 2: 25, 3: 35 }[loc.zone];
+  const kmCost = Math.round(loc.distKm * 0.55);
   const perRit = base + kmCost;
   const beide = perRit * 2;
-  const gratisNote = loc.zone === 1 ? `<div style="font-size:11px;color:#2B7A6E;font-weight:600;margin-top:4px;">Gratis bij huurwaarde ≥ €150</div>` : '';
+  const gratisNote = loc.zone === 1 ? `<div style="font-size:11px;color:#2B7A6E;font-weight:600;margin-top:4px;">Gratis bij huurwaarde ≥ €100</div>` : '';
   return `<div style="background:#f4fbfa;border:1px solid #c5e0db;border-radius:10px;padding:18px 20px;margin-bottom:16px;">
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#2B7A6E;letter-spacing:0.08em;margin-bottom:12px;">Schatting voor ${loc.naam} centrum (~${loc.distKm} km)</div>
       <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;">
@@ -658,11 +658,11 @@ function generatePage(loc, idx) {
 <div id="sticky-header" style="position:sticky;top:0;z-index:1100;">
 <div style="background:var(--dark,#2B7A6E);color:#fff;padding:9px 0;font-size:0.88rem;font-weight:600;font-family:'Nunito',sans-serif;overflow:hidden;white-space:nowrap;">
   <span style="display:inline-block;animation:bannerScroll 32s linear infinite;">
-    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
+    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
+    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Gratis levering binnen 15km van De Pinte vanaf &euro;150 huurwaarde &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
+    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span>
 </div>
@@ -791,7 +791,7 @@ function generatePage(loc, idx) {
           <span style="font-size:14px;font-weight:600;color:#6b7280;">Totaal incl. BTW</span>
           <span style="font-size:24px;font-weight:700;color:#2B7A6E;" id="br-r-totaal"></span>
         </div>
-        <p style="font-size:12px;color:#9ca3af;margin-top:16px;line-height:1.5;">Gratis levering (zone 1) bij huurwaarde &ge; &euro;150. &nbsp;·&nbsp; Dringende levering (zelfde dag of na 17u) = dubbele rit.</p>
+        <p style="font-size:12px;color:#9ca3af;margin-top:16px;line-height:1.5;">Gratis levering (zone 1) bij huurwaarde &ge; &euro;100. &nbsp;·&nbsp; Dringende levering (zelfde dag of na 17u) = dubbele rit.</p>
       </div>
       <div id="br-buiten" style="display:none;margin-top:20px;border-top:1px solid #e5e7eb;padding-top:20px;">
         <div style="font-size:12px;font-weight:700;text-transform:uppercase;color:#A32D2D;background:#FCEBEB;display:inline-block;padding:3px 10px;border-radius:4px;margin-bottom:12px;">Buiten zone (&gt; 50 km)</div>
@@ -937,7 +937,7 @@ function brSelectSuggestion(i){ var item=brSuggestions[i];if(!item)return; docum
 function brKeyNav(e){ var ul=document.getElementById('br-suggestions');var items=ul.querySelectorAll('li'); if(!items.length){if(e.key==='Enter')brBereken();return;} if(e.key==='ArrowDown'){brAcIndex=Math.min(brAcIndex+1,items.length-1);brHighlight(items);e.preventDefault();} else if(e.key==='ArrowUp'){brAcIndex=Math.max(brAcIndex-1,-1);brHighlight(items);e.preventDefault();} else if(e.key==='Enter'){if(brAcIndex>=0)brSelectSuggestion(brAcIndex);else{ul.style.display='none';brBereken();}e.preventDefault();} else if(e.key==='Escape'){ul.style.display='none';} }
 function brHighlight(items){items.forEach(function(li,i){li.style.background=i===brAcIndex?'#e8f5f3':'';}); }
 function brBereken(){ var adres=document.getElementById('br-adres').value.trim(); var errEl=document.getElementById('br-error'),distEl=document.getElementById('br-dist'); document.getElementById('br-result').style.display='none'; document.getElementById('br-buiten').style.display='none'; errEl.style.display='none';distEl.style.display='none'; if(!adres){errEl.textContent='Vul een adres of gemeente in.';errEl.style.display='block';return;} var btn=document.getElementById('br-calc-btn');btn.textContent='...';btn.disabled=true; fetch('/api/geocode?q='+encodeURIComponent(adres+' België')).then(function(r){return r.json();}).then(function(data){ btn.textContent='Bereken';btn.disabled=false; if(!data||!data.length){errEl.textContent='Adres niet gevonden.';errEl.style.display='block';return;} brBerekenMetCoords(parseFloat(data[0].lat),parseFloat(data[0].lon)); }).catch(function(){btn.textContent='Bereken';btn.disabled=false;errEl.textContent='Fout opgetreden.';errEl.style.display='block';}); }
-function brBerekenMetCoords(lat,lon){ var dist=brHaversine(50.9720,3.6180,lat,lon); document.getElementById('br-dist').textContent='Afstand: ~'+Math.round(dist)+' km (hemelsbreed)'; document.getElementById('br-dist').style.display='block'; var ritMult=brRit==='beide'?2:1,zone,vaste; if(dist<=15){zone=1;vaste=40;}else if(dist<=30){zone=2;vaste=70;}else if(dist<=50){zone=3;vaste=100;}else{document.getElementById('br-buiten').style.display='block';return;} var kmKost=Math.round(dist*0.65*100)/100; var totaal=(vaste+kmKost)*ritMult; var zC={1:'color:#3B6D11;background:#EAF3DE',2:'color:#854F0B;background:#FAEEDA',3:'color:#993C1D;background:#FAECE7'}; var badge=document.getElementById('br-zone-badge'); badge.style.cssText=zC[zone]+';font-size:12px;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:14px;display:inline-block;'; badge.textContent='Zone '+zone+' — '+Math.round(dist)+' km'; document.getElementById('br-r-transport').textContent='€'+(vaste*ritMult).toFixed(2).replace('.',','); document.getElementById('br-r-km-label').textContent='Km-heffing ('+Math.round(dist)+' km × €0,65 × '+ritMult+' rit'+(ritMult>1?'ten':'')+')'; document.getElementById('br-r-km').textContent='€'+(kmKost*ritMult).toFixed(2).replace('.',','); document.getElementById('br-r-totaal').textContent='€'+totaal.toFixed(2).replace('.',','); document.getElementById('br-result').style.display='block'; }
+function brBerekenMetCoords(lat,lon){ var dist=brHaversine(50.9720,3.6180,lat,lon); document.getElementById('br-dist').textContent='Afstand: ~'+Math.round(dist)+' km (hemelsbreed)'; document.getElementById('br-dist').style.display='block'; var ritMult=brRit==='beide'?2:1,zone,vaste; if(dist<=15){zone=1;vaste=15;}else if(dist<=30){zone=2;vaste=25;}else if(dist<=50){zone=3;vaste=35;}else{document.getElementById('br-buiten').style.display='block';return;} var kmKost=Math.round(dist*0.55*100)/100; var totaal=(vaste+kmKost)*ritMult; var zC={1:'color:#3B6D11;background:#EAF3DE',2:'color:#854F0B;background:#FAEEDA',3:'color:#993C1D;background:#FAECE7'}; var badge=document.getElementById('br-zone-badge'); badge.style.cssText=zC[zone]+';font-size:12px;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:14px;display:inline-block;'; badge.textContent='Zone '+zone+' — '+Math.round(dist)+' km'; document.getElementById('br-r-transport').textContent='€'+(vaste*ritMult).toFixed(2).replace('.',','); document.getElementById('br-r-km-label').textContent='Km-heffing ('+Math.round(dist)+' km × €0,55 × '+ritMult+' rit'+(ritMult>1?'ten':'')+')'; document.getElementById('br-r-km').textContent='€'+(kmKost*ritMult).toFixed(2).replace('.',','); document.getElementById('br-r-totaal').textContent='€'+totaal.toFixed(2).replace('.',','); document.getElementById('br-result').style.display='block'; }
 function brHaversine(lat1,lon1,lat2,lon2){ var R=6371,dLat=(lat2-lat1)*Math.PI/180,dLon=(lon2-lon1)*Math.PI/180; var a=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)*Math.sin(dLon/2); return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); }
 </script>
 </body>
