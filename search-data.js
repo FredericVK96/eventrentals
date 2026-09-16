@@ -3,7 +3,7 @@
 // pagina die de zoekbalk heeft (zelfde reden als BouwRent's search-data.js —
 // zie diens SEO-analyse 06/09/2026 over keyword-lek naar locatiepagina's).
 var NAV_SEARCH_PRODUCTS = [
-    { name: 'Partytent', desc: 'Partytent huren bij EventRentals in 3 maten: 3x3m, 3x6m en 4x8m. Stevige aluminium partytenten voor tuinfeesten en communies in Gent en omgeving.', link: 'partytent.html', img: 'Pagodetent.png',
+    { name: 'Partytent', desc: 'Partytent huren bij EventRentals in 3 maten: 3x3m, 3x6m en 4x8m. Stevige aluminium partytenten voor tuinfeesten en communies in Gent en omgeving.', link: 'partytent.html', img: 'Canopytent.png',
       keys: ['partytent','grote tent','kleine tent','pagodetent','feesttent','3x3','3x6','4x8','tent groot','tent klein','tuinfeest tent','vouwtent','easy up','easyup','pop-up tent'] },
     { name: 'Stretchtent', desc: 'Stretchtent huren bij EventRentals in 2 maten: 6,5x5m en 6,5x10m. Sfeervolle open tent zonder rechte wanden voor stijlvolle tuinfeesten en bruiloften.', link: 'stretchtent.html', img: 'Stretchtent.jfif',
       keys: ['stretchtent','stretch tent','sailcloth tent','sfeertent','bruiloftstent','tent bruiloft','open tent'] },
