@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const PRODUCT_FILES = [
-  'partytent-4x8m.html', 'partytent-3x6m.html', 'rodeostier.html', 'klaptafel-180cm.html',
+  'partytent.html', 'stretchtent.html', 'kadertent.html', 'rodeostier.html', 'klaptafel-180cm.html',
   'barkruk.html', 'biertafelset.html', 'botsballen.html', 'buitenstoel.html', 'bungee-run.html',
-  'easy-up-vouwtent.html', 'hindernisbaan.html', 'houten-tentvloer.html', 'klapstoel-wit.html',
+  'hindernisbaan.html', 'houten-tentvloer.html', 'klapstoel-wit.html',
   'koelkast.html', 'led-sfeerverlichting.html', 'muziekbox.html', 'percolator.html',
   'picknicktafel.html', 'reuzespelen.html', 'springkasteel-groot-jungle.html',
   'springkasteel-medium-glijbaan.html', 'springkasteel-piraat.html', 'springkasteel-princess.html',

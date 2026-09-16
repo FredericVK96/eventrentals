@@ -1,17 +1,24 @@
 [
   {
-    "file": "partytent-4x8m.html",
-    "name": "Partytent 4x8m",
-    "description": "Partytent 4x8m huren bij EventRentals. Grote aluminium partytent voor tot 60 personen voor grote tuinfeesten.",
+    "file": "partytent.html",
+    "name": "Partytent",
+    "description": "Partytent huren bij EventRentals in 3 maten: 3x3m, 3x6m en 4x8m. Stevige aluminium partytenten voor tuinfeesten en communies in Gent en omgeving.",
     "image": "https://www.eventrentals.be/Pagodetent.png",
-    "url": "https://www.eventrentals.be/partytent-4x8m"
+    "url": "https://www.eventrentals.be/partytent"
   },
   {
-    "file": "partytent-3x6m.html",
-    "name": "Partytent 3x6m",
-    "description": "Partytent 3x6m huren bij EventRentals. Stevige aluminium partytent voor tot 30 personen voor tuinfeesten in Gent.",
-    "image": "https://www.eventrentals.be/Pagodetent.png",
-    "url": "https://www.eventrentals.be/partytent-3x6m"
+    "file": "stretchtent.html",
+    "name": "Stretchtent",
+    "description": "Stretchtent huren bij EventRentals in 2 maten: 6,5x5m en 6,5x10m. Sfeervolle open tent zonder rechte wanden voor stijlvolle tuinfeesten en bruiloften.",
+    "image": "https://images.pexels.com/photos/28937190/pexels-photo-28937190.jpeg",
+    "url": "https://www.eventrentals.be/stretchtent"
+  },
+  {
+    "file": "kadertent.html",
+    "name": "Aluminium Tent",
+    "description": "Aluminium tent (kadertent) huren bij EventRentals, 6x9m. Volledig gesloten en weerbestendig, voor grotere communiefeesten en bedrijfsevents.",
+    "image": "https://images.pexels.com/photos/29093819/pexels-photo-29093819.jpeg",
+    "url": "https://www.eventrentals.be/kadertent"
   },
   {
     "file": "rodeostier.html",
@@ -61,13 +68,6 @@
     "description": "Bungee Run huren bij EventRentals. Opblaasbare bungee run 8x3m voor twee deelnemers tegelijk op feestjes.",
     "image": "https://www.eventrentals.be/Bungeerun.png",
     "url": "https://www.eventrentals.be/bungee-run"
-  },
-  {
-    "file": "easy-up-vouwtent.html",
-    "name": "Easy-Up Vouwtent",
-    "description": "Easy-Up Vouwtent 3x3m huren bij EventRentals. Snelspan vouwtent eenvoudig op te zetten voor tuinfeesten.",
-    "image": "https://www.eventrentals.be/Canopytent.png",
-    "url": "https://www.eventrentals.be/easy-up-vouwtent"
   },
   {
     "file": "hindernisbaan.html",

@@ -6,8 +6,9 @@ const raw = JSON.parse(fs.readFileSync(path.join(__dirname, 'products-raw.json')
 // Hand-tuned synonyms/keys per file, so the autocomplete finds things by how
 // people actually type, not just the exact product name.
 const KEYS = {
-  'partytent-4x8m.html': ['partytent', 'grote tent', 'pagodetent', 'feesttent', '4x8', 'tent groot', 'tuinfeest tent'],
-  'partytent-3x6m.html': ['partytent', 'kleine tent', 'pagodetent', 'feesttent', '3x6', 'tent klein', 'tuinfeest tent'],
+  'partytent.html': ['partytent', 'grote tent', 'kleine tent', 'pagodetent', 'feesttent', '3x3', '3x6', '4x8', 'tent groot', 'tent klein', 'tuinfeest tent', 'vouwtent', 'easy up', 'easyup', 'pop-up tent'],
+  'stretchtent.html': ['stretchtent', 'stretch tent', 'sailcloth tent', 'sfeertent', 'bruiloftstent', 'tent bruiloft', 'open tent'],
+  'kadertent.html': ['kadertent', 'aluminium tent', 'grote feesttent', 'kader tent', 'marquee', 'gesloten tent', 'communietent'],
   'rodeostier.html': ['rodeo', 'rodeo stier', 'mechanische stier', 'bull ride', 'stier rijden'],
   'klaptafel-180cm.html': ['klaptafel', 'vouwtafel', 'feesttafel', 'tafel huren', 'bankettafel'],
   'barkruk.html': ['barkruk', 'barstoel', 'lounge kruk', 'receptie kruk'],
@@ -35,8 +36,13 @@ const KEYS = {
   'tapinstallatie.html': ['tapinstallatie', 'biertap', 'taptoren', 'bierinstallatie', 'fust tappen'],
   'terrasverwarmer.html': ['terrasverwarmer', 'heater', 'gasverwarmer', 'paddenstoel verwarming'],
 };
+// easy-up-vouwtent.html, partytent-3x6m.html, partytent-4x8m.html retired — merged into partytent.html.
 
 function decodeImg(url) {
+  try {
+    const host = new URL(url).hostname;
+    if (host !== 'www.eventrentals.be' && host !== 'eventrentals.be') return url; // external (e.g. Pexels) — keep full URL
+  } catch (e) {}
   const filename = url.split('/').pop();
   return decodeURIComponent(filename);
 }

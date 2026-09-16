@@ -3,10 +3,12 @@
 // pagina die de zoekbalk heeft (zelfde reden als BouwRent's search-data.js —
 // zie diens SEO-analyse 06/09/2026 over keyword-lek naar locatiepagina's).
 var NAV_SEARCH_PRODUCTS = [
-    { name: 'Partytent 4x8m', desc: 'Grote aluminium partytent voor tot 60 personen voor grote tuinfeesten.', link: 'partytent-4x8m.html', img: 'Pagodetent.png',
-      keys: ['partytent','grote tent','pagodetent','feesttent','4x8','tent groot','tuinfeest tent'] },
-    { name: 'Partytent 3x6m', desc: 'Stevige aluminium partytent voor tot 30 personen voor tuinfeesten in Gent.', link: 'partytent-3x6m.html', img: 'Pagodetent.png',
-      keys: ['partytent','kleine tent','pagodetent','feesttent','3x6','tent klein','tuinfeest tent'] },
+    { name: 'Partytent', desc: 'Partytent huren bij EventRentals in 3 maten: 3x3m, 3x6m en 4x8m. Stevige aluminium partytenten voor tuinfeesten en communies in Gent en omgeving.', link: 'partytent.html', img: 'Pagodetent.png',
+      keys: ['partytent','grote tent','kleine tent','pagodetent','feesttent','3x3','3x6','4x8','tent groot','tent klein','tuinfeest tent','vouwtent','easy up','easyup','pop-up tent'] },
+    { name: 'Stretchtent', desc: 'Stretchtent huren bij EventRentals in 2 maten: 6,5x5m en 6,5x10m. Sfeervolle open tent zonder rechte wanden voor stijlvolle tuinfeesten en bruiloften.', link: 'stretchtent.html', img: 'https://images.pexels.com/photos/28937190/pexels-photo-28937190.jpeg',
+      keys: ['stretchtent','stretch tent','sailcloth tent','sfeertent','bruiloftstent','tent bruiloft','open tent'] },
+    { name: 'Aluminium Tent', desc: 'Aluminium tent (kadertent) huren bij EventRentals, 6x9m. Volledig gesloten en weerbestendig, voor grotere communiefeesten en bedrijfsevents.', link: 'kadertent.html', img: 'https://images.pexels.com/photos/29093819/pexels-photo-29093819.jpeg',
+      keys: ['kadertent','aluminium tent','grote feesttent','kader tent','marquee','gesloten tent','communietent'] },
     { name: 'Rodeostier', desc: 'Elektrische rodeostier met opblaasbare valmat 5x5m voor feestjes en evenementen.', link: 'rodeostier.html', img: 'Rodeostier.png',
       keys: ['rodeo','rodeo stier','mechanische stier','bull ride','stier rijden'] },
     { name: 'Klaptafel 180cm', desc: 'Robuuste klaptafel voor 6-8 personen voor tuinfeesten in De Pinte.', link: 'klaptafel-180cm.html', img: 'Bankettafel.webp',
@@ -21,8 +23,6 @@ var NAV_SEARCH_PRODUCTS = [
       keys: ['buitenstoel','terrasstoel','tuinstoel'] },
     { name: 'Bungee Run', desc: 'Opblaasbare bungee run 8x3m voor twee deelnemers tegelijk op feestjes.', link: 'bungee-run.html', img: 'Bungeerun.png',
       keys: ['bungee run','bungeerun','trektouw spel','touwtrek attractie'] },
-    { name: 'Easy-Up Vouwtent', desc: 'Snelspan vouwtent eenvoudig op te zetten voor tuinfeesten.', link: 'easy-up-vouwtent.html', img: 'Canopytent.png',
-      keys: ['vouwtent','easy up','easyup','partytent klein','pop-up tent'] },
     { name: 'Hindernisbaan', desc: 'Uitdagende opblaasbare hindernisbaan 10x3m voor kinderfeestjes en evenementen.', link: 'hindernisbaan.html', img: 'Hindernissen.png',
       keys: ['hindernisbaan','obstacle course','hindernissen','opblaasbare hindernisbaan'] },
     { name: 'Houten Tentvloer', desc: 'Houten vloerplaten 1x2m voor onder de tent bij tuinfeesten.', link: 'houten-tentvloer.html', img: 'Plankenvloer.png',
