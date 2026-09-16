@@ -222,7 +222,7 @@
 </head>
 <body>
 
-<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="index.html#transport">bekijk de transporttarieven</a></div>
+<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="index.html#transport">bekijk de transporttarieven</a></div>
 
 <div class="search-row">
   <div class="search-row-inner">
@@ -601,19 +601,27 @@ function schatTransport() {
   fetch('/api/geocode?q=' + encodeURIComponent(adres))
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      _transportBezig = false;
-      if (!data || !data.length) { _transportSchatting = { fout: true }; renderPrijsIndicatie(); return; }
+      if (!data || !data.length) { _transportBezig = false; _transportSchatting = { fout: true }; renderPrijsIndicatie(); return; }
       var lat = parseFloat(data[0].lat), lon = parseFloat(data[0].lon);
-      var dist = brHaversine(BASE_LAT, BASE_LON, lat, lon);
-      var zone, vaste, kmTarief;
-      if (dist <= 15) { zone = 1; vaste = 15; kmTarief = 0.55; }
-      else if (dist <= 30) { zone = 2; vaste = 25; kmTarief = 0.55; }
-      else if (dist <= 50) { zone = 3; vaste = 35; kmTarief = 0.55; }
-      else { _transportSchatting = { buiten: true, km: dist }; renderPrijsIndicatie(); return; }
-      var ritMult = 2; // levering + ophaling
-      var totaal = (vaste + kmTarief * dist) * ritMult;
-      _transportSchatting = { totaal: totaal, zone: zone, km: dist, gratisMogelijk: zone <= 2 };
-      renderPrijsIndicatie();
+      // Echte rijafstand via OSRM i.p.v. hemelsbreed (haversine) \u2014 hemelsbreed onderschat
+      // de werkelijke afstand systematisch, waardoor adressen buiten zone 1 toch als
+      // "gratis" (\u226415km) konden worden aangemerkt.
+      return fetch('https://router.project-osrm.org/route/v1/driving/' + BASE_LON + ',' + BASE_LAT + ';' + lon + ',' + lat + '?overview=false')
+        .then(function(r2) { return r2.json(); })
+        .then(function(routeData) {
+          _transportBezig = false;
+          if (!routeData.routes || !routeData.routes.length) { _transportSchatting = { fout: true }; renderPrijsIndicatie(); return; }
+          var dist = routeData.routes[0].distance / 1000;
+          var zone, vaste, kmTarief;
+          if (dist <= 15) { zone = 1; vaste = 15; kmTarief = 0.55; }
+          else if (dist <= 30) { zone = 2; vaste = 25; kmTarief = 0.55; }
+          else if (dist <= 50) { zone = 3; vaste = 35; kmTarief = 0.55; }
+          else { _transportSchatting = { buiten: true, km: dist }; renderPrijsIndicatie(); return; }
+          var ritMult = 2; // levering + ophaling
+          var totaal = (vaste + kmTarief * dist) * ritMult;
+          _transportSchatting = { totaal: totaal, zone: zone, km: dist, gratisMogelijk: zone === 1 };
+          renderPrijsIndicatie();
+        });
     })
     .catch(function() { _transportBezig = false; _transportSchatting = { fout: true }; renderPrijsIndicatie(); });
 }
@@ -633,11 +641,17 @@ function renderPrijsIndicatie() {
   cart.forEach(function(item) {
     var p = PRODUCT_PRICES[item.name];
     if (!p) { onbekend.push(item.name); return; }
-    var lijnTotaal = (p.dag1 + p.extraDag * (dagen - 1)) * item.qty;
+    var dag1Totaal = p.dag1 * item.qty;
+    var extraTotaal = p.extraDag * (dagen - 1) * item.qty;
+    var lijnTotaal = dag1Totaal + extraTotaal;
     subtotaal += lijnTotaal;
-    var periodeLabel = dagen + ' dag' + (dagen > 1 ? 'en' : '');
-    rijenHtml += '<div class="prijs-indicatie-rij"><span>' + item.qty + '\u00d7 ' + item.name + ' (' + periodeLabel + ')</span><span>' + fmtEuro(lijnTotaal) + '</span></div>';
-    offerteRegels.push(item.qty + 'x ' + item.name + ' (' + periodeLabel + '): ' + fmtEuro(lijnTotaal));
+    rijenHtml += '<div class="prijs-indicatie-rij"><span>' + item.qty + '\u00d7 ' + item.name + ' \u2014 dag 1</span><span>' + fmtEuro(dag1Totaal) + '</span></div>';
+    offerteRegels.push(item.qty + 'x ' + item.name + ' \u2014 dag 1: ' + fmtEuro(dag1Totaal));
+    if (dagen > 1) {
+      var extraLabel = dagen === 2 ? 'dag 2 (-50%)' : 'dag 2 t.e.m. dag ' + dagen + ' (-50%)';
+      rijenHtml += '<div class="prijs-indicatie-rij muted"><span>' + item.qty + '\u00d7 ' + item.name + ' \u2014 ' + extraLabel + '</span><span>' + fmtEuro(extraTotaal) + '</span></div>';
+      offerteRegels.push(item.qty + 'x ' + item.name + ' \u2014 ' + extraLabel + ': ' + fmtEuro(extraTotaal));
+    }
   });
 
   var transportHtml = '', transportBedrag = 0, transportOmschrijving = '';

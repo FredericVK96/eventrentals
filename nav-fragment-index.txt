@@ -1,4 +1,4 @@
-<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="#transport">bekijk de transporttarieven</a></div>
+<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport">bekijk de transporttarieven</a></div>
 
 <div class="search-row">
   <div class="search-row-inner">

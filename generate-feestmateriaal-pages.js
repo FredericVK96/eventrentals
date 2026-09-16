@@ -40,7 +40,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Gent?', a: 'Ja, EventRentals levert springkastelen, partytenten, tafels en stoelen in heel Gent — van Gentbrugge en Ledeberg tot Wondelgem, Drongen en Zwijnaarde. Wij leveren op uw gewenste datum en tijdstip.' },
-      { q: 'Wat kost levering van feestmateriaal in Gent?', a: 'Gent valt doorgaans in zone 2: €25 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Deelgemeenten zoals Zwijnaarde of Gentbrugge kunnen in zone 1 vallen (€15 + €0,55/km). Gebruik de calculator boven voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Gent?', a: 'Gent valt doorgaans in zone 2: €25 vaste transportkost + €0,55/km per rit. Deelgemeenten zoals Zwijnaarde of Gentbrugge kunnen in zone 1 vallen (€15 + €0,55/km, gratis vanaf €100 huurwaarde). Gebruik de calculator boven voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Gent?', a: 'Bij tijdige boeking leveren wij op uw gewenste datum. Voor spoedboeking in Gent belt u best op 0477 39 63 50 — wij kijken samen naar de mogelijkheden.' },
       { q: 'Leveren jullie ook in alle deelgemeenten van Gent?', a: 'Ja, wij leveren in alle Gentse deelgemeenten: Gentbrugge, Ledeberg, Sint-Amandsberg, Mariakerke, Wondelgem, Drongen, Zwijnaarde, Afsnee, Sint-Denijs-Westrem en meer.' },
       { q: 'Kunnen jullie leveren in het centrum van Gent?', a: 'Ja, ook in het Gentse stadscentrum leveren wij. Vermeldt u bij uw boeking of er smalle straten, parkeerverboden of andere toegangsbeperkingen zijn — dan plannen wij de route op voorhand.' },
@@ -116,7 +116,7 @@ const LOCATIONS = [
       'Plan de levering minstens 1 uur voor aanvang van het feest zodat er voldoende opbouwtijd is.',
       'Combineer een hindernisbaan met een springkasteel voor grotere kindergroepen — meer afwisseling, meer plezier.',
       'Gebruik een partytent als schaduwplek — zelfs op zonnige Oost-Vlaamse zomerdagen is schaduw welkom.',
-      'Kies voor gratis levering (zone 1 & 2) door uw bestelling boven €100 uit te bouwen: extra stoel- of tafelverhuur telt mee.',
+      'Kies voor gratis levering (zone 1) door uw bestelling boven €100 uit te bouwen: extra stoel- of tafelverhuur telt mee.',
       'Reserveer op vrijdag voor het weekend: wij leveren op zaterdagochtend en halen op zondagavond op.',
       'Huur een terrasverwarmer voor feesten in het voor- of najaar &mdash; Nazareth-avonden worden snel fris.',
       'Markeer de hoekpunten van het springkasteel voor de opbouw, zodat het op de juiste plek staat in uw tuin.',
@@ -328,7 +328,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Deinze?', a: 'Ja, EventRentals levert springkastelen huren, partytenten en evenementmateriaal huren in heel groot-Deinze — van het stadscentrum tot Zulte, Petegem-aan-de-Leie, Astene en Nevele.' },
-      { q: 'Wat kost levering van feestmateriaal in Deinze?', a: 'Deinze valt doorgaans in zone 2: €25 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Sommige deelgemeenten zoals Zulte kunnen in zone 1 vallen. Gebruik de calculator voor uw exacte adres.' },
+      { q: 'Wat kost levering van feestmateriaal in Deinze?', a: 'Deinze valt doorgaans in zone 2: €25 vaste transportkost + €0,55/km per rit. Sommige deelgemeenten zoals Zulte kunnen in zone 1 vallen (gratis vanaf €100 huurwaarde). Gebruik de calculator voor uw exacte adres.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Deinze?', a: 'Wij leveren op uw gewenste datum en tijdstip in groot-Deinze. Voor spoedbestellingen belt u 0477 39 63 50 — wij bekijken samen de mogelijkheden.' },
       { q: 'Leveren jullie ook in Zulte, Petegem-aan-de-Leie, Astene en Nevele?', a: 'Ja, wij leveren in alle deelgemeenten van groot-Deinze: Deinze-centrum, Zulte, Petegem-aan-de-Leie, Astene, Nevele en omliggende gehuchten.' },
       { q: 'Kunnen jullie leveren in het centrum van Deinze?', a: 'Ja, ook in het centrum van Deinze leveren wij feestmateriaal. Vermeld bij uw aanvraag eventuele parkeer- of toegangsbeperkingen zodat wij de levering vlot kunnen plannen.' },
@@ -376,7 +376,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Leveren jullie feestmateriaal in Oudenaarde?', a: 'Ja, EventRentals levert springkastelen, feesttenten huren en evenementmateriaal in heel Oudenaarde — van het historische centrum tot Ename, Eine, Bevere, Leupegem, Melden en Welden.' },
-      { q: 'Wat kost levering van feestmateriaal in Oudenaarde?', a: 'Oudenaarde valt in zone 2: €25 vaste transportkost + €0,55/km per rit. Gratis levering bij huurwaarde ≥ €100. Gebruik de calculator voor uw exacte adres in de Vlaamse Ardennen.' },
+      { q: 'Wat kost levering van feestmateriaal in Oudenaarde?', a: 'Oudenaarde valt in zone 2: €25 vaste transportkost + €0,55/km per rit. Gebruik de calculator voor uw exacte adres in de Vlaamse Ardennen.' },
       { q: 'Hoe snel kunnen jullie feestmateriaal leveren in Oudenaarde?', a: 'Wij leveren op uw gewenste datum in Oudenaarde en de Vlaamse Ardennen. Reserveer bij voorkeur 2–3 weken op voorhand. Bel 0477 39 63 50 voor beschikbaarheid.' },
       { q: 'Leveren jullie ook in Ename, Eine, Bevere en de andere deelgemeenten van Oudenaarde?', a: 'Ja, wij leveren in alle deelgemeenten van Oudenaarde: Ename, Eine, Bevere, Leupegem, Melden, Welden en alle andere gehuchten in de Vlaamse Ardennen.' },
       { q: 'Zijn leveringen mogelijk op heuvelachtig terrein in de Vlaamse Ardennen?', a: 'Wij leveren in het heuvelachtige landschap van de Vlaamse Ardennen. Let op: opblaasmaterialen zoals springkastelen vereisen een vlakke ondergrond. Vermeld het terrein bij uw aanvraag zodat wij mee kunnen denken.' },
@@ -438,7 +438,7 @@ const LOCATIONS = [
 function zoneCard(zone) {
   const data = {
     1: { label:'Zone 1', kleur:'color:#3B6D11;background:#EAF3DE', km:'0–15 km', prijs:'€15', gratis:true },
-    2: { label:'Zone 2', kleur:'color:#854F0B;background:#FAEEDA', km:'15–30 km', prijs:'€25', gratis:true },
+    2: { label:'Zone 2', kleur:'color:#854F0B;background:#FAEEDA', km:'15–30 km', prijs:'€25', gratis:false },
     3: { label:'Zone 3', kleur:'color:#993C1D;background:#FAECE7', km:'30–50 km', prijs:'€35', gratis:false },
   }[zone];
   return `<div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
@@ -658,11 +658,11 @@ function generatePage(loc, idx) {
 <div id="sticky-header" style="position:sticky;top:0;z-index:1100;">
 <div style="background:var(--dark,#2B7A6E);color:#fff;padding:9px 0;font-size:0.88rem;font-weight:600;font-family:'Nunito',sans-serif;overflow:hidden;white-space:nowrap;">
   <span style="display:inline-block;animation:bannerScroll 32s linear infinite;">
-    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
+    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
+    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &amp; 2 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
+    Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport" style="color:#fff;text-decoration:underline;">bekijk de transporttarieven</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span>
 </div>
