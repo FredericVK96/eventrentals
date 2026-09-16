@@ -412,7 +412,7 @@ document.getElementById('btnBestel').addEventListener('click', function() {
   var qty = parseInt(document.querySelector('.qty-num').value) || 1;
   var imgEl = document.querySelector('.product-visual img');
   var img = imgEl ? imgEl.src : '';
-  var priceEl = document.querySelector('.price-value');
+  var priceEl = document.querySelector('.price-main');
   var price = priceEl ? parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) : 0;
   var cart = JSON.parse(localStorage.getItem('er_cart') || '[]');
   var existing = cart.find(function(i) { return i.name === name; });

@@ -141,6 +141,14 @@
     .akkoord-wrap input[type="checkbox"] { accent-color: var(--dark); width: 17px; height: 17px; flex-shrink: 0; cursor: pointer; margin-top: 3px; }
     .akkoord-wrap label { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; cursor: pointer; }
 
+    .prijs-indicatie { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 20px; }
+    .prijs-indicatie-titel { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 10px; }
+    .prijs-indicatie-rij { display: flex; justify-content: space-between; gap: 12px; font-size: 0.92rem; color: var(--text); padding: 3px 0; }
+    .prijs-indicatie-rij.muted { color: var(--text-muted); font-size: 0.85rem; }
+    .prijs-indicatie-totaal { display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 800; color: var(--text); border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; }
+    .prijs-indicatie-totaal span:last-child { color: var(--dark); }
+    .prijs-indicatie-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+
     /* FOOTER */
     .site-footer { background: var(--darker); color: #9ca3af; padding: 32px 24px 0; margin-top: 32px; font-size: 0.88rem; }
     .site-footer a { color: #c8ccd4; text-decoration: none; transition: color 0.18s; }
@@ -348,6 +356,8 @@
           <textarea id="opmerkingen" name="opmerkingen" class="form-control" rows="3" placeholder="Eventuele bijzonderheden, vragen of wensen..."></textarea>
         </div>
 
+        <div class="prijs-indicatie" id="prijsIndicatie"></div>
+
         <div class="akkoord-wrap">
           <input type="checkbox" id="akkoord">
           <label for="akkoord">Je gaat hiermee akkoord met ons privacybeleid en onze verhuurvoorwaarden.</label>
@@ -515,6 +525,168 @@ document.getElementById('btnProceed').addEventListener('click', function() {
   document.getElementById('pageTitle').textContent = 'Jouw gegevens';
   document.getElementById('pageSubtitle').textContent = 'Vul het formulier in en wij nemen zo snel mogelijk contact op.';
   window.scrollTo(0, 0);
+  renderPrijsIndicatie();
+});
+
+// \u2500\u2500 PRIJSINDICATIE \u2500\u2500
+// Dagprijzen per productnaam (zelfde tekst als de h1 op de productpagina, dus ook
+// zoals die in de winkelwagen terechtkomt). Bewust hier hardcoded i.p.v. op
+// cart-item.price te vertrouwen \u2014 die wordt per productpagina uit de DOM geplukt en
+// is dus gevoelig voor selector-typos op de productpagina zelf.
+var PRODUCT_PRICES = {
+  'Partytent 3x3m': { dag1: 50, extraDag: 25 },
+  'Partytent 3x6m': { dag1: 110, extraDag: 55 },
+  'Partytent 4x8m': { dag1: 175, extraDag: 87.5 },
+  'Stretchtent 6,5x5m': { dag1: 195, extraDag: 95 },
+  'Stretchtent 6,5x10m': { dag1: 295, extraDag: 145 },
+  'Aluminium Tent 6x9m': { dag1: 295, extraDag: 145 },
+  'Rodeostier': { dag1: 395, extraDag: 197.5 },
+  'Klaptafel 180cm': { dag1: 10, extraDag: 5 },
+  'Barkruk Lounge Zwart': { dag1: 3.5, extraDag: 1.75 },
+  'Biertafelset': { dag1: 25, extraDag: 12.5 },
+  'Botsballen': { dag1: 150, extraDag: 75 },
+  'Buitenstoel': { dag1: 2, extraDag: 1 },
+  'Bungee Run': { dag1: 195, extraDag: 97.5 },
+  'Hindernisbaan': { dag1: 225, extraDag: 112.5 },
+  'Houten Tentvloer': { dag1: 6, extraDag: 3 },
+  'Klapstoel Wit': { dag1: 1.75, extraDag: 0.88 },
+  'Koelkast': { dag1: 40, extraDag: 20 },
+  'LED Sfeerverlichting': { dag1: 15, extraDag: 7.5 },
+  'Muziekbox': { dag1: 30, extraDag: 15 },
+  'Percolator': { dag1: 20, extraDag: 10 },
+  'Picknicktafel': { dag1: 18, extraDag: 9 },
+  'Reuzespelen': { dag1: 95, extraDag: 47.5 },
+  'Dino Springkasteel': { dag1: 195, extraDag: 97.5 },
+  'Springkasteel met Glijbaan': { dag1: 150, extraDag: 75 },
+  'Voetbal Darts': { dag1: 175, extraDag: 87.5 },
+  'Springkasteel Princess': { dag1: 175, extraDag: 87.5 },
+  'Standaard Springkasteel': { dag1: 95, extraDag: 47.5 },
+  'Statafel': { dag1: 8, extraDag: 4 },
+  'Statafelhoes': { dag1: 2.5, extraDag: 1.25 },
+  'Tapinstallatie': { dag1: 95, extraDag: 47.5 },
+  'Terrasverwarmer': { dag1: 35, extraDag: 17.5 },
+};
+
+var BASE_LAT = 50.9720, BASE_LON = 3.6180; // De Pinte, zelfde depot als index.html's calculator
+var _transportSchatting = null; // { totaal, zone, km, gratisMogelijk } | { buiten:true, km } | { fout:true } | null
+var _transportBezig = false;
+var _transportDebounce = null;
+window._laatstePrijsIndicatie = null;
+
+function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function fmtEuro(n) { return '\u20ac' + n.toFixed(2).replace('.', ','); }
+
+function rentalDagen() {
+  var v = val('datumVan'), t = val('datumTot');
+  if (!v || !t) return 1;
+  var d1 = new Date(v), d2 = new Date(t);
+  var dagen = Math.round((d2 - d1) / 86400000);
+  return Math.max(1, dagen);
+}
+
+function brHaversine(lat1, lon1, lat2, lon2) {
+  var R = 6371;
+  var dLat = (lat2 - lat1) * Math.PI / 180;
+  var dLon = (lon2 - lon1) * Math.PI / 180;
+  var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function schatTransport() {
+  var straat = val('straat'), huisnr = val('huisnr'), postcode = val('postcode'), gemeente = val('gemeente');
+  if (!gemeente) { _transportSchatting = null; renderPrijsIndicatie(); return; }
+  var adres = [straat, huisnr].filter(Boolean).join(' ') + ', ' + [postcode, gemeente].filter(Boolean).join(' ') + ', Belgi\u00eb';
+  _transportBezig = true;
+  renderPrijsIndicatie();
+  fetch('/api/geocode?q=' + encodeURIComponent(adres))
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      _transportBezig = false;
+      if (!data || !data.length) { _transportSchatting = { fout: true }; renderPrijsIndicatie(); return; }
+      var lat = parseFloat(data[0].lat), lon = parseFloat(data[0].lon);
+      var dist = brHaversine(BASE_LAT, BASE_LON, lat, lon);
+      var zone, vaste, kmTarief;
+      if (dist <= 15) { zone = 1; vaste = 15; kmTarief = 0.55; }
+      else if (dist <= 30) { zone = 2; vaste = 25; kmTarief = 0.55; }
+      else if (dist <= 50) { zone = 3; vaste = 35; kmTarief = 0.55; }
+      else { _transportSchatting = { buiten: true, km: dist }; renderPrijsIndicatie(); return; }
+      var ritMult = 2; // levering + ophaling
+      var totaal = (vaste + kmTarief * dist) * ritMult;
+      _transportSchatting = { totaal: totaal, zone: zone, km: dist, gratisMogelijk: zone <= 2 };
+      renderPrijsIndicatie();
+    })
+    .catch(function() { _transportBezig = false; _transportSchatting = { fout: true }; renderPrijsIndicatie(); });
+}
+
+function schatTransportDebounced() {
+  clearTimeout(_transportDebounce);
+  _transportDebounce = setTimeout(schatTransport, 700);
+}
+
+function renderPrijsIndicatie() {
+  var el = document.getElementById('prijsIndicatie');
+  if (!el) return;
+  if (cart.length === 0) { el.innerHTML = ''; return; }
+
+  var dagen = rentalDagen();
+  var subtotaal = 0, rijenHtml = '', onbekend = [], offerteRegels = [];
+  cart.forEach(function(item) {
+    var p = PRODUCT_PRICES[item.name];
+    if (!p) { onbekend.push(item.name); return; }
+    var lijnTotaal = (p.dag1 + p.extraDag * (dagen - 1)) * item.qty;
+    subtotaal += lijnTotaal;
+    var periodeLabel = dagen + ' dag' + (dagen > 1 ? 'en' : '');
+    rijenHtml += '<div class="prijs-indicatie-rij"><span>' + item.qty + '\u00d7 ' + item.name + ' (' + periodeLabel + ')</span><span>' + fmtEuro(lijnTotaal) + '</span></div>';
+    offerteRegels.push(item.qty + 'x ' + item.name + ' (' + periodeLabel + '): ' + fmtEuro(lijnTotaal));
+  });
+
+  var transportHtml = '', transportBedrag = 0, transportOmschrijving = '';
+  if (_transportBezig) {
+    transportHtml = '<div class="prijs-indicatie-rij muted"><span>Transport</span><span>berekenen...</span></div>';
+    transportOmschrijving = 'Nog niet gekend (wordt berekend)';
+  } else if (_transportSchatting && _transportSchatting.totaal != null) {
+    var gratis = _transportSchatting.gratisMogelijk && subtotaal >= 100;
+    transportBedrag = gratis ? 0 : _transportSchatting.totaal;
+    var label = 'Transport (\u00b1' + Math.round(_transportSchatting.km) + ' km, levering + ophaling)';
+    transportHtml = '<div class="prijs-indicatie-rij' + (gratis ? ' muted' : '') + '"><span>' + label + (gratis ? ' \u2014 gratis v.a. \u20ac100' : '') + '</span><span>' + (gratis ? 'Gratis' : fmtEuro(transportBedrag)) + '</span></div>';
+    transportOmschrijving = label + ': ' + (gratis ? 'Gratis (\u2265\u20ac100 huurwaarde)' : fmtEuro(_transportSchatting.totaal));
+  } else if (_transportSchatting && _transportSchatting.buiten) {
+    transportHtml = '<div class="prijs-indicatie-rij muted"><span>Transport</span><span>bel ons \u2014 buiten standaardzone</span></div>';
+    transportOmschrijving = 'Buiten standaardzone (\u00b1' + Math.round(_transportSchatting.km) + ' km) \u2014 nader te bepalen';
+  } else if (_transportSchatting && _transportSchatting.fout) {
+    transportHtml = '<div class="prijs-indicatie-rij muted"><span>Transport</span><span>adres niet gevonden</span></div>';
+    transportOmschrijving = 'Adres niet gevonden';
+  } else {
+    transportHtml = '<div class="prijs-indicatie-rij muted"><span>Transport</span><span>vul adres in</span></div>';
+    transportOmschrijving = 'Nog niet gekend (geen adres ingevuld)';
+  }
+
+  var totaal = subtotaal + transportBedrag;
+  var onbekendHtml = onbekend.length
+    ? '<p class="prijs-indicatie-note">Prijs op aanvraag voor: ' + onbekend.join(', ') + ' \u2014 niet meegeteld in het totaal hieronder.</p>'
+    : '';
+
+  window._laatstePrijsIndicatie = {
+    regels: offerteRegels, subtotaal: subtotaal, transport: transportBedrag,
+    transportOmschrijving: transportOmschrijving, totaal: totaal, dagen: dagen,
+    onbekendeProducten: onbekend,
+  };
+
+  el.innerHTML =
+    '<div class="prijs-indicatie-titel">Prijsindicatie</div>' +
+    rijenHtml + transportHtml +
+    '<div class="prijs-indicatie-totaal"><span>Geschat totaal</span><span>' + fmtEuro(totaal) + '</span></div>' +
+    '<p class="prijs-indicatie-note">Richtprijs excl. eventuele waarborg. We bevestigen het exacte bedrag bij het afhandelen van uw aanvraag.</p>' +
+    onbekendHtml;
+}
+
+['straat', 'huisnr', 'postcode', 'gemeente'].forEach(function(id) {
+  var elIn = document.getElementById(id);
+  if (elIn) elIn.addEventListener('input', schatTransportDebounced);
+});
+['datumVan', 'datumTot'].forEach(function(id) {
+  var elIn = document.getElementById(id);
+  if (elIn) elIn.addEventListener('change', renderPrijsIndicatie);
 });
 
 document.getElementById('btnBack').addEventListener('click', function() {
@@ -570,6 +742,7 @@ document.getElementById('bestellingForm').addEventListener('submit', async funct
     gemeente:    document.getElementById('gemeente').value.trim(),
     producten:   document.getElementById('producten').value.trim(),
     opmerkingen: document.getElementById('opmerkingen').value.trim(),
+    prijsindicatie: window._laatstePrijsIndicatie || null,
   };
 
   try {

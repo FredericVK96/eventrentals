@@ -142,7 +142,7 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
   const {
     voornaam, familienaam, datumVan, datumTot, gsm, email,
     straat, huisnr, postcode, gemeente,
-    producten, opmerkingen
+    producten, opmerkingen, prijsindicatie
   } = req.body;
 
   const timestamp = new Date().toISOString();
@@ -161,6 +161,10 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
     email       || '',             // K
     opmerkingen || '',             // L
     Array.isArray(producten) ? producten.join(', ') : (producten || ''), // M
+    prijsindicatie ? (prijsindicatie.regels || []).join(' | ') : '',     // N
+    prijsindicatie ? prijsindicatie.subtotaal || '' : '',                // O
+    prijsindicatie ? prijsindicatie.transportOmschrijving || '' : '',    // P
+    prijsindicatie ? prijsindicatie.totaal || '' : '',                   // Q
   ];
 
   const klantNaam = voornaam || 'Klant';
@@ -173,6 +177,23 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
       '</ul>';
   } else if (typeof producten === 'string' && producten.trim()) {
     productenHtml = `<p style="font-family:sans-serif;font-size:14px;">${producten}</p>`;
+  }
+
+  // Prijsindicatie-tabel opbouwen voor e-mail (indien meegestuurd vanuit bestelling.html)
+  let prijsindicatieHtml = '';
+  if (prijsindicatie && typeof prijsindicatie.totaal === 'number') {
+    const fmt = (n) => '€' + n.toFixed(2).replace('.', ',');
+    const regelsHtml = (prijsindicatie.regels || [])
+      .map(r => `<tr><td colspan="2" style="padding:3px 0;color:#1a1a1a;">${r}</td></tr>`).join('');
+    prijsindicatieHtml = `
+    <p><strong>Prijsindicatie:</strong></p>
+    <table style="font-size:14px;border-collapse:collapse;margin-bottom:6px;width:100%;">
+      ${regelsHtml}
+      <tr><td style="padding:6px 0 3px;color:#6b7280;">Transport:</td><td style="padding:6px 0 3px;text-align:right;">${prijsindicatie.transportOmschrijving || '—'}</td></tr>
+      <tr><td style="padding:6px 0;border-top:1px solid #e5e7eb;font-weight:700;">Geschat totaal:</td><td style="padding:6px 0;border-top:1px solid #e5e7eb;font-weight:700;text-align:right;">${fmt(prijsindicatie.totaal)}</td></tr>
+    </table>
+    <p style="font-size:12px;color:#6b7280;margin-top:0;">Richtprijs excl. eventuele waarborg. We bevestigen het exacte bedrag bij het afhandelen van uw aanvraag.</p>
+    `;
   }
 
   // ── SHEETS + EMAIL: allebei awaiten voor respons (Vercel stopt anders de functie) ──
@@ -218,6 +239,8 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
 
     <p><strong>Gewenste producten:</strong></p>
     ${productenHtml || '<p style="color:#6b7280;">Geen producten opgegeven.</p>'}
+
+    ${prijsindicatieHtml}
 
     ${opmerkingen ? `<p><strong>Opmerkingen:</strong><br>${opmerkingen}</p>` : ''}
 
