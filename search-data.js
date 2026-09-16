@@ -7,7 +7,7 @@ var NAV_SEARCH_PRODUCTS = [
       keys: ['partytent','grote tent','kleine tent','pagodetent','feesttent','3x3','3x6','4x8','tent groot','tent klein','tuinfeest tent','vouwtent','easy up','easyup','pop-up tent'] },
     { name: 'Stretchtent', desc: 'Stretchtent huren bij EventRentals in 2 maten: 6,5x5m en 6,5x10m. Sfeervolle open tent zonder rechte wanden voor stijlvolle tuinfeesten en bruiloften.', link: 'stretchtent.html', img: 'https://images.pexels.com/photos/28937190/pexels-photo-28937190.jpeg',
       keys: ['stretchtent','stretch tent','sailcloth tent','sfeertent','bruiloftstent','tent bruiloft','open tent'] },
-    { name: 'Aluminium Tent', desc: 'Aluminium tent (kadertent) huren bij EventRentals, 6x9m. Volledig gesloten en weerbestendig, voor grotere communiefeesten en bedrijfsevents.', link: 'kadertent.html', img: 'https://images.pexels.com/photos/29093819/pexels-photo-29093819.jpeg',
+    { name: 'Aluminium Tent', desc: 'Aluminium tent (kadertent) huren bij EventRentals in 2 maten: 6x6m en 6x9m. Volledig gesloten en weerbestendig, voor grotere communiefeesten en bedrijfsevents.', link: 'kadertent.html', img: 'https://images.pexels.com/photos/29093819/pexels-photo-29093819.jpeg',
       keys: ['kadertent','aluminium tent','grote feesttent','kader tent','marquee','gesloten tent','communietent'] },
     { name: 'Rodeostier', desc: 'Elektrische rodeostier met opblaasbare valmat 5x5m voor feestjes en evenementen.', link: 'rodeostier.html', img: 'Rodeostier.png',
       keys: ['rodeo','rodeo stier','mechanische stier','bull ride','stier rijden'] },
