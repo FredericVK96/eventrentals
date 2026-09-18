@@ -10,6 +10,24 @@
   gtag('config', 'G-C18NBKX2PB');
 </script>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1333191795377856');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/Eventrentals Logo.png">
   <link rel="apple-touch-icon" href="/Eventrentals Logo.png">
@@ -279,7 +297,7 @@
       <li><a href="/faq">FAQ</a></li>
       <li><a href="/over-ons">Over ons</a></li>
     </ul>
-    <a href="tel:0477396350" class="nav-phone">0477 39 63 50</a>
+    <a href="tel:0477396350" class="nav-phone" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'navbar',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
     <button class="hamburger" aria-label="Menu openen" onclick="this.nextElementSibling.classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -289,7 +307,7 @@
     <a href="/#speelgelegenheden">Speelgelegenheden</a>
     <a href="/faq">FAQ</a>
     <a href="/over-ons">Over ons</a>
-    <a href="tel:0477396350">0477 39 63 50</a>
+    <a href="tel:0477396350" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'footer',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
   </div>
 </nav>
 
@@ -537,7 +555,7 @@
       <span class="footer-logo-text">EventRentals</span>
       <div class="footer-contact-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-        <a href="tel:0477396350">0477 39 63 50</a>
+        <a href="tel:0477396350" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'footer',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
       </div>
       <div class="footer-contact-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>

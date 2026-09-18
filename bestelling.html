@@ -10,6 +10,24 @@
   gtag('config', 'G-C18NBKX2PB');
 </script>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1333191795377856');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="Eventrentals Logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -133,6 +151,17 @@
     .cart-item-remove { background: none; border: none; color: #dc2626; cursor: pointer; font-size: 1.1rem; padding: 4px 8px; border-radius: 6px; }
     .cart-item-remove:hover { background: #fef2f2; }
 
+    .recommend-section { margin-bottom: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .recommend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+    .recommend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
+    .recommend-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; text-align: center; background: #fafafa; }
+    .recommend-card-img { width: 100%; aspect-ratio: 1/1; object-fit: contain; background: #fff; border-radius: 8px; margin-bottom: 8px; }
+    .recommend-card-name { font-weight: 600; font-size: 0.82rem; margin-bottom: 4px; line-height: 1.25; }
+    .recommend-card-price { color: var(--dark); font-weight: 700; font-size: 0.82rem; margin-bottom: 8px; }
+    .recommend-card-add { width: 100%; background: var(--accent-light); color: var(--dark); border: none; padding: 7px; font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 800; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+    .recommend-card-add:hover { background: var(--dark); color: #fff; }
+    .recommend-card-add.added { background: var(--dark); color: #fff; cursor: default; }
+
     .btn-proceed { width: 100%; background: var(--dark); color: #fff; border: none; padding: 16px; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
     .btn-proceed:hover { background: var(--darker); }
     .btn-back { background: none; border: none; color: var(--dark); font-weight: 700; font-size: 0.9rem; cursor: pointer; padding: 8px 0; font-family: 'Nunito', sans-serif; margin-bottom: 16px; }
@@ -229,7 +258,7 @@
     <a href="index.html" class="logo"><img src="Eventrentals Logo.png" alt="EventRentals" class="logo-full"></a>
     <div class="nav-search-wrap">
       <form class="boels-search-form" onsubmit="navSearchSubmit(event)" id="navSearchForm">
-        <input id="navSearchInput" type="text" autocomplete="off" placeholder="Zoek in ons volledige assortiment…" oninput="navAutocomplete(this.value)">
+        <input id="navSearchInput" type="text" autocomplete="off" placeholder="Zoek in ons volledige assortiment…" oninput="navAutocomplete(this.value)" onfocus="if(window.gtag)gtag('event','search_bar_click')" onblur="(function(v){if(window.gtag&&v.trim().length>1)gtag('event','search_abandoned',{search_term:v.trim()});})(this.value)">
         <button type="submit" aria-label="Zoeken">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           Zoeken
@@ -238,7 +267,7 @@
       <div class="nav-search-dropdown" id="navSearchDropdown"></div>
     </div>
     <div class="right-group">
-      <a href="tel:0477396350" class="nav-phone">0477 39 63 50</a>
+      <a href="tel:0477396350" class="nav-phone" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'navbar',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
       <a href="bestelling.html" class="cart-icon-link" id="cartIconLink" title="Jouw bestelling">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="cart-badge" id="cartBadge" style="display:none">0</span>
@@ -277,6 +306,10 @@
       <div class="cart-title">Geselecteerde producten</div>
       <ul class="cart-items" id="cartItems"></ul>
       <div class="cart-empty" id="cartEmpty" style="display:none;">Geen producten geselecteerd. <a href="tuinfeest-materiaal.html" style="color:var(--dark);font-weight:700;">Ga terug naar het aanbod</a>.</div>
+      <div class="recommend-section" id="recommendSection" style="display:none;">
+        <div class="recommend-title">Vaak samen besteld</div>
+        <div class="recommend-grid" id="recommendGrid"></div>
+      </div>
       <button class="btn-proceed" id="btnProceed">Verder naar mijn gegevens &rsaquo;</button>
     </div>
 
@@ -372,7 +405,7 @@
           <p>Bedankt voor jouw aanvraag. We sturen je een bevestiging per e-mail en nemen binnenkort contact op.</p>
         </div>
         <div class="error-msg" id="errorMsg">
-          Er is een fout opgetreden. Probeer opnieuw of neem contact op via <a href="tel:0477396350" style="color:#dc2626;">0477 39 63 50</a>.
+          Er is een fout opgetreden. Probeer opnieuw of neem contact op via <a href="tel:0477396350" style="color:#dc2626;" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'error_message',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>.
         </div>
       </form>
     </div>
@@ -388,7 +421,7 @@
       <span class="footer-logo-text">Event<span>Rentals</span></span>
       <div class="footer-contact-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-        <a href="tel:0477396350">0477 39 63 50</a>
+        <a href="tel:0477396350" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'footer',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
       </div>
       <div class="footer-contact-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -400,6 +433,7 @@
     <div class="footer-col">
       <p class="footer-col-title">Speelgelegenheden</p>
       <ul class="footer-links">
+        <li><a href="springkasteel-huren.html" style="color:#ffffff;font-weight:700;">Springkasteel huren &rarr;</a></li>
         <li><a href="springkasteel-standaard.html">Standaard Springkasteel</a></li>
         <li><a href="springkasteel-piraat.html">Voetbal Darts</a></li>
         <li><a href="springkasteel-medium-glijbaan.html">Springkasteel met Glijbaan</a></li>
@@ -413,6 +447,7 @@
     <div class="footer-col">
       <p class="footer-col-title">Tuinfeest Materiaal</p>
       <ul class="footer-links">
+        <li><a href="tenten-huren.html" style="color:#ffffff;font-weight:700;">Tenten huren &rarr;</a></li>
         <li><a href="partytent.html">Partytent</a></li>
         <li><a href="stretchtent.html">Stretchtent</a></li>
         <li><a href="kadertent.html">Aluminium Tent</a></li>
@@ -510,11 +545,115 @@ function renderCart() {
   ul.querySelectorAll('.cart-item-remove').forEach(function(btn) {
     btn.addEventListener('click', function() {
       cart.splice(parseInt(btn.dataset.idx), 1);
-      saveCart(); renderCart();
+      saveCart(); renderCart(); renderRecommendations();
     });
   });
 }
+
+// ── AANBEVOLEN PRODUCTEN ──
+var TENT_NAMES = ['Partytent', 'Stretchtent', 'Aluminium Tent'];
+var PLAY_NAMES = ['Rodeostier', 'Standaard Springkasteel', 'Voetbal Darts', 'Springkasteel Princess', 'Springkasteel met Glijbaan', 'Dino Springkasteel', 'Bungee Run', 'Hindernisbaan', 'Botsballen', 'Reuzespelen'];
+
+var RECOMMENDATIONS = {
+  tent: [
+    { name: 'Terrasverwarmer', price: 35, img: 'verwarming op gas.webp' },
+    { name: 'LED Sfeerverlichting', price: 15, img: 'feestverlichting.webp' },
+    { name: 'Klaptafel 180cm', price: 10, img: 'Bankettafel.webp' },
+    { name: 'Houten Tentvloer', price: 6, img: 'Plankenvloer.png' }
+  ],
+  play: [
+    { name: 'Partytent 3x3m', price: 50, img: 'Canopytent.png' },
+    { name: 'Klaptafel 180cm', price: 10, img: 'Bankettafel.webp' },
+    { name: 'Klapstoel Wit', price: 1.75, img: 'Vouwstoel.jpg' }
+  ]
+};
+
+function cartHasAny(nameList) {
+  return cart.some(function(item) {
+    return nameList.some(function(n) { return item.name.indexOf(n) === 0; });
+  });
+}
+
+function renderRecommendations() {
+  var section = document.getElementById('recommendSection');
+  var grid = document.getElementById('recommendGrid');
+  if (cart.length === 0) { section.style.display = 'none'; return; }
+
+  var pool = [];
+  if (cartHasAny(TENT_NAMES)) pool = pool.concat(RECOMMENDATIONS.tent);
+  if (cartHasAny(PLAY_NAMES)) pool = pool.concat(RECOMMENDATIONS.play);
+
+  // dedupe op naam, en sluit uit wat al in de winkelwagen zit
+  var seen = {};
+  var items = [];
+  pool.forEach(function(p) {
+    if (seen[p.name]) return;
+    if (cart.some(function(c) { return c.name === p.name; })) return;
+    seen[p.name] = true;
+    items.push(p);
+  });
+  items = items.slice(0, 4);
+
+  if (items.length === 0) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+  grid.innerHTML = '';
+  items.forEach(function(p) {
+    var card = document.createElement('div');
+    card.className = 'recommend-card';
+    card.innerHTML =
+      '<img class="recommend-card-img" src="' + p.img + '" alt="' + p.name + '">' +
+      '<div class="recommend-card-name">' + p.name + '</div>' +
+      '<div class="recommend-card-price">&euro;' + p.price.toString().replace('.', ',') + '</div>' +
+      '<button class="recommend-card-add">+ Toevoegen</button>';
+    var addBtn = card.querySelector('.recommend-card-add');
+    addBtn.addEventListener('click', function() {
+      var existing = cart.find(function(i) { return i.name === p.name; });
+      if (existing) { existing.qty += 1; } else { cart.push({ name: p.name, qty: 1, img: p.img, price: p.price }); }
+      saveCart();
+      if (window.gtag) gtag('event', 'add_to_cart', { product_name: p.name, quantity: 1, page_location: window.location.pathname });
+      if (window.fbq) fbq('track', 'AddToCart', { content_name: p.name, content_type: 'product', value: p.price, currency: 'EUR' });
+      renderCart();
+      renderRecommendations();
+    });
+    grid.appendChild(card);
+  });
+}
+
 renderCart();
+renderRecommendations();
+
+var FORM_VELDEN = [
+  { id: 'voornaam', event: 'blur' },
+  { id: 'familienaam', event: 'blur' },
+  { id: 'datumVan', event: 'change' },
+  { id: 'datumTot', event: 'change' },
+  { id: 'gsm', event: 'blur' },
+  { id: 'email', event: 'blur' },
+  { id: 'straat', event: 'blur' },
+  { id: 'postcode', event: 'blur' },
+  { id: 'gemeente', event: 'blur' },
+  { id: 'akkoord', event: 'change' },
+];
+var _veldGetrackt = {};
+function trackFormVelden() {
+  FORM_VELDEN.forEach(function(v) {
+    var el = document.getElementById(v.id);
+    if (!el) return;
+    el.addEventListener(v.event, function() {
+      if (el.type === 'text' || el.type === 'tel' || el.type === 'email' || el.type === 'date' || el.tagName === 'TEXTAREA') {
+        if (!el.value.trim()) return;
+      }
+      if (el.type === 'checkbox' && !el.checked) return;
+      if (_veldGetrackt[v.id]) return;
+      _veldGetrackt[v.id] = true;
+      if (window.gtag) gtag('event', 'form_field_complete', {
+        form_name: 'bestelling',
+        field_name: v.id,
+        page_location: window.location.pathname
+      });
+    });
+  });
+}
 
 document.getElementById('btnProceed').addEventListener('click', function() {
   // Pre-fill products field
@@ -526,6 +665,12 @@ document.getElementById('btnProceed').addEventListener('click', function() {
   document.getElementById('pageSubtitle').textContent = 'Vul het formulier in en wij nemen zo snel mogelijk contact op.';
   window.scrollTo(0, 0);
   renderPrijsIndicatie();
+  if (window.gtag) gtag('event', 'form_start', {
+    form_name: 'bestelling',
+    product_name: lines,
+    page_location: window.location.pathname
+  });
+  trackFormVelden();
 });
 
 // \u2500\u2500 PRIJSINDICATIE \u2500\u2500
@@ -768,6 +913,12 @@ document.getElementById('bestellingForm').addEventListener('submit', async funct
     var data = await res.json();
     if (res.ok && data.ok) {
       document.getElementById('successMsg').style.display = 'block';
+      if (window.gtag) gtag('event', 'generate_lead', {
+        form_name: 'bestelling',
+        product_name: payload.producten,
+        page_location: window.location.pathname
+      });
+      if (window.fbq) fbq('track', 'Lead', { content_name: payload.producten });
       document.getElementById('bestellingForm').reset();
       localStorage.removeItem('er_cart'); cart = [];
     } else {

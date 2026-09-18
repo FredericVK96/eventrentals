@@ -10,6 +10,24 @@
   gtag('config', 'G-C18NBKX2PB');
 </script>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1333191795377856');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="favicon.png?v=6" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -321,7 +339,7 @@
   <div class="search-row-inner">
     <a href="index.html" class="logo"><img src="Eventrentals Logo.png" alt="EventRentals" class="logo-full"></a>
     <div class="right-group">
-      <a href="tel:0477396350" class="nav-phone">0477 39 63 50</a>
+      <a href="tel:0477396350" class="nav-phone" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'navbar',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
       <a href="bestelling.html" class="cart-icon-link" id="cartIconLink" title="Jouw bestelling">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="cart-badge" id="cartBadge" style="display:none">0</span>
@@ -357,6 +375,8 @@
           placeholder="Zoek materiaal… bv. springkasteel, partytent, rodeostier"
           oninput="erAutocomplete(this.value)"
           onkeydown="erKeyNav(event)"
+          onfocus="if(window.gtag)gtag('event','search_bar_click')"
+          onblur="(function(v){if(window.gtag&&v.trim().length>1)gtag('event','search_abandoned',{search_term:v.trim()});})(this.value)"
           style="flex:1;padding:18px 22px;border:none;outline:none;font-size:1rem;font-family:'Nunito',sans-serif;color:#1a1a2e;background:transparent;min-width:0;" />
         <button type="submit" style="background:#2B7A6E;border:none;cursor:pointer;padding:0 28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;"
           onmouseover="this.style.background='#1E5950'" onmouseout="this.style.background='#2B7A6E'">
@@ -468,6 +488,7 @@ function erAutocomplete(val) {
       ? '<img src="'+imgSrc+'" alt="'+m.p.name+'" style="width:52px;height:52px;object-fit:contain;border-radius:6px;background:#fff;flex-shrink:0;padding:4px;">'
       : '<div style="width:52px;height:52px;background:#f3f4f6;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>';
     return '<a href="'+m.p.link+'" class="er-dd-item" data-idx="'+i+'" onmouseenter="erSetActive('+i+')"'+
+      ' onclick="if(window.gtag)gtag(\'event\',\'search_suggestion_click\',{product_name:\''+m.p.name.replace(/'/g,"\\'")+'\'})"'+
       ' style="padding:10px 18px;cursor:pointer;border-top:1px solid #f3f4f6;display:flex;align-items:center;gap:14px;text-decoration:none;">'+
       thumb+
       '<div style="min-width:0;"><div style="font-family:\'Nunito\',sans-serif;font-size:0.95rem;font-weight:700;color:#1a1a2e;">'+m.p.name+'</div>'+
@@ -498,6 +519,7 @@ function erSearchSubmit(e) {
   document.getElementById('erDropdown').style.display='none';
   document.getElementById('erForm').style.borderRadius='10px';
   if (!q) return;
+  if (window.gtag) gtag('event', 'search', { search_term: q });
   var best=null, bestScore=0;
   ER_PRODUCTS.forEach(function(p){
     var score=0;
@@ -530,7 +552,7 @@ document.addEventListener('click', function(e){
         <a href="speelgelegenheden.html"><div class="cat-card-img" style="padding:0;overflow:hidden;"><img src="Bouncycastke.png" alt="Springkastelen en speelgelegenheden" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div></a>
         <div class="cat-card-body">
           <div class="cat-card-title">Speelgelegenheden</div>
-          <div class="cat-card-desc">Springkastelen, hindernisbanen, rodeostier, bungee run, botsballen en meer voor onvergetelijk plezier.</div>
+          <div class="cat-card-desc">Springkastelen, hindernisbanen, <a href="rodeostier.html" style="color:inherit;text-decoration:underline;">rodeostier huren</a>, bungee run, botsballen en meer voor onvergetelijk plezier.</div>
           <a href="speelgelegenheden.html" class="cat-card-count">Bekijk producten &rsaquo;</a>
         </div>
       </div>
@@ -677,7 +699,7 @@ document.addEventListener('click', function(e){
       <div id="br-buiten" style="display:none;margin-top:20px;border-top:1px solid #e5e7eb;padding-top:20px;">
         <div style="font-size:12px;font-weight:700;text-transform:uppercase;color:#A32D2D;background:#FCEBEB;display:inline-block;padding:3px 10px;border-radius:4px;margin-bottom:12px;">Buiten zone (&gt; 50 km)</div>
         <p style="font-size:14px;color:#6b7280;margin-bottom:14px;">Jouw locatie valt buiten onze standaardzones. Transport is mogelijk in overleg &mdash; neem contact op voor een prijsafspraak.</p>
-        <a href="tel:0477396350" style="display:inline-block;background:#2B7A6E;color:white;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;text-decoration:none;">Bel ons: 0477 39 63 50</a>
+        <a href="tel:0477396350" style="display:inline-block;background:#2B7A6E;color:white;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;text-decoration:none;" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'buiten_zone_cta',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">Bel ons: 0477 39 63 50</a>
       </div>
     </div>
 
@@ -925,7 +947,7 @@ function brHaversine(lat1, lon1, lat2, lon2) {
       <span class="footer-logo-text">Event<span>Rentals</span></span>
       <div class="footer-contact-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-        <a href="tel:0477396350">0477 39 63 50</a>
+        <a href="tel:0477396350" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'footer',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
       </div>
       <div class="footer-contact-row">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -937,6 +959,7 @@ function brHaversine(lat1, lon1, lat2, lon2) {
     <div class="footer-col">
       <p class="footer-col-title">Speelgelegenheden</p>
       <ul class="footer-links">
+        <li><a href="springkasteel-huren.html" style="color:#ffffff;font-weight:700;">Springkasteel huren &rarr;</a></li>
         <li><a href="springkasteel-standaard.html">Standaard Springkasteel</a></li>
         <li><a href="springkasteel-piraat.html">Voetbal Darts</a></li>
         <li><a href="springkasteel-medium-glijbaan.html">Springkasteel met Glijbaan</a></li>
@@ -950,6 +973,7 @@ function brHaversine(lat1, lon1, lat2, lon2) {
     <div class="footer-col">
       <p class="footer-col-title">Tuinfeest Materiaal</p>
       <ul class="footer-links">
+        <li><a href="tenten-huren.html" style="color:#ffffff;font-weight:700;">Tenten huren &rarr;</a></li>
         <li><a href="partytent.html">Partytent</a></li>
         <li><a href="stretchtent.html">Stretchtent</a></li>
         <li><a href="kadertent.html">Aluminium Tent</a></li>
