@@ -151,17 +151,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
     .cart-item-remove { background: none; border: none; color: #dc2626; cursor: pointer; font-size: 1.1rem; padding: 4px 8px; border-radius: 6px; }
     .cart-item-remove:hover { background: #fef2f2; }
 
-    .recommend-section { margin-bottom: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
-    .recommend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
-    .recommend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
-    .recommend-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; text-align: center; background: #fafafa; }
-    .recommend-card-img { width: 100%; aspect-ratio: 1/1; object-fit: contain; background: #fff; border-radius: 8px; margin-bottom: 8px; }
-    .recommend-card-name { font-weight: 600; font-size: 0.82rem; margin-bottom: 4px; line-height: 1.25; }
-    .recommend-card-price { color: var(--dark); font-weight: 700; font-size: 0.82rem; margin-bottom: 8px; }
-    .recommend-card-add { width: 100%; background: var(--accent-light); color: var(--dark); border: none; padding: 7px; font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 800; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-    .recommend-card-add:hover { background: var(--dark); color: #fff; }
-    .recommend-card-add.added { background: var(--dark); color: #fff; cursor: default; }
-
     .btn-proceed { width: 100%; background: var(--dark); color: #fff; border: none; padding: 16px; font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; border-radius: var(--radius); cursor: pointer; transition: background 0.2s; }
     .btn-proceed:hover { background: var(--darker); }
     .btn-back { background: none; border: none; color: var(--dark); font-weight: 700; font-size: 0.9rem; cursor: pointer; padding: 8px 0; font-family: 'Nunito', sans-serif; margin-bottom: 16px; }
@@ -306,10 +295,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
       <div class="cart-title">Geselecteerde producten</div>
       <ul class="cart-items" id="cartItems"></ul>
       <div class="cart-empty" id="cartEmpty" style="display:none;">Geen producten geselecteerd. <a href="tuinfeest-materiaal.html" style="color:var(--dark);font-weight:700;">Ga terug naar het aanbod</a>.</div>
-      <div class="recommend-section" id="recommendSection" style="display:none;">
-        <div class="recommend-title">Vaak samen besteld</div>
-        <div class="recommend-grid" id="recommendGrid"></div>
-      </div>
       <button class="btn-proceed" id="btnProceed">Verder naar mijn gegevens &rsaquo;</button>
     </div>
 
@@ -545,82 +530,12 @@ function renderCart() {
   ul.querySelectorAll('.cart-item-remove').forEach(function(btn) {
     btn.addEventListener('click', function() {
       cart.splice(parseInt(btn.dataset.idx), 1);
-      saveCart(); renderCart(); renderRecommendations();
+      saveCart(); renderCart();
     });
-  });
-}
-
-// ── AANBEVOLEN PRODUCTEN ──
-var TENT_NAMES = ['Partytent', 'Stretchtent', 'Aluminium Tent'];
-var PLAY_NAMES = ['Rodeostier', 'Standaard Springkasteel', 'Voetbal Darts', 'Springkasteel Princess', 'Springkasteel met Glijbaan', 'Dino Springkasteel', 'Bungee Run', 'Hindernisbaan', 'Botsballen', 'Reuzespelen'];
-
-var RECOMMENDATIONS = {
-  tent: [
-    { name: 'Terrasverwarmer', price: 35, img: 'verwarming op gas.webp' },
-    { name: 'LED Sfeerverlichting', price: 15, img: 'feestverlichting.webp' },
-    { name: 'Klaptafel 180cm', price: 10, img: 'Bankettafel.webp' },
-    { name: 'Houten Tentvloer', price: 6, img: 'Plankenvloer.png' }
-  ],
-  play: [
-    { name: 'Partytent 3x3m', price: 50, img: 'Canopytent.png' },
-    { name: 'Klaptafel 180cm', price: 10, img: 'Bankettafel.webp' },
-    { name: 'Klapstoel Wit', price: 1.75, img: 'Vouwstoel.jpg' }
-  ]
-};
-
-function cartHasAny(nameList) {
-  return cart.some(function(item) {
-    return nameList.some(function(n) { return item.name.indexOf(n) === 0; });
-  });
-}
-
-function renderRecommendations() {
-  var section = document.getElementById('recommendSection');
-  var grid = document.getElementById('recommendGrid');
-  if (cart.length === 0) { section.style.display = 'none'; return; }
-
-  var pool = [];
-  if (cartHasAny(TENT_NAMES)) pool = pool.concat(RECOMMENDATIONS.tent);
-  if (cartHasAny(PLAY_NAMES)) pool = pool.concat(RECOMMENDATIONS.play);
-
-  // dedupe op naam, en sluit uit wat al in de winkelwagen zit
-  var seen = {};
-  var items = [];
-  pool.forEach(function(p) {
-    if (seen[p.name]) return;
-    if (cart.some(function(c) { return c.name === p.name; })) return;
-    seen[p.name] = true;
-    items.push(p);
-  });
-  items = items.slice(0, 4);
-
-  if (items.length === 0) { section.style.display = 'none'; return; }
-  section.style.display = 'block';
-  grid.innerHTML = '';
-  items.forEach(function(p) {
-    var card = document.createElement('div');
-    card.className = 'recommend-card';
-    card.innerHTML =
-      '<img class="recommend-card-img" src="' + p.img + '" alt="' + p.name + '">' +
-      '<div class="recommend-card-name">' + p.name + '</div>' +
-      '<div class="recommend-card-price">&euro;' + p.price.toString().replace('.', ',') + '</div>' +
-      '<button class="recommend-card-add">+ Toevoegen</button>';
-    var addBtn = card.querySelector('.recommend-card-add');
-    addBtn.addEventListener('click', function() {
-      var existing = cart.find(function(i) { return i.name === p.name; });
-      if (existing) { existing.qty += 1; } else { cart.push({ name: p.name, qty: 1, img: p.img, price: p.price }); }
-      saveCart();
-      if (window.gtag) gtag('event', 'add_to_cart', { product_name: p.name, quantity: 1, page_location: window.location.pathname });
-      if (window.fbq) fbq('track', 'AddToCart', { content_name: p.name, content_type: 'product', value: p.price, currency: 'EUR' });
-      renderCart();
-      renderRecommendations();
-    });
-    grid.appendChild(card);
   });
 }
 
 renderCart();
-renderRecommendations();
 
 var FORM_VELDEN = [
   { id: 'voornaam', event: 'blur' },
