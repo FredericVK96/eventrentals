@@ -122,16 +122,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
     .modal-btn-secondary:hover { background: var(--accent-light); }
     .modal-btn-primary { flex: 1; min-width: 140px; padding: 16px 20px; border: none; border-radius: 12px; background: var(--dark); color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
     .modal-btn-primary:hover { background: var(--darker); }
-    .modal-recommend { margin-bottom: 24px; padding-top: 20px; border-top: 1px solid var(--border,#e5e7eb); }
-    .modal-recommend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
-    .modal-recommend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
-    .modal-recommend-card { border: 1px solid var(--border,#e5e7eb); border-radius: 10px; padding: 8px; text-align: center; background: #fafafa; }
-    .modal-recommend-card img { width: 100%; aspect-ratio: 1/1; object-fit: contain; background: #fff; border-radius: 6px; margin-bottom: 6px; }
-    .modal-recommend-card-name { font-weight: 600; font-size: 0.76rem; margin-bottom: 3px; line-height: 1.2; }
-    .modal-recommend-card-price { color: var(--dark); font-weight: 700; font-size: 0.76rem; margin-bottom: 6px; }
-    .modal-recommend-card-add { width: 100%; background: var(--accent-light,#e8f5f3); color: var(--dark); border: none; padding: 6px; font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 800; border-radius: 5px; cursor: pointer; transition: background 0.2s; }
-    .modal-recommend-card-add:hover { background: var(--dark); color: #fff; }
-    .modal-recommend-card-add.added { background: var(--dark); color: #fff; cursor: default; }
     .site-footer { background: var(--darker); color: #9ca3af; padding: 32px 24px 0; margin-top: 32px; font-size: 0.88rem; }
     .site-footer a { color: #c8ccd4; text-decoration: none; transition: color 0.18s; }
     .site-footer a:hover { color: var(--accent); }
@@ -331,10 +321,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
   <div class="modal-box">
     <div class="modal-title">Product is toegevoegd aan jouw bestelling</div>
     <div class="modal-product" id="modalProduct"></div>
-    <div class="modal-recommend" id="modalRecommend" style="display:none;">
-      <div class="modal-recommend-title">Mensen bestellen ook...</div>
-      <div class="modal-recommend-grid" id="modalRecommendGrid"></div>
-    </div>
     <div class="modal-actions">
       <button class="modal-btn-secondary" onclick="window.location='tuinfeest-materiaal.html'">Nog producten toevoegen &rsaquo;</button>
       <a href="bestelling.html" class="modal-btn-primary">Naar mijn bestelling &rsaquo;</a>
@@ -440,7 +426,6 @@ document.getElementById('btnBestel').addEventListener('click', function() {
   localStorage.setItem('er_cart', JSON.stringify(cart));
   document.getElementById('modalProduct').textContent = qty + ' x ' + name;
   document.getElementById('bestelModal').classList.add('open');
-  renderModalRecommendations(name);
 });
 document.getElementById('bestelModal').addEventListener('click', function(e) {
   if (e.target === this) this.classList.remove('open');
@@ -505,72 +490,6 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
-<script>
-/* ── AANBEVOLEN PRODUCTEN IN BEVESTIGINGS-MODAL ── */
-var MR_TENT_NAMES = ['Partytent', 'Stretchtent', 'Aluminium Tent'];
-var MR_PLAY_NAMES = ['Rodeostier', 'Standaard Springkasteel', 'Voetbal Darts', 'Springkasteel Princess', 'Springkasteel met Glijbaan', 'Dino Springkasteel', 'Bungee Run', 'Hindernisbaan', 'Botsballen', 'Reuzespelen'];
-var MR_RECOMMENDATIONS = {
-  tent: [
-    { name: 'Terrasverwarmer', price: 35, img: 'verwarming op gas.webp' },
-    { name: 'LED Sfeerverlichting', price: 15, img: 'feestverlichting.webp' },
-    { name: 'Klaptafel 180cm', price: 10, img: 'Bankettafel.webp' },
-    { name: 'Houten Tentvloer', price: 6, img: 'Plankenvloer.png' }
-  ],
-  play: [
-    { name: 'Partytent 3x3m', price: 50, img: 'Canopytent.png' },
-    { name: 'Klaptafel 180cm', price: 10, img: 'Bankettafel.webp' },
-    { name: 'Klapstoel Wit', price: 1.75, img: 'Vouwstoel.jpg' }
-  ]
-};
-function mrMatches(itemName, nameList) {
-  return nameList.some(function(n) { return itemName.indexOf(n) === 0; });
-}
-function renderModalRecommendations(justAddedName) {
-  var section = document.getElementById('modalRecommend');
-  var grid = document.getElementById('modalRecommendGrid');
-  if (!section || !grid) return;
-  var cart = JSON.parse(localStorage.getItem('er_cart') || '[]');
-  var pool = [];
-  if (mrMatches(justAddedName, MR_TENT_NAMES)) pool = pool.concat(MR_RECOMMENDATIONS.tent);
-  if (mrMatches(justAddedName, MR_PLAY_NAMES)) pool = pool.concat(MR_RECOMMENDATIONS.play);
-  var seen = {};
-  var items = [];
-  pool.forEach(function(p) {
-    if (p.name === justAddedName) return;
-    if (seen[p.name]) return;
-    if (cart.some(function(c) { return c.name === p.name; })) return;
-    seen[p.name] = true;
-    items.push(p);
-  });
-  items = items.slice(0, 4);
-  if (items.length === 0) { section.style.display = 'none'; return; }
-  section.style.display = 'block';
-  grid.innerHTML = '';
-  items.forEach(function(p) {
-    var card = document.createElement('div');
-    card.className = 'modal-recommend-card';
-    card.innerHTML =
-      '<img src="' + p.img + '" alt="' + p.name + '">' +
-      '<div class="modal-recommend-card-name">' + p.name + '</div>' +
-      '<div class="modal-recommend-card-price">&euro;' + p.price.toString().replace('.', ',') + '</div>' +
-      '<button class="modal-recommend-card-add">+ Toevoegen</button>';
-    var btn = card.querySelector('.modal-recommend-card-add');
-    btn.addEventListener('click', function() {
-      var c = JSON.parse(localStorage.getItem('er_cart') || '[]');
-      var existing = c.find(function(i) { return i.name === p.name; });
-      if (existing) { existing.qty += 1; } else { c.push({ name: p.name, qty: 1, img: p.img, price: p.price }); }
-      localStorage.setItem('er_cart', JSON.stringify(c));
-      if (window.gtag) gtag('event', 'add_to_cart', { product_name: p.name, quantity: 1, page_location: window.location.pathname });
-      if (window.fbq) fbq('track', 'AddToCart', { content_name: p.name, content_type: 'product', value: p.price, currency: 'EUR' });
-      if (window.updateCartBadge) updateCartBadge();
-      btn.textContent = 'Toegevoegd \u2713';
-      btn.classList.add('added');
-      btn.disabled = true;
-    });
-    grid.appendChild(card);
-  });
-}
-</script>
 </body>
 </html>
 
