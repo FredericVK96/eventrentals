@@ -128,14 +128,20 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
     .modal-btn-primary:hover { background: var(--darker); }
     .modal-recommend { margin-bottom: 24px; padding-top: 20px; border-top: 1px solid var(--border,#e5e7eb); }
     .modal-recommend-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
-    .modal-recommend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .modal-recommend-card { border: 1px solid var(--border,#e5e7eb); border-radius: 10px; padding: 8px; text-align: center; background: #fafafa; }
+    .modal-recommend-wrap { position: relative; }
+    .modal-recommend-grid { display: flex; gap: 10px; overflow: hidden; scroll-behavior: smooth; }
+    .modal-recommend-card { flex: 0 0 calc((100% - 20px) / 3); min-width: 0; border: 1px solid var(--border,#e5e7eb); border-radius: 10px; padding: 8px; text-align: center; background: #fafafa; }
     .modal-recommend-card img { width: 100%; aspect-ratio: 1/1; object-fit: contain; background: #fff; border-radius: 6px; margin-bottom: 6px; }
     .modal-recommend-card-name { font-weight: 600; font-size: 0.76rem; margin-bottom: 3px; line-height: 1.2; }
     .modal-recommend-card-price { color: var(--dark); font-weight: 700; font-size: 0.76rem; margin-bottom: 6px; }
+    .modal-recommend-qty { display: flex; align-items: center; justify-content: center; gap: 4px; margin-bottom: 6px; }
+    .mr-qty-btn { width: 22px; height: 22px; border: 1px solid var(--border,#e5e7eb); background: #fff; border-radius: 5px; font-weight: 800; font-size: 0.85rem; color: var(--dark); cursor: pointer; line-height: 1; padding: 0; }
+    .mr-qty-btn:hover { background: var(--accent-light,#e8f5f3); }
+    .mr-qty-val { min-width: 16px; text-align: center; font-weight: 700; font-size: 0.78rem; }
     .modal-recommend-card-add { width: 100%; background: var(--accent-light,#e8f5f3); color: var(--dark); border: none; padding: 6px; font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 800; border-radius: 5px; cursor: pointer; transition: background 0.2s; }
     .modal-recommend-card-add:hover { background: var(--dark); color: #fff; }
-    .modal-recommend-card-add.added { background: var(--dark); color: #fff; cursor: default; }
+    .modal-recommend-next { display: none; position: absolute; top: 50%; right: -8px; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border,#e5e7eb); background: #fff; color: var(--dark); font-size: 1rem; font-weight: 800; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.18); align-items: center; justify-content: center; padding: 0; }
+    .modal-recommend-next.show { display: flex; }
     .site-footer { background: var(--darker); color: #9ca3af; padding: 32px 24px 0; margin-top: 32px; font-size: 0.88rem; }
     .site-footer a { color: #c8ccd4; text-decoration: none; transition: color 0.18s; }
     .site-footer a:hover { color: var(--accent); }
@@ -349,7 +355,10 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
     <div class="modal-product" id="modalProduct"></div>
     <div class="modal-recommend" id="modalRecommend" style="display:none;">
       <div class="modal-recommend-title">Mensen bestellen ook...</div>
-      <div class="modal-recommend-grid" id="modalRecommendGrid"></div>
+      <div class="modal-recommend-wrap">
+        <div class="modal-recommend-grid" id="modalRecommendGrid"></div>
+        <button class="modal-recommend-next" id="modalRecommendNext" type="button" aria-label="Meer producten tonen">&rsaquo;</button>
+      </div>
     </div>
     <div class="modal-actions">
       <button class="modal-btn-secondary" onclick="window.location='tuinfeest-materiaal.html'">Andere producten toevoegen &rsaquo;</button>
@@ -597,7 +606,6 @@ function renderModalRecommendations(justAddedName) {
     seen[p.name] = true;
     items.push(p);
   });
-  items = items.slice(0, 3);
   if (items.length === 0) { section.style.display = 'none'; return; }
   section.style.display = 'block';
   grid.innerHTML = '';
@@ -608,22 +616,47 @@ function renderModalRecommendations(justAddedName) {
       '<img src="' + p.img + '" alt="' + p.name + '">' +
       '<div class="modal-recommend-card-name">' + p.name + '</div>' +
       '<div class="modal-recommend-card-price">&euro;' + p.price.toString().replace('.', ',') + '</div>' +
-      '<button class="modal-recommend-card-add">+ Toevoegen</button>';
+      '<div class="modal-recommend-qty">' +
+        '<button type="button" class="mr-qty-btn" data-dir="-1">&minus;</button>' +
+        '<span class="mr-qty-val">1</span>' +
+        '<button type="button" class="mr-qty-btn" data-dir="1">+</button>' +
+      '</div>' +
+      '<button type="button" class="modal-recommend-card-add">Bestel</button>';
+    var qty = 1;
+    var qtyVal = card.querySelector('.mr-qty-val');
+    card.querySelectorAll('.mr-qty-btn').forEach(function(qbtn) {
+      qbtn.addEventListener('click', function() {
+        qty = Math.max(1, qty + parseInt(qbtn.getAttribute('data-dir')));
+        qtyVal.textContent = qty;
+      });
+    });
     var btn = card.querySelector('.modal-recommend-card-add');
     btn.addEventListener('click', function() {
       var c = JSON.parse(localStorage.getItem('er_cart') || '[]');
       var existing = c.find(function(i) { return i.name === p.name; });
-      if (existing) { existing.qty += 1; } else { c.push({ name: p.name, qty: 1, img: p.img, price: p.price }); }
+      if (existing) { existing.qty += qty; } else { c.push({ name: p.name, qty: qty, img: p.img, price: p.price }); }
       localStorage.setItem('er_cart', JSON.stringify(c));
-      if (window.gtag) gtag('event', 'add_to_cart', { product_name: p.name, quantity: 1, page_location: window.location.pathname });
-      if (window.fbq) fbq('track', 'AddToCart', { content_name: p.name, content_type: 'product', value: p.price, currency: 'EUR' });
+      if (window.gtag) gtag('event', 'add_to_cart', { product_name: p.name, quantity: qty, page_location: window.location.pathname });
+      if (window.fbq) fbq('track', 'AddToCart', { content_name: p.name, content_type: 'product', value: p.price * qty, currency: 'EUR' });
       if (window.updateCartBadge) updateCartBadge();
       btn.textContent = 'Toegevoegd \u2713';
-      btn.classList.add('added');
-      btn.disabled = true;
+      setTimeout(function() { btn.textContent = 'Bestel'; }, 1200);
+      qty = 1;
+      qtyVal.textContent = qty;
     });
     grid.appendChild(card);
   });
+  var nextBtn = document.getElementById('modalRecommendNext');
+  if (items.length > 3) {
+    nextBtn.classList.add('show');
+    grid.scrollLeft = 0;
+    nextBtn.onclick = function() {
+      if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4) { grid.scrollLeft = 0; }
+      else { grid.scrollLeft += grid.clientWidth; }
+    };
+  } else {
+    nextBtn.classList.remove('show');
+  }
 }
 </script>
 </body>
