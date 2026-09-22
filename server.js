@@ -323,32 +323,39 @@ app.post('/api/bestelling-gedeeltelijk', gedeeltelijkLimiter, async (req, res) =
     } = req.body;
     const timestamp = new Date().toISOString();
     const productenTekst = Array.isArray(producten) ? producten.join(', ') : (producten || '');
+    // Zelfde kolomlayout als BouwRent's 'Afgehaakte bestellingen'-tabblad (gedeeld
+    // tabblad) — begindatum/einddatum/bezorgGemeente/bezorgStraat/levering zijn
+    // BouwRent's kolomnamen, hier ingevuld met EventRentals' equivalenten.
+    // 'levering' (afhalen/bezorgen) bestaat niet bij EventRentals, dus leeg.
+    // huisnr/postcode zijn EventRentals-specifiek en staan als extra kolommen
+    // P/Q achteraan, zodat BouwRent's bestaande kolommen ongemoeid blijven.
     const sheetRow = [
       timestamp,                     // A
       voornaam    || '',             // B
       familienaam || '',             // C
-      datumVan    || '',             // D
-      datumTot    || '',             // E
-      straat      || '',             // F
-      huisnr      || '',             // G
-      postcode    || '',             // H
-      gemeente    || '',             // I
-      gsm         || '',             // J
-      email       || '',             // K
-      opmerkingen || '',             // L
-      productenTekst,                // M
-      'Gedeeltelijk (stap ' + (stap || '?') + ')', // N
+      gsm         || '',             // D
+      email       || '',             // E
+      datumVan    || '',             // F (begindatum)
+      datumTot    || '',             // G (einddatum)
+      '',                            // H (levering — n.v.t. bij EventRentals)
+      gemeente    || '',             // I (bezorgGemeente)
+      straat      || '',             // J (bezorgStraat)
+      opmerkingen || '',             // K
+      productenTekst,                // L
+      'Gedeeltelijk (stap ' + (stap || '?') + ')', // M
       // Apostrof-prefix dwingt Sheets (valueInputOption=USER_ENTERED) om deze lange numerieke
       // ID's als platte tekst op te slaan i.p.v. ze als getal te herinterpreteren.
-      ga4ClientId ? `'${ga4ClientId}` : '', ga4SessionId ? `'${ga4SessionId}` : '', // O–P
+      ga4ClientId ? `'${ga4ClientId}` : '', ga4SessionId ? `'${ga4SessionId}` : '', // N–O
+      huisnr      || '',             // P (EventRentals-specifiek)
+      postcode    || '',             // Q (EventRentals-specifiek)
     ];
 
     if (rowIndex) {
-      await updateSheetRow(rowIndex, sheetRow, 'Afgehaakte bestellingen eventrentals', 'P')
+      await updateSheetRow(rowIndex, sheetRow, 'Afgehaakte bestellingen', 'Q')
         .catch(err => console.error('[bestelling-gedeeltelijk] update fout:', err.message));
       res.json({ ok: true, rowIndex });
     } else {
-      const newRowIndex = await appendToSheet(sheetRow, 'Afgehaakte bestellingen eventrentals')
+      const newRowIndex = await appendToSheet(sheetRow, 'Afgehaakte bestellingen')
         .catch(err => { console.error('[bestelling-gedeeltelijk] append fout:', err.message); return null; });
       res.json({ ok: true, rowIndex: newRowIndex });
     }
