@@ -33,6 +33,16 @@ const bestellingLimiter = rateLimit({
   skipSuccessfulRequests: false,
 });
 
+// Gedeeltelijke bestelformulier-data: max 60 veld-updates per uur per IP
+// (kan tot ~11x per formulierpoging vuren, dus ruim boven één normale sessie)
+const gedeeltelijkLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Te veel aanvragen.' },
+});
+
 /* ── GOOGLE AUTH via Node crypto ────────────────────────── */
 async function getGoogleAccessToken() {
   let clientEmail  = process.env.GOOGLE_CLIENT_EMAIL;
@@ -100,6 +110,33 @@ async function appendToSheet(row, tab = 'Bestellingen', startRow = 1) {
   if (!res.ok) {
     const err = await res.text();
     throw new Error(`Sheets API error ${res.status}: ${err}`);
+  }
+  let data = {};
+  try { data = await res.json(); } catch (e) { /* ignore parse errors */ }
+  // Extract row number from updatedRange e.g. "'Afgehaakte bestellingen'!A5:J5"
+  const updatedRange = (data?.updates?.updatedRange) || '';
+  const match = updatedRange.match(/[^!]+!A(\d+)/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
+async function updateSheetRow(rowIndex, row, tab = 'Bestellingen', lastCol = 'J') {
+  const token = await getGoogleAccessToken();
+  const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+  const range = encodeURIComponent(`'${tab}'!A${rowIndex}`) + `:${lastCol}${rowIndex}`;
+  const res = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?valueInputOption=USER_ENTERED`,
+    {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ values: [row] }),
+    }
+  );
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Sheets update error ${res.status}: ${err}`);
   }
 }
 
@@ -271,6 +308,53 @@ app.post('/api/bestelling', bestellingLimiter, async (req, res) => {
   } catch (err) {
     console.error('[bestelling] onverwachte fout:', err.message, err.stack);
     res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+// Slaat het bestelformulier op zoals het er op elk moment bijstaat (na elk
+// ingevuld veld), zodat afgehaakte bestellingen (iemand vult in maar verstuurt
+// nooit) toch herkenbaar zijn — zelfde upsert-patroon als /api/bestelling hierboven.
+app.post('/api/bestelling-gedeeltelijk', gedeeltelijkLimiter, async (req, res) => {
+  try {
+    const {
+      rowIndex, stap, voornaam, familienaam, gsm, email,
+      datumVan, datumTot, straat, huisnr, postcode, gemeente,
+      opmerkingen, producten, ga4ClientId, ga4SessionId
+    } = req.body;
+    const timestamp = new Date().toISOString();
+    const productenTekst = Array.isArray(producten) ? producten.join(', ') : (producten || '');
+    const sheetRow = [
+      timestamp,                     // A
+      voornaam    || '',             // B
+      familienaam || '',             // C
+      datumVan    || '',             // D
+      datumTot    || '',             // E
+      straat      || '',             // F
+      huisnr      || '',             // G
+      postcode    || '',             // H
+      gemeente    || '',             // I
+      gsm         || '',             // J
+      email       || '',             // K
+      opmerkingen || '',             // L
+      productenTekst,                // M
+      'Gedeeltelijk (stap ' + (stap || '?') + ')', // N
+      // Apostrof-prefix dwingt Sheets (valueInputOption=USER_ENTERED) om deze lange numerieke
+      // ID's als platte tekst op te slaan i.p.v. ze als getal te herinterpreteren.
+      ga4ClientId ? `'${ga4ClientId}` : '', ga4SessionId ? `'${ga4SessionId}` : '', // O–P
+    ];
+
+    if (rowIndex) {
+      await updateSheetRow(rowIndex, sheetRow, 'Afgehaakte bestellingen eventrentals', 'P')
+        .catch(err => console.error('[bestelling-gedeeltelijk] update fout:', err.message));
+      res.json({ ok: true, rowIndex });
+    } else {
+      const newRowIndex = await appendToSheet(sheetRow, 'Afgehaakte bestellingen eventrentals')
+        .catch(err => { console.error('[bestelling-gedeeltelijk] append fout:', err.message); return null; });
+      res.json({ ok: true, rowIndex: newRowIndex });
+    }
+  } catch (e) {
+    console.error('[bestelling-gedeeltelijk] fout:', e.message);
+    res.json({ ok: false });
   }
 });
 

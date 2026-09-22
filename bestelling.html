@@ -538,18 +538,83 @@ function renderCart() {
 renderCart();
 
 var FORM_VELDEN = [
-  { id: 'voornaam', event: 'blur' },
-  { id: 'familienaam', event: 'blur' },
-  { id: 'datumVan', event: 'change' },
-  { id: 'datumTot', event: 'change' },
-  { id: 'gsm', event: 'blur' },
-  { id: 'email', event: 'blur' },
-  { id: 'straat', event: 'blur' },
-  { id: 'postcode', event: 'blur' },
-  { id: 'gemeente', event: 'blur' },
-  { id: 'akkoord', event: 'change' },
+  { id: 'voornaam', event: 'blur', stap: 1 },
+  { id: 'familienaam', event: 'blur', stap: 2 },
+  { id: 'datumVan', event: 'change', stap: 3 },
+  { id: 'datumTot', event: 'change', stap: 4 },
+  { id: 'gsm', event: 'blur', stap: 5 },
+  { id: 'email', event: 'blur', stap: 6 },
+  { id: 'straat', event: 'blur', stap: 7 },
+  { id: 'huisnr', event: 'blur', stap: 8 },
+  { id: 'postcode', event: 'blur', stap: 9 },
+  { id: 'gemeente', event: 'blur', stap: 10 },
+  { id: 'opmerkingen', event: 'blur', stap: 11 },
+  { id: 'akkoord', event: 'change', stap: 12 },
 ];
 var _veldGetrackt = {};
+var _gedeeltelijkRowIndex = null;
+var _gedeeltelijkBezig = false;
+var _ga4Ids = null; // { clientId, sessionId } — eenmaal opgehaald, hergebruikt
+
+// Haalt de échte GA4 client_id + session_id op (dezelfde ID's die in de
+// BigQuery-export staan als user_pseudo_id / ga_session_id) zodat de sheet-
+// rij exact aan het dashboard-traject gekoppeld kan worden, i.p.v. gokken
+// op tijdstip.
+function haalGa4Ids(callback) {
+  if (_ga4Ids) { callback(_ga4Ids); return; }
+  var klaar = { clientId: null, sessionId: null };
+  var teller = 0;
+  function klaarMelden() {
+    teller++;
+    if (teller === 2) { _ga4Ids = klaar; callback(klaar); }
+  }
+  try {
+    gtag('get', 'G-C18NBKX2PB', 'client_id', function(id) { klaar.clientId = id; klaarMelden(); });
+    gtag('get', 'G-C18NBKX2PB', 'session_id', function(id) { klaar.sessionId = id; klaarMelden(); });
+  } catch (e) {
+    callback(klaar);
+  }
+  // Vangnet: als gtag om welke reden dan ook niet binnen 1,5s antwoordt, toch verdergaan
+  setTimeout(function() { if (!_ga4Ids) { _ga4Ids = klaar; callback(klaar); } }, 1500);
+}
+
+// Stuurt de huidige stand van het formulier naar de eigen sheet (los van
+// Analytics) zodat afgehaakte bestellingen herkenbaar blijven met de
+// ingevulde gegevens erbij.
+function stuurGedeeltelijk(stap) {
+  if (_gedeeltelijkBezig) return; // simpele lock, geen overlappende requests
+  _gedeeltelijkBezig = true;
+  haalGa4Ids(function(ids) {
+    fetch('/api/bestelling-gedeeltelijk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        rowIndex: _gedeeltelijkRowIndex,
+        stap: stap,
+        voornaam: val('voornaam'),
+        familienaam: val('familienaam'),
+        datumVan: val('datumVan'),
+        datumTot: val('datumTot'),
+        gsm: val('gsm'),
+        email: val('email'),
+        straat: val('straat'),
+        huisnr: val('huisnr'),
+        postcode: val('postcode'),
+        gemeente: val('gemeente'),
+        opmerkingen: val('opmerkingen'),
+        producten: cart.map(function(i){ return i.qty + '× ' + i.name; }),
+        ga4ClientId: ids.clientId,
+        ga4SessionId: ids.sessionId
+      })
+    }).then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data && data.rowIndex) _gedeeltelijkRowIndex = data.rowIndex;
+      })
+      .catch(function() { /* stil falen, mag de UX nooit blokkeren */ })
+      .finally(function() { _gedeeltelijkBezig = false; });
+  });
+}
+
 function trackFormVelden() {
   FORM_VELDEN.forEach(function(v) {
     var el = document.getElementById(v.id);
@@ -566,6 +631,7 @@ function trackFormVelden() {
         field_name: v.id,
         page_location: window.location.pathname
       });
+      if (v.id !== 'akkoord') stuurGedeeltelijk(v.stap);
     });
   });
 }
