@@ -764,6 +764,7 @@ function renderPrijsIndicatie() {
 
   var dagen = rentalDagen();
   var subtotaal = 0, rijenHtml = '', onbekend = [], offerteRegels = [];
+  var vbKorting = 0, vbTip = false;
   cart.forEach(function(item) {
     var p = PRODUCT_PRICES[item.name];
     if (!p) { onbekend.push(item.name); return; }
@@ -777,6 +778,15 @@ function renderPrijsIndicatie() {
       var extraLabel = dagen === 2 ? 'dag 2 (-50%)' : 'dag 2 t.e.m. dag ' + dagen + ' (-50%)';
       rijenHtml += '<div class="prijs-indicatie-rij muted"><span>' + item.qty + '\u00d7 ' + item.name + ' \u2014 ' + extraLabel + '</span><span>' + fmtEuro(extraTotaal) + '</span></div>';
       offerteRegels.push(item.qty + 'x ' + item.name + ' \u2014 ' + extraLabel + ': ' + fmtEuro(extraTotaal));
+    }
+    // Vroegboekkorting 2027 (vroegboek.js): extra dagen gratis \u2192 heel weekend aan de prijs van 1 dag.
+    if (window.VB && window.VB.toepasbaar(item.name, val('datumVan'), dagen)) {
+      subtotaal -= extraTotaal;
+      vbKorting += extraTotaal;
+      rijenHtml += '<div class="prijs-indicatie-rij" style="color:#D9480F;font-weight:700;"><span>Vroegboekkorting 2027 \u2014 weekend = prijs van 1 dag</span><span>-' + fmtEuro(extraTotaal) + '</span></div>';
+      offerteRegels.push('Vroegboekkorting 2027 (' + item.name + '): -' + fmtEuro(extraTotaal));
+    } else if (window.VB && window.VB.actief() && window.VB.geldtVoor(item.name)) {
+      vbTip = true;
     }
   });
 
@@ -809,7 +819,7 @@ function renderPrijsIndicatie() {
   window._laatstePrijsIndicatie = {
     regels: offerteRegels, subtotaal: subtotaal, transport: transportBedrag,
     transportOmschrijving: transportOmschrijving, totaal: totaal, dagen: dagen,
-    onbekendeProducten: onbekend,
+    onbekendeProducten: onbekend, vroegboekkorting: vbKorting,
   };
 
   el.innerHTML =
@@ -817,7 +827,8 @@ function renderPrijsIndicatie() {
     rijenHtml + transportHtml +
     '<div class="prijs-indicatie-totaal"><span>Geschat totaal</span><span>' + fmtEuro(totaal) + '</span></div>' +
     '<p class="prijs-indicatie-note">Richtprijs excl. eventuele waarborg. We bevestigen het exacte bedrag bij het afhandelen van uw aanvraag.</p>' +
-    onbekendHtml;
+    onbekendHtml +
+    (vbTip ? '<p class="prijs-indicatie-note" style="color:#D9480F;font-weight:700;">Vroegboekkorting: kies een startdatum tussen 1 maart en 30 juni 2027 en huur 2 à 3 dagen (bv. vrijdag → maandag), dan betaal je enkel dag 1. Boek vóór 31 oktober.</p>' : '');
 }
 
 ['straat', 'huisnr', 'postcode', 'gemeente'].forEach(function(id) {
@@ -972,5 +983,6 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
+<script src="vroegboek.js"></script>
 </body>
 </html>
