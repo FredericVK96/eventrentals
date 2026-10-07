@@ -49,7 +49,7 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
     {"@type":"FAQPage","mainEntity":[
       {"@type":"Question","name":"Welk springkasteel is het beste voor een communiefeest?","acceptedAnswer":{"@type":"Answer","text":"Voor een communiefeest met kinderen van verschillende leeftijden raden wij het Springkasteel met Glijbaan (5x5m, €150/dag) of het Dino Springkasteel (6x5m, €195/dag) aan. Deze zijn geschikt voor kinderen van 3 tot 12 jaar."}},
       {"@type":"Question","name":"Wanneer moet ik reserveren voor een communiefeest?","acceptedAnswer":{"@type":"Answer","text":"Communiefeesten vinden plaats in april en mei — ons drukste seizoen. Reserveer minstens 4 tot 6 weken op voorhand, bij voorkeur vroeger. Populaire weekends zijn snel volgeboekt."}},
-      {"@type":"Question","name":"Wat kost feestmateriaal huren voor een communiefeest?","acceptedAnswer":{"@type":"Answer","text":"Een typisch communiefeestpakket: springkasteel (€95–€195), partytent 3x6m (€110) en stoelen/tafels (€2–€8/stuk). Totaal pakket vanaf ca. €250. Levering gratis voor zone 1 bij huurwaarde vanaf €100."}},
+      {"@type":"Question","name":"Wat kost feestmateriaal huren voor een communiefeest?","acceptedAnswer":{"@type":"Answer","text":"Een typisch communiefeestpakket: springkasteel (€95–€195), partytent 3x6m (€110) en stoelen/tafels (€2–€8/stuk). Totaal pakket vanaf ca. €250."}},
       {"@type":"Question","name":"Heb ik een tent nodig voor een communiefeest buiten?","acceptedAnswer":{"@type":"Answer","text":"Bij een communiefeest in de tuin is een partytent sterk aanbevolen — zeker in april en mei wanneer het weer onzeker is. Onze partytenten zijn volledig waterdicht en worden inclusief zijwanden geleverd."}}
     ]}
   ]}
@@ -178,9 +178,10 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 .search-row-inner .cart-icon-link svg { width: 24px; height: 24px; }
 .search-row-inner .cart-badge { position: absolute; top: -6px; right: -8px; background: var(--dark); color: #fff; font-size: 0.7rem; font-weight: 700; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; line-height: 1; }
 .menu-row { background: var(--white); border-bottom: 1px solid var(--border); }
-.menu-row-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 6px; }
+.menu-row-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; justify-content: center; gap: 6px; }
 .menu-row-inner a { padding: 10px 16px; font-size: 0.9rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 0.01em; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px; }
 .menu-row-inner a:hover { background: var(--bg); }
+.menu-row-inner a.active { background: var(--dark); color: #fff; }
 .nav-search-dropdown { display: none; position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; background: var(--white); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,0.18); border: 1px solid var(--border); max-height: 320px; overflow-y: auto; z-index: 2000; }
 .nav-dd-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; text-decoration: none; border-top: 1px solid #f3f4f6; }
 .nav-dd-item:first-child { border-top: none; }
@@ -206,8 +207,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 </style>
 </head>
 <body>
-
-<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="index.html#transport">bekijk de transporttarieven</a></div>
 
 <div class="search-row">
   <div class="search-row-inner">
@@ -242,10 +241,10 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 
 <div class="menu-row">
   <nav class="menu-row-inner" aria-label="Hoofdmenu">
-    <a href="index.html">Home</a>
-    <a href="index.html#catalogus">Ons verhuurassortiment</a>
-    <a href="index.html#transport">Transport</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#catalogus">Ons verhuurassortiment <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html#transport">Transport <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="#contact">Contact <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
   </nav>
 </div>
 
@@ -367,7 +366,7 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Wat kost feestmateriaal huren voor een communiefeest? <span class="faq-arrow">&#9660;</span></button>
-        <div class="faq-a">Een typisch communiefeestpakket: springkasteel met glijbaan (&euro;150) + partytent 3&times;6m (&euro;110) + 20 klapstoel (&euro;40) + 4 klaptafels (&euro;32) = <strong>ca. &euro;332</strong>. Levering is gratis voor zone 1 bij een huurwaarde vanaf &euro;100.</div>
+        <div class="faq-a">Een typisch communiefeestpakket: springkasteel met glijbaan (&euro;150) + partytent 3&times;6m (&euro;110) + 20 klapstoel (&euro;40) + 4 klaptafels (&euro;32) = <strong>ca. &euro;332</strong>.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Heb ik een tent nodig voor een communiefeest buiten? <span class="faq-arrow">&#9660;</span></button>

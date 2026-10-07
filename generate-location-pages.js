@@ -34,12 +34,12 @@ const LOCATIONS = [
     deelgemeenten: ['De Pinte-centrum','Zevergem','Astene','Nazareth','Sint-Martens-Latem','Gavere','Merelbeke'],
     usps: [
       { icon: '📍', title: 'Depot op wandelafstand', sub: 'EventRentals is gevestigd in Begoniapark 14 — u kunt zelf komen bekijken.' },
-      { icon: '💶', title: 'Laagste transportkost', sub: 'Zone 1: €15 vaste kost. Gratis bij huurwaarde ≥ €100.' },
+      { icon: '💶', title: 'Laagste transportkost', sub: 'Zone 1: €15 vaste kost.' },
       { icon: '⚡', title: 'Snelste levering', sub: 'Op afspraak leveren we dezelfde dag in De Pinte.' },
     ],
     faq: [
       { q: 'Is EventRentals écht gevestigd in De Pinte?', a: 'Ja, ons depot staat in Begoniapark 14, 9810 Nazareth-De Pinte. U kunt het materiaal op afspraak komen bekijken of ophalen.' },
-      { q: 'Wat kost een springkasteel huren in De Pinte?', a: 'Een standaard springkasteel kost €95 per dag inclusief BTW. Transportkost voor De Pinte valt in zone 1: €15 vaste kost + €0,55/km. Gratis bij huurwaarde ≥ €100.' },
+      { q: 'Wat kost een springkasteel huren in De Pinte?', a: 'Een standaard springkasteel kost €95 per dag inclusief BTW. Transportkost voor De Pinte valt in zone 1: €15 vaste kost + €0,55/km.' },
       { q: 'Kan ik ook zelf ophalen in De Pinte?', a: 'Ja, op afspraak kunt u materiaal ophalen in Begoniapark 14. Bel of mail ons om een tijdstip af te spreken. Voor grote stukken zoals partytenten raden we aan levering te kiezen.' },
       { q: 'Wat is de minimale huurperiode?', a: 'Eén dag (24u) is de minimale huurperiode. Weekendtarieven (vrijdag t.e.m. maandag) zijn ook beschikbaar.' },
       { q: 'Hoe groot moet mijn tuin zijn voor een springkasteel in De Pinte?', a: 'Een standaard springkasteel heeft een plattegrond van ca. 4×4m nodig plus wat extra ruimte rondom voor veiligheid. Grotere modellen vragen meer ruimte — vraag ons advies bij uw aanvraag.' },
@@ -61,7 +61,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Waar is EventRentals gevestigd in Nazareth?', a: 'Ons depot staat in Begoniapark 14, 9810 Nazareth-De Pinte. Op afspraak kunt u materiaal komen ophalen of bekijken.' },
-      { q: 'Wat kost een springkasteel huren in Nazareth?', a: 'Een standaard springkasteel kost €95/dag. Nazareth valt in zone 1: €15 transportkost + €0,55/km. Bij huurwaarde ≥ €100 is levering gratis.' },
+      { q: 'Wat kost een springkasteel huren in Nazareth?', a: 'Een standaard springkasteel kost €95/dag. Nazareth valt in zone 1: €15 transportkost + €0,55/km.' },
       { q: 'Levert EventRentals ook in de deelgemeenten rond Nazareth?', a: 'Ja, wij leveren in heel Nazareth en omgeving: De Pinte, Eke, Zevergem, Gavere en verder. Gebruik de transportcalculator voor de exacte kost.' },
       { q: 'Kan ik een springkasteel huren voor een kinderfeest in de tuin?', a: 'Absoluut. Ons meest gevraagde product voor kinderfeesten is het standaard springkasteel. Gemiddeld hebben kinderen tussen 3 en 12 jaar er urenlang plezier van.' },
       { q: 'Hoe boek ik een springkasteel in Nazareth?', a: 'Vul het offerteformulier in of bel ons op 0477 39 63 50. Wij bevestigen uw boeking en bespreken het leveringstijdstip.' },
@@ -83,7 +83,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Levert EventRentals in alle deelgemeenten van Merelbeke?', a: 'Ja, wij leveren in Merelbeke-centrum, Lemberge, Munte, Bottelare en Gontrode. Gebruik de transportcalculator voor de exacte kost.' },
-      { q: 'Wat kost een springkasteel huren in Merelbeke?', a: 'Een standaard springkasteel kost €95/dag. Merelbeke valt in zone 1: €15 vaste transportkost + €0,55/km. Gratis levering bij huurwaarde ≥ €100.' },
+      { q: 'Wat kost een springkasteel huren in Merelbeke?', a: 'Een standaard springkasteel kost €95/dag. Merelbeke valt in zone 1: €15 vaste transportkost + €0,55/km.' },
       { q: 'Hoe groot moet mijn tuin zijn voor een springkasteel?', a: 'Een standaard springkasteel vraagt ca. 4×4m plus veiligheidsruimte rondom. Bij een kleinere tuin adviseren wij welk model het best past.' },
       { q: 'Kan ik ook een partytent huren in Merelbeke?', a: 'Zeker. Onze partytenten (3×6m en 4×8m) worden geleverd en opgezet. Zorg voor een vlakke ondergrond zonder obstakels.' },
       { q: 'Hoe ver op voorhand moet ik reserveren in Merelbeke?', a: 'Reserveer minstens 2 weken op voorhand, zeker voor zomerweekends. Populaire data raken snel volgeboekt.' },
@@ -105,7 +105,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Levert EventRentals in zowel Sint-Martens-Latem als Deurle?', a: 'Ja, wij leveren in de volledige gemeente Sint-Martens-Latem, inclusief de deelgemeente Deurle.' },
-      { q: 'Wat kost levering in Sint-Martens-Latem?', a: 'Sint-Martens-Latem valt in zone 1: €15 vaste transportkost + €0,55/km. Gratis bij huurwaarde ≥ €100.' },
+      { q: 'Wat kost levering in Sint-Martens-Latem?', a: 'Sint-Martens-Latem valt in zone 1: €15 vaste transportkost + €0,55/km.' },
       { q: 'Welk springkasteel past in een typische Latem-tuin?', a: 'De meeste tuinen in Sint-Martens-Latem zijn ruim genoeg voor ons groot springkasteel of de hindernisbaan. Ons standaard model past in praktisch elke tuin.' },
       { q: 'Kan ik ook meubilair huren voor mijn tuinfeest in Sint-Martens-Latem?', a: 'Ja, naast springkastelen verhuren we ook partytenten, statafels, klapstoel, koelkast en LED-verlichting. Combineer meerdere producten voor een voordeel.' },
       { q: 'Hoe ver op voorhand reserveren in Sint-Martens-Latem?', a: 'Minstens 2 weken voor zomerse weekends. Populaire data in mei-augustus raken snel vol.' },
@@ -127,7 +127,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Levert EventRentals in alle deelgemeenten van Gavere?', a: 'Ja, wij leveren in Gavere-centrum, Asper, Baaigem, Vurste, Semmerzake en Dikkelvenne.' },
-      { q: 'Wat kost een springkasteel huren in Gavere?', a: 'Een standaard springkasteel kost €95/dag. Gavere valt in zone 1: €15 vaste transportkost + €0,55/km. Gratis levering bij huurwaarde ≥ €100.' },
+      { q: 'Wat kost een springkasteel huren in Gavere?', a: 'Een standaard springkasteel kost €95/dag. Gavere valt in zone 1: €15 vaste transportkost + €0,55/km.' },
       { q: 'Kan ik een springkasteel huren voor de schoolfeest of buurtfeest in Gavere?', a: 'Zeker. Wij leveren ook voor verenigingen, scholen en buurtfeesten. Neem contact op voor een offerte op maat.' },
       { q: 'Welke modellen springkasteel huren jullie uit?', a: 'Ons assortiment omvat standaard springkasteel, springkasteel met glijbaan, dino-kasteel, prinses-kasteel, hindernisbaan en rodeostier — voor elk feest en elke leeftijd.' },
       { q: 'Hoe snel word ik geleverd in Gavere?', a: 'Bij tijdige reservering leveren wij op uw gewenste tijdstip. Wij bevestigen datum en uur bij boeking.' },
@@ -193,7 +193,7 @@ const LOCATIONS = [
     ],
     faq: [
       { q: 'Levert EventRentals in Zulte en Olsene?', a: 'Ja, wij leveren in Zulte, Olsene, Machelen en de omliggende deelgemeenten.' },
-      { q: 'Wat kost een springkasteel huren in Zulte?', a: 'Een standaard springkasteel kost €95/dag. Zulte valt in zone 1: €15 vaste transportkost + €0,55/km. Gratis levering bij huurwaarde ≥ €100.' },
+      { q: 'Wat kost een springkasteel huren in Zulte?', a: 'Een standaard springkasteel kost €95/dag. Zulte valt in zone 1: €15 vaste transportkost + €0,55/km.' },
       { q: 'Kan ik dezelfde dag nog een springkasteel huren in Zulte?', a: 'Bij beschikbaarheid is levering dezelfde dag mogelijk. Bel ons op 0477 39 63 50 om beschikbaarheid te checken.' },
       { q: 'Welk springkasteel is populairst in Zulte?', a: 'Het standaard springkasteel en de hindernisbaan zijn het meest geboekt in de regio. Voor meisjesfeestjes is de prinsessenkasteel erg populair.' },
       { q: 'Hoe ver op voorhand reserveren in Zulte?', a: 'Reserveer minstens 1-2 weken op voorhand. Voor drukke weekends in de zomer is 3 weken aanbevolen.' },
@@ -597,7 +597,7 @@ function generatePage(loc) {
           <span style="font-size:14px;font-weight:600;color:#6b7280;">Totaal incl. BTW</span>
           <span style="font-size:24px;font-weight:700;color:#2B7A6E;" id="br-r-totaal"></span>
         </div>
-        <p style="font-size:12px;color:#9ca3af;margin-top:16px;line-height:1.5;">Gratis levering (zone 1) bij huurwaarde &ge; &euro;100. &nbsp;·&nbsp; Dringende levering = dubbele rit.</p>
+        <p style="font-size:12px;color:#9ca3af;margin-top:16px;line-height:1.5;">Dringende levering = dubbele rit.</p>
       </div>
       <div id="br-buiten" style="display:none;margin-top:20px;border-top:1px solid #e5e7eb;padding-top:20px;">
         <div style="font-size:12px;font-weight:700;text-transform:uppercase;color:#A32D2D;background:#FCEBEB;display:inline-block;padding:3px 10px;border-radius:4px;margin-bottom:12px;">Buiten zone (&gt; 50 km)</div>
@@ -607,7 +607,7 @@ function generatePage(loc) {
     </div>
     <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9ca3af;margin-bottom:12px;">Tarieven per rit (incl. BTW)</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;">
-      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#3B6D11;background:#EAF3DE;display:inline-block;padding:2px 8px;border-radius:4px;margin-bottom:8px;">Zone 1</div><div style="font-size:12px;color:#6b7280;margin-bottom:6px;">0 – 15 km</div><div style="font-weight:700;color:#1a1a1a;font-size:15px;margin-bottom:2px;">€15 transportkost</div><div style="font-size:12px;color:#6b7280;">+ €0,55/km &nbsp;·&nbsp; gratis v.a. €100</div></div>
+      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#3B6D11;background:#EAF3DE;display:inline-block;padding:2px 8px;border-radius:4px;margin-bottom:8px;">Zone 1</div><div style="font-size:12px;color:#6b7280;margin-bottom:6px;">0 – 15 km</div><div style="font-weight:700;color:#1a1a1a;font-size:15px;margin-bottom:2px;">€15 transportkost</div><div style="font-size:12px;color:#6b7280;">+ €0,55/km</div></div>
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#854F0B;background:#FAEEDA;display:inline-block;padding:2px 8px;border-radius:4px;margin-bottom:8px;">Zone 2</div><div style="font-size:12px;color:#6b7280;margin-bottom:6px;">15 – 30 km</div><div style="font-weight:700;color:#1a1a1a;font-size:15px;margin-bottom:2px;">€25 transportkost</div><div style="font-size:12px;color:#6b7280;">+ €0,55/km incl. BTW</div></div>
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#993C1D;background:#FAECE7;display:inline-block;padding:2px 8px;border-radius:4px;margin-bottom:8px;">Zone 3</div><div style="font-size:12px;color:#6b7280;margin-bottom:6px;">30 – 50 km</div><div style="font-weight:700;color:#1a1a1a;font-size:15px;margin-bottom:2px;">€35 transportkost</div><div style="font-size:12px;color:#6b7280;">+ €0,55/km incl. BTW</div></div>
     </div>

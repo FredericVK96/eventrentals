@@ -211,9 +211,10 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 .search-row-inner .cart-icon-link svg { width: 24px; height: 24px; }
 .search-row-inner .cart-badge { position: absolute; top: -6px; right: -8px; background: var(--dark); color: #fff; font-size: 0.7rem; font-weight: 700; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; line-height: 1; }
 .menu-row { background: var(--white); border-bottom: 1px solid var(--border); }
-.menu-row-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 6px; }
+.menu-row-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; justify-content: center; gap: 6px; }
 .menu-row-inner a { padding: 10px 16px; font-size: 0.9rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 0.01em; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px; }
 .menu-row-inner a:hover { background: var(--bg); }
+.menu-row-inner a.active { background: var(--dark); color: #fff; }
 .nav-search-dropdown { display: none; position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; background: var(--white); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,0.18); border: 1px solid var(--border); max-height: 320px; overflow-y: auto; z-index: 2000; }
 .nav-dd-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; text-decoration: none; border-top: 1px solid #f3f4f6; }
 .nav-dd-item:first-child { border-top: none; }
@@ -239,8 +240,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 </style>
 </head>
 <body>
-
-<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="index.html#transport">bekijk de transporttarieven</a></div>
 
 <div class="search-row">
   <div class="search-row-inner">
@@ -275,10 +274,10 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 
 <div class="menu-row">
   <nav class="menu-row-inner" aria-label="Hoofdmenu">
-    <a href="index.html">Home</a>
-    <a href="index.html#catalogus">Ons verhuurassortiment</a>
-    <a href="index.html#transport">Transport</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#catalogus">Ons verhuurassortiment <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html#transport">Transport <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="#contact">Contact <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
   </nav>
 </div>
 
@@ -694,7 +693,7 @@ var PRODUCT_PRICES = {
 };
 
 var BASE_LAT = 50.9720, BASE_LON = 3.6180; // De Pinte, zelfde depot als index.html's calculator
-var _transportSchatting = null; // { totaal, zone, km, gratisMogelijk } | { buiten:true, km } | { fout:true } | null
+var _transportSchatting = null; // { totaal, zone, km } | { buiten:true, km } | { fout:true } | null
 var _transportBezig = false;
 var _transportDebounce = null;
 window._laatstePrijsIndicatie = null;
@@ -730,8 +729,7 @@ function schatTransport() {
       if (!data || !data.length) { _transportBezig = false; _transportSchatting = { fout: true }; renderPrijsIndicatie(); return; }
       var lat = parseFloat(data[0].lat), lon = parseFloat(data[0].lon);
       // Echte rijafstand via OSRM i.p.v. hemelsbreed (haversine) \u2014 hemelsbreed onderschat
-      // de werkelijke afstand systematisch, waardoor adressen buiten zone 1 toch als
-      // "gratis" (\u226415km) konden worden aangemerkt.
+      // de werkelijke afstand systematisch, waardoor adressen in een te goedkope zone vielen.
       return fetch('https://router.project-osrm.org/route/v1/driving/' + BASE_LON + ',' + BASE_LAT + ';' + lon + ',' + lat + '?overview=false')
         .then(function(r2) { return r2.json(); })
         .then(function(routeData) {
@@ -745,7 +743,7 @@ function schatTransport() {
           else { _transportSchatting = { buiten: true, km: dist }; renderPrijsIndicatie(); return; }
           var ritMult = 2; // levering + ophaling
           var totaal = (vaste + kmTarief * dist) * ritMult;
-          _transportSchatting = { totaal: totaal, zone: zone, km: dist, gratisMogelijk: zone === 1 };
+          _transportSchatting = { totaal: totaal, zone: zone, km: dist };
           renderPrijsIndicatie();
         });
     })
@@ -795,11 +793,10 @@ function renderPrijsIndicatie() {
     transportHtml = '<div class="prijs-indicatie-rij muted"><span>Transport</span><span>berekenen...</span></div>';
     transportOmschrijving = 'Nog niet gekend (wordt berekend)';
   } else if (_transportSchatting && _transportSchatting.totaal != null) {
-    var gratis = _transportSchatting.gratisMogelijk && subtotaal >= 100;
-    transportBedrag = gratis ? 0 : _transportSchatting.totaal;
+    transportBedrag = _transportSchatting.totaal;
     var label = 'Transport (\u00b1' + Math.round(_transportSchatting.km) + ' km, levering + ophaling)';
-    transportHtml = '<div class="prijs-indicatie-rij' + (gratis ? ' muted' : '') + '"><span>' + label + (gratis ? ' \u2014 gratis v.a. \u20ac100' : '') + '</span><span>' + (gratis ? 'Gratis' : fmtEuro(transportBedrag)) + '</span></div>';
-    transportOmschrijving = label + ': ' + (gratis ? 'Gratis (\u2265\u20ac100 huurwaarde)' : fmtEuro(_transportSchatting.totaal));
+    transportHtml = '<div class="prijs-indicatie-rij"><span>' + label + '</span><span>' + fmtEuro(transportBedrag) + '</span></div>';
+    transportOmschrijving = label + ': ' + fmtEuro(transportBedrag);
   } else if (_transportSchatting && _transportSchatting.buiten) {
     transportHtml = '<div class="prijs-indicatie-rij muted"><span>Transport</span><span>bel ons \u2014 buiten standaardzone</span></div>';
     transportOmschrijving = 'Buiten standaardzone (\u00b1' + Math.round(_transportSchatting.km) + ' km) \u2014 nader te bepalen';

@@ -148,9 +148,10 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 .search-row-inner .cart-icon-link svg { width: 24px; height: 24px; }
 .search-row-inner .cart-badge { position: absolute; top: -6px; right: -8px; background: var(--dark); color: #fff; font-size: 0.7rem; font-weight: 700; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; line-height: 1; }
 .menu-row { background: var(--white); border-bottom: 1px solid var(--border); }
-.menu-row-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 6px; }
+.menu-row-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; justify-content: center; gap: 6px; }
 .menu-row-inner a { padding: 10px 16px; font-size: 0.9rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 0.01em; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px; }
 .menu-row-inner a:hover { background: var(--bg); }
+.menu-row-inner a.active { background: var(--dark); color: #fff; }
 .nav-search-dropdown { display: none; position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; background: var(--white); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,0.18); border: 1px solid var(--border); max-height: 320px; overflow-y: auto; z-index: 2000; }
 .nav-dd-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; text-decoration: none; border-top: 1px solid #f3f4f6; }
 .nav-dd-item:first-child { border-top: none; }
@@ -176,8 +177,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 </style>
 </head>
 <body>
-
-<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="index.html#transport">bekijk de transporttarieven</a></div>
 
 <div class="search-row">
   <div class="search-row-inner">
@@ -212,10 +211,10 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 
 <div class="menu-row">
   <nav class="menu-row-inner" aria-label="Hoofdmenu">
-    <a href="index.html">Home</a>
-    <a href="index.html#catalogus">Ons verhuurassortiment</a>
-    <a href="index.html#transport">Transport</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#catalogus">Ons verhuurassortiment <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html#transport">Transport <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="#contact">Contact <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
   </nav>
 </div>
 

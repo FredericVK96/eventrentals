@@ -1,5 +1,3 @@
-<div class="utility-bar">Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="index.html#transport">bekijk de transporttarieven</a></div>
-
 <div class="search-row">
   <div class="search-row-inner">
     <a href="index.html" class="logo"><img src="Eventrentals Logo.png" alt="EventRentals" class="logo-full"></a>
@@ -33,9 +31,9 @@
 
 <div class="menu-row">
   <nav class="menu-row-inner" aria-label="Hoofdmenu">
-    <a href="index.html">Home</a>
-    <a href="index.html#catalogus">Ons verhuurassortiment</a>
-    <a href="index.html#transport">Transport</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#catalogus" class="active">Ons verhuurassortiment <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html#transport">Transport <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="#contact">Contact <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
   </nav>
 </div>

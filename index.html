@@ -79,7 +79,7 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
   <title>Springkastelen & feestmateriaal huren in De Pinte | EventRentals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,700&family=Caveat:wght@600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -139,23 +139,6 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
     .mobile-menu.open { display: block; }
     .mobile-menu a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .mobile-menu a:hover { color: var(--dark); }
-
-    /* ── HERO ── */
-    #hero {
-      position: relative; overflow: visible;
-      background: url('hero-feest.jpeg') center center / cover no-repeat;
-      min-height: 460px; display: flex; align-items: center; justify-content: center;
-      padding: 80px 24px;
-    }
-    #hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(20,55,50,0.62);
-    }
-    .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; text-align: center; }
-    #hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 24px; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
-    @media (max-width: 640px) {
-      #hero { min-height: 360px; padding: 48px 20px; }
-    }
 
     .btn-primary {
       background: var(--dark); color: #fff; border: none;
@@ -319,6 +302,12 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
 .search-row-inner .cart-icon-link svg { width: 24px; height: 24px; }
 .search-row-inner .cart-badge { position: absolute; top: -6px; right: -8px; background: var(--dark); color: #fff; font-size: 0.7rem; font-weight: 700; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; line-height: 1; }
 .nav-search-dropdown { display: none; position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; background: var(--white); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,0.18); border: 1px solid var(--border); max-height: 320px; overflow-y: auto; z-index: 2000; }
+.menu-row { background: var(--white); border-bottom: 1px solid var(--border); }
+.menu-row-inner { max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; justify-content: center; gap: 6px; }
+.menu-row-inner a { padding: 10px 16px; font-size: 0.9rem; font-weight: 700; color: var(--dark); text-decoration: none; letter-spacing: 0.01em; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px; }
+.menu-row-inner a:hover { background: var(--bg); }
+.menu-row-inner a.active { background: var(--dark); color: #fff; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .nav-dd-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; text-decoration: none; border-top: 1px solid #f3f4f6; }
 .nav-dd-item:first-child { border-top: none; }
 .nav-dd-item img { width: 36px; height: 36px; object-fit: contain; border-radius: 6px; background: var(--bg); flex-shrink: 0; }
@@ -339,33 +328,26 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
   .nav-search-wrap { grid-area: search; width: 100%; min-width: 0; max-width: 100%; justify-self: stretch; }
   .boels-search-form { width: 100%; max-width: none; }
   .header-nav-links { display: none; }
+  .menu-row { display: none; }
 }
 </style>
 </head>
 <body>
 
-<div class="utility-bar"><div class="utility-bar-track">
-  <div class="utility-bar-group">
-    <span>Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport">bekijk de transporttarieven</a></span>
-    <span>Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport">bekijk de transporttarieven</a></span>
-    <span>Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport">bekijk de transporttarieven</a></span>
-  </div>
-  <div class="utility-bar-group" aria-hidden="true">
-    <span>Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport">bekijk de transporttarieven</a></span>
-    <span>Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport">bekijk de transporttarieven</a></span>
-    <span>Gratis levering vanaf &euro;100 huurwaarde voor zone 1 &mdash; <a href="#transport">bekijk de transporttarieven</a></span>
-  </div>
-</div></div>
 
 <div class="search-row">
   <div class="search-row-inner">
     <a href="index.html" class="logo"><img src="Eventrentals Logo.png" alt="EventRentals" class="logo-full"></a>
-    <nav class="header-nav-links" aria-label="Hoofdmenu">
-      <a href="index.html">Home</a>
-      <a href="#catalogus">Ons verhuurassortiment</a>
-      <a href="#transport">Transport</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="nav-search-wrap">
+      <form class="boels-search-form" onsubmit="navSearchSubmit(event)" id="navSearchForm">
+        <input id="navSearchInput" type="text" autocomplete="off" placeholder="Zoek in ons volledige assortiment…" aria-label="Zoek in ons volledige assortiment" oninput="navAutocomplete(this.value)" onfocus="if(window.gtag)gtag('event','search_bar_click')" onblur="(function(v){if(window.gtag&&v.trim().length>1)gtag('event','search_abandoned',{search_term:v.trim()});})(this.value)">
+        <button type="submit" aria-label="Zoeken">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Zoeken
+        </button>
+      </form>
+      <div class="nav-search-dropdown" id="navSearchDropdown"></div>
+    </div>
     <div class="right-group">
       <a href="tel:0477396350" class="nav-phone" onclick="if(window.gtag)gtag('event','phone_call',{click_location:'navbar',page_location:window.location.pathname});if(window.fbq)fbq('track','Contact')">0477 39 63 50</a>
       <a href="bestelling.html" class="cart-icon-link" id="cartIconLink" title="Jouw bestelling">
@@ -384,181 +366,21 @@ src="https://www.facebook.com/tr?id=1333191795377856&ev=PageView&noscript=1"
   </div>
 </div>
 
+<div class="menu-row">
+  <nav class="menu-row-inner" aria-label="Hoofdmenu">
+    <a href="#catalogus" class="active">Ons verhuurassortiment <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="index.html" aria-current="page">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="#transport">Transport <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+    <a href="#contact">Contact <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+  </nav>
+</div>
+
 <!-- /sticky-header -->
 
-<!-- ── HERO ── -->
-<section id="hero">
-  <div class="hero-inner">
-    <h1>Vind het perfecte materiaal voor uw feest</h1>
-    <div style="position:relative;max-width:680px;margin:0 auto;">
-      <form onsubmit="erSearchSubmit(event)" id="erForm" style="display:flex;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 32px rgba(0,0,0,0.30);">
-        <input id="erSearchInput" type="text" autocomplete="off"
-          placeholder="Zoek materiaal… bv. springkasteel, partytent, rodeostier"
-          oninput="erAutocomplete(this.value)"
-          onkeydown="erKeyNav(event)"
-          onfocus="if(window.gtag)gtag('event','search_bar_click')"
-          onblur="(function(v){if(window.gtag&&v.trim().length>1)gtag('event','search_abandoned',{search_term:v.trim()});})(this.value)"
-          style="flex:1;padding:18px 22px;border:none;outline:none;font-size:1rem;font-family:'Nunito',sans-serif;color:#1a1a2e;background:transparent;min-width:0;" />
-        <button type="submit" style="background:#2B7A6E;border:none;cursor:pointer;padding:0 28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;"
-          onmouseover="this.style.background='#1E5950'" onmouseout="this.style.background='#2B7A6E'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-      </form>
-      <div id="erDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-radius:0 0 10px 10px;box-shadow:0 8px 32px rgba(0,0,0,0.20);max-height:360px;overflow-y:auto;z-index:9999;text-align:left;"></div>
-    </div>
-  </div>
-</section>
+<h1 class="sr-only">Vind het perfecte materiaal voor uw feest</h1>
 
-<!-- ── USP BALK ── -->
-<section style="background:#fff;border-bottom:1px solid #e5e7eb;padding:22px 24px;position:relative;overflow:hidden;">
-  <svg style="position:absolute;top:0;left:0;width:140px;height:140px;pointer-events:none;" aria-hidden="true" viewBox="0 0 140 140">
-    <polygon points="0,0 100,0 0,80" fill="#2B7A6E" opacity="0.06"/>
-    <polygon points="0,0 50,0 0,40" fill="#2B7A6E" opacity="0.08"/>
-  </svg>
-  <div style="max-width:1100px;margin:0 auto;">
-    <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.3rem;color:#1a1a2e;margin:0 0 14px;">EventRentals staat garant voor:</p>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <span style="display:flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-size:1.05rem;color:#333;"><svg style="flex-shrink:0;display:block;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7A6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Springkastelen, tenten en feestmateriaal voor elk feest</span>
-      <span style="display:flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-size:1.05rem;color:#333;"><svg style="flex-shrink:0;display:block;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7A6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Levering en afhaling mogelijk</span>
-      <span style="display:flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-size:1.05rem;color:#333;"><svg style="flex-shrink:0;display:block;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7A6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gevestigd in De Pinte — levering in heel Oost-Vlaanderen</span>
-      <span style="display:flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-size:1.05rem;color:#333;"><svg style="flex-shrink:0;display:block;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7A6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Persoonlijk advies — 0477 39 63 50</span>
-    </div>
-  </div>
-</section>
-
-<script>
-var ER_PRODUCTS = [
-  { name: 'Springkasteel standaard', desc: 'Klassiek springkasteel voor kinderen', link: 'springkasteel-standaard.html', img: 'Standaard springkasteel.webp',
-    keys: ['springkasteel','bouncy castle','luchtkasteel','opblaasbaar kasteel','kinderen','springen','springkussen','jump castle','kasteel'] },
-  { name: 'Springkasteel met glijbaan', desc: 'Springkasteel met grote glijbaan', link: 'springkasteel-medium-glijbaan.html', img: 'springkasteel met glijbaan.png',
-    keys: ['springkasteel glijbaan','glijbaan','slide','waterglijbaan','springkasteel groot','medium'] },
-  { name: 'Springkasteel jungle', desc: 'Groot jungle springkasteel', link: 'springkasteel-groot-jungle.html', img: 'Springkasteel dino.png',
-    keys: ['jungle','dino','dinosaurus','groot springkasteel','thema springkasteel'] },
-  { name: 'Springkasteel princess', desc: 'Prinsessen springkasteel voor meisjes', link: 'springkasteel-princess.html', img: 'springkasteel princes.webp',
-    keys: ['princess','prinses','prinsessen','meisjes springkasteel','roze'] },
-  { name: 'Springkasteel piraat', desc: 'Piraten springkasteel', link: 'springkasteel-piraat.html', img: 'Springkasteel darts.png',
-    keys: ['piraat','pirate','piraten','thema','jongens springkasteel'] },
-  { name: 'Hindernisbaan', desc: 'Opblaasbare hindernisbaan', link: 'hindernisbaan.html', img: 'Hindernissen.png',
-    keys: ['hindernisbaan','hindernissen','obstacle course','parcours','opblaasbaar parcours','sport'] },
-  { name: 'Rodeostier', desc: 'Opblaasbare rodeostier', link: 'rodeostier.html', img: 'Rodeostier.png',
-    keys: ['rodeostier','rodeo','stier','bull riding','mechanische stier','wild west'] },
-  { name: 'Bungee run', desc: 'Bungee run wedstrijd attractie', link: 'bungee-run.html', img: 'Bungeerun.png',
-    keys: ['bungee run','bungee','bungeerun','elastiek','wedstrijd attractie','spel'] },
-  { name: 'Botsballen', desc: 'Opblaasbare botsballen', link: 'botsballen.html', img: 'Oplaasbare botsballen.jpg',
-    keys: ['botsballen','bots ballen','sumo','bubble voetbal','bumper balls','opblaasbaar pak','sumo pakken'] },
-  { name: 'Partytent', desc: 'Partytent in 3 maten: 3x3m, 3x6m en 4x8m', link: 'partytent.html', img: 'Canopytent.png',
-    keys: ['partytent','tent','feesttent','3x3','3x6','4x8','partij tent','tuintent','tent huren','overkapping','vouwtent','easy up'] },
-  { name: 'Stretchtent', desc: 'Sfeervolle open tent in 2 maten', link: 'stretchtent.html', img: 'Stretchtent.jfif',
-    keys: ['stretchtent','stretch tent','sailcloth','sfeertent','bruiloftstent','open tent'] },
-  { name: 'Aluminium Tent', desc: 'Grote volledig gesloten tent, 6x6m of 6x9m', link: 'kadertent.html', img: 'modulaire tent.jfif',
-    keys: ['kadertent','aluminium tent','grote feesttent','marquee','gesloten tent','communietent'] },
-  { name: 'Houten tentvloer', desc: 'Houten vloer voor in de tent', link: 'houten-tentvloer.html', img: 'Plankenvloer.png',
-    keys: ['tentvloer','houten vloer','planken vloer','vloer tent','dance floor','dansvloer'] },
-  { name: 'Klapstoel wit', desc: 'Witte klapstoelen per stuk', link: 'klapstoel-wit.html', img: 'Vouwstoel.jpg',
-    keys: ['klapstoel','klapstoel wit','stoel','stoelen huren','chivari','witte stoel','garden chair'] },
-  { name: 'Klaptafel 180cm', desc: 'Klaptafel 180 cm', link: 'klaptafel-180cm.html', img: 'Bankettafel.webp',
-    keys: ['klaptafel','tafel huren','eettafel','banquettafel','lange tafel','180cm tafel'] },
-  { name: 'Barkruk', desc: 'Barkrukken huren', link: 'barkruk.html', img: 'Barkruk lounge zwart.webp',
-    keys: ['barkruk','barkrukken','hoge stoel','bar stoel','loungestoel','barkruk huren'] },
-  { name: 'Biertafelset', desc: 'Biertafel met banken', link: 'biertafelset.html', img: 'Ronde bankettafel.webp',
-    keys: ['biertafelset','biertafel','picknick set','bier tafel','bierbanken','biertafel huren'] },
-  { name: 'Statafel', desc: 'Statafels huren', link: 'statafel.html', img: 'Statafel.webp',
-    keys: ['statafel','sta tafel','hoge tafel','cocktailtafel','statafel huren','hoge tafels'] },
-  { name: 'Statafelhoes', desc: 'Hoes voor statafel', link: 'statafelhoes.html', img: 'Statafelhoes.webp',
-    keys: ['statafelhoes','hoes statafel','tafelkleed statafel','cover statafel'] },
-  { name: 'Buitenstoel', desc: 'Stevige buitenstoelen', link: 'buitenstoel.html', img: 'Buitenstoel.jpg',
-    keys: ['buitenstoel','garden chair','tuinstoel','buitenstoelen huren','plastic stoel'] },
-  { name: 'Picknicktafel', desc: 'Picknicktafels huren', link: 'picknicktafel.html',
-    keys: ['picknicktafel','picknick','buiten tafel','tuintafel','picknicktafel huren'] },
-  { name: 'Terrasverwarmer', desc: 'Terrasbrander / gasverwarmer', link: 'terrasverwarmer.html', img: 'verwarming op gas.webp',
-    keys: ['terrasverwarmer','terrasbrander','gasverwarmer','heater','warmtelamp','terrasverwarmer huren','parasol verwarmer'] },
-  { name: 'LED sfeerverlichting', desc: 'Sfeerverlichting voor uw feest', link: 'led-sfeerverlichting.html', img: 'feestverlichting.webp',
-    keys: ['verlichting','led','sfeerverlichting','feestverlichting','lichten','decoratie verlichting','sfeerlichten'] },
-  { name: 'Muziekbox', desc: 'Draagbare muziekbox / speaker', link: 'muziekbox.html',
-    keys: ['muziekbox','speaker','muziek','bluetooth speaker','geluid','sound','feestmuziek','muziek systeem'] },
-  { name: 'Koelkast', desc: 'Koelkast huren voor dranken', link: 'koelkast.html', img: 'Frigo.webp',
-    keys: ['koelkast','frigo','drankenkoeling','koeling','drank koelkast','koelkast huren'] },
-  { name: 'Tapinstallatie', desc: 'Bier tap installatie huren', link: 'tapinstallatie.html', img: 'Tapinstallatie.webp',
-    keys: ['tapinstallatie','tap','biertap','bier tap','tapkraan','drank tap','bier huren','tap installatie'] },
-  { name: 'Percolator', desc: 'Koffiepercolator huren', link: 'percolator.html',
-    keys: ['percolator','koffiezet','koffie','koffiemachine','koffieapparaat','percolator huren'] },
-];
-
-var erActiveIdx = -1;
-
-function erAutocomplete(val) {
-  var dd = document.getElementById('erDropdown');
-  var form = document.getElementById('erForm');
-  var q = val.trim().toLowerCase();
-  if (q.length < 1) { dd.style.display='none'; form.style.borderRadius='10px'; erActiveIdx=-1; return; }
-  var matches = [];
-  ER_PRODUCTS.forEach(function(p) {
-    var score = 0;
-    if (p.name.toLowerCase().indexOf(q) !== -1) score = 10;
-    p.keys.forEach(function(k) { if (k.indexOf(q) !== -1) score = Math.max(score, k.startsWith(q) ? 8 : 5); });
-    if (score > 0) matches.push({ p: p, score: score });
-  });
-  matches.sort(function(a,b){ return b.score-a.score; });
-  matches = matches.slice(0,6);
-  if (!matches.length) { dd.style.display='none'; form.style.borderRadius='10px'; erActiveIdx=-1; return; }
-  form.style.borderRadius='10px 10px 0 0';
-  erActiveIdx=-1;
-  dd.innerHTML = matches.map(function(m,i){
-    var imgSrc = m.p.img ? m.p.img.replace(/ /g,'%20') : null;
-    var thumb = imgSrc
-      ? '<img src="'+imgSrc+'" alt="'+m.p.name+'" style="width:52px;height:52px;object-fit:contain;border-radius:6px;background:#fff;flex-shrink:0;padding:4px;">'
-      : '<div style="width:52px;height:52px;background:#f3f4f6;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>';
-    return '<a href="'+m.p.link+'" class="er-dd-item" data-idx="'+i+'" onmouseenter="erSetActive('+i+')"'+
-      ' onclick="if(window.gtag)gtag(\'event\',\'search_suggestion_click\',{product_name:\''+m.p.name.replace(/'/g,"\\'")+'\'})"'+
-      ' style="padding:10px 18px;cursor:pointer;border-top:1px solid #f3f4f6;display:flex;align-items:center;gap:14px;text-decoration:none;">'+
-      thumb+
-      '<div style="min-width:0;"><div style="font-family:\'Nunito\',sans-serif;font-size:0.95rem;font-weight:700;color:#1a1a2e;">'+m.p.name+'</div>'+
-      '<div style="font-size:0.8rem;color:#6b7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+m.p.desc+'</div></div>'+
-      '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-left:auto;"><polyline points="9 18 15 12 9 6"/></svg>'+
-      '</a>';
-  }).join('');
-  dd.style.display='block';
-}
-
-function erSetActive(idx) {
-  erActiveIdx = idx;
-  document.querySelectorAll('.er-dd-item').forEach(function(el,i){ el.style.background = i===idx ? '#f0faf8' : ''; });
-}
-
-function erKeyNav(e) {
-  var items = document.querySelectorAll('.er-dd-item');
-  if (!items.length) return;
-  if (e.key==='ArrowDown') { e.preventDefault(); erSetActive(Math.min(erActiveIdx+1,items.length-1)); }
-  else if (e.key==='ArrowUp') { e.preventDefault(); erSetActive(Math.max(erActiveIdx-1,0)); }
-  else if (e.key==='Enter' && erActiveIdx>=0) { e.preventDefault(); window.location=items[erActiveIdx].href; }
-  else if (e.key==='Escape') { document.getElementById('erDropdown').style.display='none'; document.getElementById('erForm').style.borderRadius='10px'; }
-}
-
-function erSearchSubmit(e) {
-  e.preventDefault();
-  var q = document.getElementById('erSearchInput').value.trim().toLowerCase();
-  document.getElementById('erDropdown').style.display='none';
-  document.getElementById('erForm').style.borderRadius='10px';
-  if (!q) return;
-  if (window.gtag) gtag('event', 'search', { search_term: q });
-  var best=null, bestScore=0;
-  ER_PRODUCTS.forEach(function(p){
-    var score=0;
-    if (p.name.toLowerCase().indexOf(q)!==-1) score=10;
-    p.keys.forEach(function(k){ if (k.indexOf(q)!==-1) score=Math.max(score,k.startsWith(q)?8:5); });
-    if (score>bestScore){bestScore=score;best=p;}
-  });
-  if (best) window.location=best.link;
-}
-
-document.addEventListener('click', function(e){
-  var form = document.getElementById('erForm');
-  if (form && !form.contains(e.target) && !document.getElementById('erDropdown').contains(e.target)) {
-    document.getElementById('erDropdown').style.display='none';
-    form.style.borderRadius='10px';
-  }
-});
-</script>
+<!-- ── VROEGBOEKACTIE 2027 — opgebouwd door vroegboek.js (instellingen: VB_CONFIG) ── -->
+<section id="promos"></section>
 
 <!-- ── CATALOGUS ── -->
 <section id="catalogus">
@@ -712,7 +534,6 @@ document.addEventListener('click', function(e){
           <span style="font-size:24px;font-weight:700;color:#2B7A6E;" id="br-r-totaal"></span>
         </div>
         <p style="font-size:12px;color:#9ca3af;margin-top:16px;line-height:1.5;">
-          Gratis levering (zone 1) bij huurwaarde &ge; &euro;100. &nbsp;·&nbsp;
           Dringende levering (zelfde dag of aanvraag na 17u) = dubbele rit.
         </p>
       </div>
@@ -732,7 +553,7 @@ document.addEventListener('click', function(e){
         <div style="font-size:12px;color:#6b7280;margin-bottom:6px;">0 – 15 km</div>
         <div style="font-weight:700;color:#1a1a1a;font-size:15px;margin-bottom:2px;">€15 vaste transportkost <span style="font-size:0.8em;color:#6b7280;">incl. BTW</span></div>
         <div style="font-size:12px;color:#6b7280;">+ €0,55 per km incl. BTW</div>
-        <div style="font-size:11px;color:#2B7A6E;margin-top:4px;font-weight:600;">Gratis bij &ge;€100 huurwaarde</div>
+        
       </div>
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;">
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#854F0B;background:#FAEEDA;display:inline-block;padding:2px 8px;border-radius:4px;margin-bottom:8px;">Zone 2</div>
@@ -1080,6 +901,33 @@ function navSearchSubmit(e) {
   });
   if (best) { window.location = best.link; } else { window.location = 'index.html#catalogus'; }
 }
+
+// Typ-animatie in de placeholder: toont om de beurt een voorbeeldzoekterm.
+// Stopt zodra de bezoeker in het veld klikt of iets typt; uit bij "bewegingen beperken".
+(function() {
+  var input = document.getElementById('navSearchInput');
+  if (!input) return;
+  var VOORBEELDEN = ['springkasteel', 'partytent', 'stretchtent', 'rodeostier', 'statafel', 'tapinstallatie', 'terrasverwarmer'];
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    input.placeholder = 'springkasteel, partytent, rodeostier…';
+    return;
+  }
+  var woord = 0, letters = 0, wissen = false, timer = null;
+  function stap() {
+    if (document.activeElement === input || input.value) { timer = null; return; }
+    var w = VOORBEELDEN[woord];
+    letters += wissen ? -1 : 1;
+    input.placeholder = w.slice(0, letters) + (wissen ? '' : '|');
+    var wacht = wissen ? 35 : 85;
+    if (!wissen && letters === w.length) { input.placeholder = w; wissen = true; wacht = 1600; }
+    else if (wissen && letters === 0) { wissen = false; woord = (woord + 1) % VOORBEELDEN.length; wacht = 400; }
+    timer = setTimeout(stap, wacht);
+  }
+  function startAnimatie() { if (!timer) timer = setTimeout(stap, 600); }
+  input.addEventListener('focus', function() { clearTimeout(timer); timer = null; input.placeholder = 'Zoek in ons volledige assortiment…'; });
+  input.addEventListener('blur', function() { if (!input.value) { letters = 0; wissen = false; startAnimatie(); } });
+  startAnimatie();
+})();
 
 document.addEventListener('click', function(e) {
   var wrap = document.querySelector('.nav-search-wrap');
