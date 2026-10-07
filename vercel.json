@@ -13,7 +13,8 @@
     { "src": "*.avif", "use": "@vercel/static" },
     { "src": "*.xml", "use": "@vercel/static" },
     { "src": "*.txt", "use": "@vercel/static" },
-    { "src": "search-data.js", "use": "@vercel/static" }
+    { "src": "search-data.js", "use": "@vercel/static" },
+    { "src": "vroegboek.js", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/(.*)", "has": [{ "type": "host", "value": "eventrentals.be" }], "status": 301, "headers": { "Location": "https://www.eventrentals.be/$1" } },
