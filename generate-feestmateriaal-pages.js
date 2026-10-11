@@ -494,7 +494,7 @@ function transportEstimate(loc) {
     <p style="font-size:12px;color:#9ca3af;text-align:center;margin-bottom:8px;">Exacte prijs via de calculator hierboven &nbsp;·&nbsp; Alle prijzen incl. BTW</p>`;
 }
 
-const BG_IMAGES = ['hero-feest.jpeg', 'achtergond1.png', 'Achtergrond2.png'];
+const BG_IMAGES = ['hero-feest.webp', 'achtergond1.webp', 'Achtergrond2.webp'];
 
 function generatePage(loc, idx) {
   const heroBg = BG_IMAGES[idx % BG_IMAGES.length];
@@ -654,7 +654,7 @@ function generatePage(loc, idx) {
 <div id="sticky-header" style="position:sticky;top:0;z-index:1100;">
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="index.html" style="display:flex;align-items:center;"><img src="Eventrentals Logo.png" alt="EventRentals" style="height:44px;"></a>
+    <a href="index.html" style="display:flex;align-items:center;"><img src="Eventrentals Logo.webp" alt="EventRentals" style="height:44px;"></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="#catalogus">Ons verhuurassortiment</a></li>
@@ -704,7 +704,7 @@ function generatePage(loc, idx) {
     </div>
     <div class="cat-grid">
       <div class="cat-card">
-        <a href="speelgelegenheden.html"><div class="cat-card-img" style="padding:0;overflow:hidden;"><img src="Bouncycastke.png" alt="Springkastelen en speelgelegenheden" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div></a>
+        <a href="speelgelegenheden.html"><div class="cat-card-img" style="padding:0;overflow:hidden;"><img src="Bouncycastke.webp" alt="Springkastelen en speelgelegenheden" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div></a>
         <div class="cat-card-body">
           <div class="cat-card-title">Speelgelegenheden</div>
           <div class="cat-card-desc">Springkastelen, hindernisbanen, rodeostier, bungee run, botsballen en meer voor onvergetelijk plezier.</div>
@@ -712,7 +712,7 @@ function generatePage(loc, idx) {
         </div>
       </div>
       <div class="cat-card">
-        <a href="tuinfeest-materiaal.html"><div class="cat-card-img" style="padding:0;overflow:hidden;"><img src="tuinfeest-card.jpeg" alt="Tuinfeest materiaal verhuur" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div></a>
+        <a href="tuinfeest-materiaal.html"><div class="cat-card-img" style="padding:0;overflow:hidden;"><img src="tuinfeest-card.webp" alt="Tuinfeest materiaal verhuur" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div></a>
         <div class="cat-card-body">
           <div class="cat-card-title">Tuinfeest Materiaal</div>
           <div class="cat-card-desc">Partytenten, stoelen, tafels, terrasverwarmer, koelkast, LED-verlichting en alles voor de perfecte tuinfeest opstelling.</div>

@@ -1,6 +1,6 @@
 <div class="search-row">
   <div class="search-row-inner">
-    <a href="index.html" class="logo"><img src="Eventrentals Logo.png" alt="EventRentals" class="logo-full"></a>
+    <a href="index.html" class="logo"><img src="Eventrentals Logo.webp" alt="EventRentals" class="logo-full"></a>
     <div class="nav-search-wrap">
       <form class="boels-search-form" onsubmit="navSearchSubmit(event)" id="navSearchForm">
         <input id="navSearchInput" type="text" autocomplete="off" placeholder="Zoek in ons volledige assortiment…" oninput="navAutocomplete(this.value)">

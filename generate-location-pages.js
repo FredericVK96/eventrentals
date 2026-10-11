@@ -240,7 +240,7 @@ function generatePage(loc) {
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="Eventrentals Logo.png" />
+  <link rel="icon" type="image/png" href="Eventrentals Logo.webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="${loc.metaDesc}" />
   <link rel="canonical" href="${canon}" />
@@ -310,7 +310,7 @@ function generatePage(loc) {
     @media (max-width: 720px) { .nav-links { display: none; } .nav-right .nav-phone { display: none; } .hamburger { display: flex; } .nav-inner { justify-content: flex-start; } .nav-right { margin-left: auto; } }
 
     /* HERO */
-    #hero { position: relative; overflow: hidden; background: url('hero-feest.jpeg') center center / cover no-repeat; min-height: 540px; display: flex; align-items: center; padding: 80px 24px; }
+    #hero { position: relative; overflow: hidden; background: url('hero-feest.webp') center center / cover no-repeat; min-height: 540px; display: flex; align-items: center; padding: 80px 24px; }
     #hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(20,55,50,0.85) 0%, rgba(20,55,50,0.60) 55%, rgba(20,55,50,0.20) 100%); }
     .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
     .hero-text { max-width: 580px; }
@@ -435,7 +435,7 @@ function generatePage(loc) {
 
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="index.html" style="display:flex;align-items:center;"><img src="Eventrentals Logo.png" alt="EventRentals" style="height:44px;"></a>
+      <a href="index.html" style="display:flex;align-items:center;"><img src="Eventrentals Logo.webp" alt="EventRentals" style="height:44px;"></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="#catalogus">Assortiment</a></li>
@@ -509,7 +509,7 @@ function generatePage(loc) {
     </div>
     <div class="cat-grid">
       <a href="speelgelegenheden.html" class="cat-card">
-        <div class="cat-card-img"><img src="Bouncycastke.png" alt="Springkastelen en speelgelegenheden" loading="lazy"></div>
+        <div class="cat-card-img"><img src="Bouncycastke.webp" alt="Springkastelen en speelgelegenheden" loading="lazy"></div>
         <div class="cat-card-body">
           <div class="cat-card-title">Speelgelegenheden</div>
           <div class="cat-card-desc">Springkastelen, hindernisbanen, rodeostier, bungee run, botsballen en meer voor onvergetelijk plezier.</div>
@@ -517,7 +517,7 @@ function generatePage(loc) {
         </div>
       </a>
       <a href="tuinfeest-materiaal.html" class="cat-card">
-        <div class="cat-card-img"><img src="tuinfeest-card.jpeg" alt="Tuinfeest materiaal verhuur" loading="lazy"></div>
+        <div class="cat-card-img"><img src="tuinfeest-card.webp" alt="Tuinfeest materiaal verhuur" loading="lazy"></div>
         <div class="cat-card-body">
           <div class="cat-card-title">Tuinfeest Materiaal</div>
           <div class="cat-card-desc">Partytenten, stoelen, tafels, terrasverwarmer, koelkast, LED-verlichting en alles voor de perfecte tuinfeest opstelling.</div>

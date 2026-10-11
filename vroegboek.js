@@ -32,8 +32,8 @@
     // Gewone weekendprijs (2 dagen) = prijs + extraDag → wordt doorstreept; actieprijs = prijs.
     kaarten: [
       { naam: 'Stretchtent', prijs: 195, extraDag: 95, vanaf: true, link: 'stretchtent.html', img: 'Stretchtent.jfif', alt: 'Stretchtent met gespannen doek over aluminium palen' },
-      { naam: 'Partytent', prijs: 50, extraDag: 25, vanaf: true, link: 'partytent.html', img: 'Canopytent.png', alt: 'Witte partytent' },
-      { naam: 'Rodeostier', prijs: 395, extraDag: 197.5, link: 'rodeostier.html', img: 'Rodeostier.png', alt: 'Opblaasbare rodeostier' },
+      { naam: 'Partytent', prijs: 50, extraDag: 25, vanaf: true, link: 'partytent.html', img: 'Canopytent.webp', alt: 'Witte partytent' },
+      { naam: 'Rodeostier', prijs: 395, extraDag: 197.5, link: 'rodeostier.html', img: 'Rodeostier.webp', alt: 'Opblaasbare rodeostier' },
     ],
   };
 

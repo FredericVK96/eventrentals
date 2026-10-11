@@ -1,6 +1,6 @@
 <div class="search-row">
   <div class="search-row-inner">
-    <a href="index.html" class="logo"><img src="Eventrentals Logo.png" alt="EventRentals" class="logo-full"></a>
+    <a href="index.html" class="logo"><img src="Eventrentals Logo.webp" alt="EventRentals" class="logo-full"></a>
     <div class="right-group">
       <a href="tel:0477396350" class="nav-phone">0477 39 63 50</a>
       <a href="bestelling.html" class="cart-icon-link" id="cartIconLink" title="Jouw bestelling">
